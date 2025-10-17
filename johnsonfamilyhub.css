@@ -178,6 +178,7 @@ body {
     height: clamp(3rem, 4vh, 4rem); 
 	width: auto; 
 	object-fit: contain;
+	padding-top: .5rem
 }
 
 .updates-header {
