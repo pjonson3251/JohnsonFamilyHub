@@ -153,9 +153,8 @@ body {
 	width: 100%;
   color: #000;
   text-decoration: none;
-  padding: .8rem 1.2rem;
   font-family: "Londrina Solid", sans-serif;
-  font-size: clamp(2.4rem, 2.6vw, 4.2rem);
+  font-size: clamp(2.4rem, 2.6vw, 2.2rem);
   border-radius: 10px;
 	text-align: right;
 }
@@ -259,8 +258,10 @@ body {
 
 /* --- 6.1. Tablet (Max-width: 1024px) --- */
 @media (max-width: 1024px) {
-  .navbar-content-wrapper { padding: 0 1.6rem; }
-  .nav-link { padding: .8rem 1rem; }
+  .navbar-content-wrapper { padding: 0 3.6rem;
+	}
+  .nav-link { padding: .8rem; }
+	
 }
 
 /* --- 6.2. Mobile (Max-width: 768px) --- */
