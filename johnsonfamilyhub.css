@@ -6,6 +6,7 @@
 }
 
 html {
+    /* 1rem = 10px */
     font-size: 62.5%; 
 }
 
@@ -16,6 +17,7 @@ body {
     font-size: 1.6rem;
 }
 
+/* Font classes for reference */
 .londrina-solid-thin {
   font-family: "Londrina Solid", sans-serif;
   font-weight: 100;
@@ -47,7 +49,7 @@ body {
 }
 
 /* ------------------------------------------- */
-/* 1. Sticky Navbar                            */
+/* 1. Sticky Navbar (Desktop)                  */
 /* ------------------------------------------- */
 .navbar {
     position: sticky;
@@ -58,7 +60,6 @@ body {
     color: #000000;
     z-index: 1000;
     display: flex;
-    /* RESTORED: Center the whole navbar-content-wrapper */
     justify-content: center; 
     align-items: center;
     padding: 0; 
@@ -67,7 +68,6 @@ body {
 }
 
 .navbar-content-wrapper {
-    /* RESTORED: Wrapper to handle max-width and internal spacing/justification */
     width: 100%; 
     max-width: 75%; 
     height: 100%; 
@@ -78,13 +78,13 @@ body {
 }
 
 .nav-logo {
-    /* RESTORED: Style for the logo inside the wrapper */
     color: #000000;
     text-decoration: none;
     font-size: clamp(2rem, 3.5vw, 3.5rem); 
     padding: 1rem 0;
 }
 
+/* Desktop Navigation Links */
 .nav-links-container {
     display: flex;
     align-items: center;
@@ -94,14 +94,22 @@ body {
     color: #000000;
     text-decoration: none;
     padding: 1rem 1.5rem; 
-    /* Changed margin-left back to 1rem based on the uploaded file */
     margin-left: 1rem;
 	font-family: "Londrina Solid";
 	font-size: 3rem;
 }
 
+/* Mobile Menu Button - Hidden on Desktop */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 3rem;
+    padding: 1rem;
+    z-index: 1001; /* Ensure it's above the links */
+}
+
 /* ------------------------------------------- */
-/* 2. Full-Viewport Sections (Layout & General)*/
+/* 2. Full-Viewport Sections (Layout)          */
 /* ------------------------------------------- */
 .section {
     height: 100vh;
@@ -109,6 +117,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Font size is fluid using clamp() - good for responsiveness */
     font-size: clamp(2.5rem, 5vw, 4rem); 
     text-align: center;
 }
@@ -124,14 +133,22 @@ body {
 	background-repeat: no-repeat;
 }
 
-.hero-container {
-	max-width: 60vw;
+.hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
+    /* Made max-width more flexible for smaller screens */
+	max-width: 90vw; 
+    /* Desktop max-width is still 60vw but will shrink on small screens */
 	background-color: rgba(255, 255, 255, 0.8); 
 	border: thin solid #000000;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 30px;
     padding: 3rem;
-    color: #0000000;
+    color: #000000; /* Fixed color code to be a valid black */
+}
+
+/* Ensure all header content containers use the same responsive styling */
+.updates-header, .registry-header, .shower-header, .contactus-header {
+	/* Removed max-height constraints */
+    max-width: 90vw;
 }
 
 #Updates { background-color: #6D9860; }
@@ -144,9 +161,7 @@ body {
 /* 4. Footer                                   */
 /* ------------------------------------------- */
 .footer {
-    /* Changed fixed height to max-height to respect the 10vh limit while allowing content flexibility */
     max-height: 10vh;
-    /* Added min-height to ensure the footer is always visible */
     min-height: 8rem;
     height: auto;
     width: 100%;
@@ -155,10 +170,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Reduced padding to maximize vertical space for content */
     padding: 0.25rem 2rem; 
-    
-    /* Ensure text size is scalable and centered */
     font-size: clamp(1rem, 1.5vw, 1.6rem);
     text-align: center;
 }
@@ -167,31 +179,84 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Set gap for stacking. Using a small value helps contain everything in 10vh */
-    gap: 0.1rem;
-    /* Ensure font size for the text lines remains small and readable */
+    /* Adjusted gap to ensure better stacking on all screens */
+    gap: 0.25rem;
     font-size: clamp(1rem, 1.2vw, 1.2rem); 
 }
 
 .family-seal {
-    /* Scale image relative to the viewport height for responsiveness */
     height: clamp(3rem, 4vh, 4rem); 
 	width: auto; 
 	object-fit: contain;
-	padding-top: .5rem
 }
 
-.updates-header {
-	max-width: 50vw;
-	max-height: 12em;
-}
+/* ================================================= */
+/* 5. MEDIA QUERY: MOBILE RESPONSIVENESS (< 768px) */
+/* ================================================= */
+@media (max-width: 768px) {
+    
+    /* ------------------- */
+    /* Mobile Navbar Setup */
+    /* ------------------- */
 
-.registry-header {
-	max-width: 50vw;
-	max-height: 12em;
-}
+    /* Force the wrapper to be full width and center its content */
+    .navbar-content-wrapper {
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
 
-.shower-header {
-	max-width: 50vw;
-	max-height: 12em;
+    /* Show the hamburger menu icon */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide the default links container */
+    .nav-links-container {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: clamp(5rem, 6vh, 8rem); /* Position below the header */
+        left: 0;
+        width: 100%;
+        background-color: #FFFFFF;
+        border-bottom: thin solid #000000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+
+    /* Display the links when the 'open' class is toggled by JavaScript */
+    .nav-links-container.open {
+        display: flex;
+    }
+
+    /* Style the individual links for the stacked mobile menu */
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 1.5rem 0;
+        border-top: 1px solid #eee;
+        font-size: 2.5rem; /* Slightly smaller for mobile readability */
+    }
+
+    .nav-link:first-child {
+        border-top: none;
+    }
+
+    /* ------------------- */
+    /* Section Content     */
+    /* ------------------- */
+    .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
+        /* Ensure maximum usage of mobile screen width */
+        max-width: 90vw;
+        padding: 2rem 1.5rem;
+        /* Reduce font sizes slightly to fit more text on the screen */
+        font-size: 1.8rem;
+    }
+
+    /* Hero section specific background adjustment for better visibility */
+    #Home {
+        /* Slightly more subtle background on tiny screens if needed, otherwise 'contain' is fine */
+        background-size: 80%;
+    }
 }
