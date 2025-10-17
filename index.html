@@ -9,10 +9,9 @@
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Johnson Family Hub</title>
 <link href="johnsonfamilyhub.css" rel="stylesheet" type="text/css"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&amp;family=Pacifico&amp;display=swap" rel="stylesheet"/>
-</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Pacifico&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></head>
 <body>
 <!-- ------------------------------------------- -->
 <!-- 1. STICKY NAVIGATION BAR (NAV)             -->
@@ -44,8 +43,99 @@
 <p class="londrina-solid-regular">Stay up-to-date with our journey here. We'll post major milestones, current status reports, and the official announcement when our daughter makes her grand entrance.</p>
 <p class="londrina-solid-regular">We promise to keep you in the loop!</p>
 </div>
-	
-	
+<!-- Timeline Filter Buttons -->
+<div class="filter-container">
+    <div class="filter-buttons" id="timeline-filters">
+        <!-- Filter buttons will be generated here by JavaScript -->
+    </div>
+</div>
+<!-- Timeline Content -->
+<div class="timeline">
+  <!-- Timeline Item 1: First Trimester Milestones -->
+  <div class="timeline-card left" data-tags="first-trimester,scan">
+    <div class="card-content">
+      <div class="card-date">2024-03-20</div>
+      <div class="card-image">
+        <!-- Placeholder Image -->
+        <img alt="Event Image: First Scan" src="https://placehold.co/400x200/2A3E59/FFFFFF?text=First+Scan">
+      </div>
+      <h2>First Glimpse: A Tiny Heartbeat!</h2>
+      <p>The 12-week mark! We were overjoyed to see the first scan and hear the strong, little heartbeat. Everything is healthy and right on track!</p>
+      <div class="card-tags">
+        <span class="tag" data-filter="first-trimester">First Trimester</span>
+        <span class="tag" data-filter="scan">Scan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline Item 2: The Big Announcement -->
+  <div class="timeline-card right" data-tags="announcement,social">
+    <div class="card-content">
+      <div class="card-date">2024-04-15</div>
+      <div class="card-image">
+        <!-- Placeholder Image -->
+        <img alt="Event Image: Announcement" src="https://placehold.co/400x200/D9665B/FFFFFF?text=We're+Expecting!">
+      </div>
+      <h2>Officially Announcing Our Joy!</h2>
+      <p>We finally shared the wonderful news with the world! The outpouring of love and excitement has been truly heartwarming. Thank much you all for your support.</p>
+      <div class="card-tags">
+        <span class="tag" data-filter="announcement">Announcement</span>
+        <span class="tag" data-filter="social">Social</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline Item 3: Gender Reveal and Nursery Start -->
+  <div class="timeline-card left" data-tags="second-trimester,nursery">
+    <div class="card-content">
+      <div class="card-date">2024-07-01</div>
+      <div class="card-image">
+        <!-- Placeholder Image -->
+        <img alt="Event Image: Nursery Prep" src="https://placehold.co/400x200/F2D98D/2A3E59?text=Nursery+Prep">
+      </div>
+      <h2>Pink is the New Color: It's a Girl!</h2>
+      <p>The gender reveal was a success! We're having a daughter! Nursery painting is officially underway, turning the room into a cozy haven.</p>
+      <div class="card-tags">
+        <span class="tag" data-filter="second-trimester">Second Trimester</span>
+        <span class="tag" data-filter="nursery">Nursery Prep</span>
+      </div>
+    </div>
+  </div>
+    
+  <!-- Timeline Item 4: Third Trimester Begins -->
+  <div class="timeline-card right" data-tags="third-trimester,prep">
+    <div class="card-content">
+      <div class="card-date">2024-10-05</div>
+      <div class="card-image">
+        <!-- Placeholder Image -->
+        <img alt="Event Image: Ready to go bags" src="https://placehold.co/400x200/D9665B/FFFFFF?text=Hospital+Bags">
+      </div>
+      <h2>Final Countdown: Hospital Bags Packed!</h2>
+      <p>The third trimester has begun! We have the car seat installed, the hospital bags packed, and are taking a deep breath before the big day arrives!</p>
+      <div class="card-tags">
+        <span class="tag" data-filter="third-trimester">Third Trimester</span>
+        <span class="tag" data-filter="prep">Prep</span>
+      </div>
+    </div>
+  </div>
+    
+  <!-- Final Placeholder Card: Birth -->
+  <div class="timeline-card left" data-tags="birth">
+    <div class="card-content">
+      <div class="card-date">TBD (Expected Nov 2024)</div>
+      <div class="card-image">
+        <!-- Placeholder Image -->
+        <img alt="Event Image: Birth" src="https://placehold.co/400x200/2A3E59/FFFFFF?text=Waiting+for+her+Arrival">
+      </div>
+      <h2>The Grand Finale: Arrival of Baby Johnson</h2>
+      <p>We are waiting patiently for the little one to make her appearance! Stay tuned—this spot will soon be filled with her birth announcement and photos!</p>
+      <div class="card-tags">
+        <span class="tag" data-filter="birth">Birth</span>
+      </div>
+    </div>
+  </div>
+    
+</div>
 </section>
 <!-- Registry Section -->
 <section class="section" id="Registry" tabindex="-1">
@@ -127,10 +217,81 @@
         }
     }
 
+    // TIMELINE: Filter functionality
+    function setupTimelineFilters() {
+        const timeline = document.querySelector('.timeline');
+        const filterContainer = document.getElementById('timeline-filters');
+        // Select all timeline cards
+        const cards = timeline.querySelectorAll('.timeline-card');
+        const uniqueTags = new Set();
+
+        // 1. Collect all unique tags from data-tags attribute
+        cards.forEach(card => {
+            const tagsAttribute = card.getAttribute('data-tags');
+            if (tagsAttribute) {
+                // Split the comma-separated string into an array, trim whitespace
+                const tags = tagsAttribute.split(',').map(tag => tag.trim());
+                tags.forEach(tag => uniqueTags.add(tag));
+            }
+        });
+
+        // 2. Create the "All" button and add the unique tag buttons
+        
+        // Helper to format tag for display (e.g., "first-trimester" -> "First Trimester")
+        const formatTag = (tag) => {
+            return tag.split('-')
+                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                      .join(' ');
+        };
+
+        // Add "All" button
+        const allButton = document.createElement('button');
+        allButton.textContent = 'All Updates';
+        allButton.classList.add('filter-button', 'active');
+        allButton.setAttribute('data-filter', 'all');
+        filterContainer.appendChild(allButton);
+
+        // Add unique tag buttons
+        uniqueTags.forEach(tag => {
+            const button = document.createElement('button');
+            button.textContent = formatTag(tag);
+            button.classList.add('filter-button');
+            button.setAttribute('data-filter', tag);
+            filterContainer.appendChild(button);
+        });
+
+        // 3. Add click event listener to the filter container
+        filterContainer.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target.classList.contains('filter-button')) {
+                const filterValue = target.getAttribute('data-filter');
+
+                // Update active button state
+                filterContainer.querySelectorAll('.filter-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                target.classList.add('active');
+
+                // Filter the timeline cards
+                cards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags') || '';
+                    
+                    if (filterValue === 'all' || cardTags.includes(filterValue)) {
+                        card.style.display = 'block'; // Show card
+                    } else {
+                        card.style.display = 'none'; // Hide card
+                    }
+                });
+            }
+        });
+    }
+
+
     // Initialize all utility functions
     document.addEventListener('DOMContentLoaded', () => {
         setCopyrightYear();
         setupNavToggle();
+        setupTimelineFilters();
     });
 </script>
 </body>

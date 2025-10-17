@@ -11,7 +11,7 @@ html { font-size: 62.5%; }
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Roboto Condensed";
   font-size: 1.6rem;
   background-color: #fff;
   color: #000;
@@ -20,6 +20,8 @@ body {
 /* Base focus styles for accessibility (Applied to interactive elements) */
 .nav-link:focus-visible,
 .menu-toggle:focus-visible,
+.filter-button:focus-visible, /* Added focus style for filter buttons */
+.tag:focus-visible, /* Added focus style for tags */
 .nav-logo:focus-visible {
   outline: 3px solid #000;
   outline-offset: 3px;
@@ -48,6 +50,13 @@ body {
 .londrina-solid-regular { font-family: "Londrina Solid", sans-serif; font-weight: 400; font-style: normal; }
 .londrina-solid-black   { font-family: "Londrina Solid", sans-serif; font-weight: 900; font-style: normal; }
 .pacifico-regular       { font-family: "Pacifico", cursive; font-weight: 400; font-style: normal; }
+.roboto-condensed-{
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
 
 
 /* ------------------------------------------- */
@@ -61,6 +70,7 @@ body {
   min-height: 100svh;
   width: 100%;
   display: flex;
+  flex-direction: column; /* Changed to column to stack header, filters, and timeline */
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -81,6 +91,7 @@ body {
   color: #000;
   max-width: min(90vw, 110rem);
   font-size: clamp(1.8rem, 2.2vw, 2.4rem);
+  margin-bottom: 2rem; /* Add spacing below the header box */
 }
 
 /* --- 3.3. Section Backgrounds & Colors --- */
@@ -93,7 +104,7 @@ body {
   background-repeat: no-repeat;
 }
 
-#Updates    { background-color: #2A3E59; }
+#Updates    { background-color: #2A3E59; } /* Dark Blue */
 #Registry   { background-color: #F2D98D; }
 #BabyShowers{ background-color: #D9665B; }
 #ContactUs  { background-color: #FFFFFF; }
@@ -102,8 +113,6 @@ body {
 /* ------------------------------------------- */
 /* 4. COMPONENT: NAVIGATION (HEADER)           */
 /* ------------------------------------------- */
-
-/* --- 4.1. Nav Bar Shell & Wrapper --- */
 
 .navbar {
   position: sticky;
@@ -131,8 +140,6 @@ body {
   gap: 1.2rem;
 }
 
-/* --- 4.2. Logo & Desktop Links --- */
-
 .nav-logo {
   color: #000;
   text-decoration: none;
@@ -159,10 +166,8 @@ body {
 	text-align: right;
 }
 
-/* --- 4.3. Mobile Menu Toggle (Hamburger) --- */
-
 .menu-toggle {
-  display: none; /* Hidden by default on desktop */
+  display: none;
   cursor: pointer;
   padding: .6rem;
   border: none;
@@ -170,7 +175,6 @@ body {
   line-height: 0;
 }
 
-/* Base style for the hamburger container */
 .hamburger {
   width: 30px;
   height: 22px;
@@ -178,10 +182,9 @@ body {
   transform: rotate(0deg);
   transition: .5s ease-in-out;
   cursor: pointer;
-  z-index: 1001; /* Ensure button is clickable over menu */
+  z-index: 1001;
 }
 
-/* Style for the three bar elements */
 .hamburger .bar {
   display: block;
   position: absolute;
@@ -195,20 +198,18 @@ body {
   transition: .25s ease-in-out;
 }
 
-/* Positioning the three bars */
 .hamburger .bar:nth-child(1) { top: 0px; }
 .hamburger .bar:nth-child(2) { top: 9px; }
 .hamburger .bar:nth-child(3) { top: 18px; }
 
-/* Hamburger Open State (The 'X' transformation) */
 .hamburger.menu-open .bar:nth-child(1) {
   top: 9px;
   transform: rotate(135deg);
 }
 
 .hamburger.menu-open .bar:nth-child(2) {
-  opacity: 0; /* Hide middle bar */
-  left: -60px; /* Optional: slide out middle bar */
+  opacity: 0;
+  left: -60px;
 }
 
 .hamburger.menu-open .bar:nth-child(3) {
@@ -221,8 +222,6 @@ body {
 /* 5. COMPONENT: FOOTER                        */
 /* ------------------------------------------- */
 
-/* --- 5.1. Footer Container --- */
-
 .footer {
   width: 100%;
   background-color: #222;
@@ -234,8 +233,6 @@ body {
   font-size: clamp(1.2rem, 1.4vw, 1.6rem);
   text-align: center;
 }
-
-/* --- 5.2. Footer Content Stack --- */
 
 .footer-stack {
   display: flex;
@@ -253,21 +250,231 @@ body {
 
 
 /* ------------------------------------------- */
-/* 6. RESPONSIVENESS / MEDIA QUERIES           */
+/* 6. COMPONENT: TIMELINE (NEW)                */
 /* ------------------------------------------- */
 
-/* --- 6.1. Tablet (Max-width: 1024px) --- */
+/* Variables for Timeline */
+:root {
+  --timeline-line-color: #F2D98D; /* Gold/Yellow from Registry */
+  --timeline-card-bg: #FFFFFF;    /* White card background */
+  --timeline-text-color: #000000;
+  --timeline-accent-color: #D9665B; /* Red/Orange from Showers */
+}
+
+/* --- 6.1. Filter Buttons --- */
+
+.filter-container {
+    width: 100%;
+    max-width: 120rem;
+    margin-bottom: 3rem;
+    padding: 0 1.6rem;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.filter-button {
+    /* Use the Londrina font for these distinct buttons */
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    border: 3px solid var(--timeline-line-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--timeline-line-color);
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-button:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filter-button.active {
+    background-color: var(--timeline-line-color);
+    color: #2A3E59; /* Text color contrasts with gold background */
+    border-color: #2A3E59;
+    font-weight: 900;
+}
+
+/* --- 6.2. Timeline Container & Vertical Line --- */
+
+.timeline {
+  position: relative;
+  max-width: 120rem; /* Same as navbar for consistent look */
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 0; /* Vertical padding */
+}
+
+/* The vertical line is created using a pseudo-element */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 0.6rem;
+  background-color: var(--timeline-line-color);
+  top: 0;
+  bottom: 0;
+  left: 50%; /* Center the line */
+  margin-left: -0.3rem;
+}
+
+/* --- 6.3. Timeline Card Layout --- */
+
+.timeline-card {
+  padding: 1.6rem 4rem; /* Top/Bottom padding, 4rem side padding */
+  position: relative;
+  width: 50%; /* Each card takes up half the width */
+}
+
+/* Dot on the timeline line for each event */
+.timeline-card::after {
+  content: '';
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--timeline-card-bg);
+  border: 0.4rem solid var(--timeline-line-color);
+  top: 3.5rem; /* Positioned slightly lower */
+  border-radius: 50%;
+  z-index: 1;
+  /* Use transition for a smooth filter effect */
+  transition: opacity 0.3s ease; 
+}
+
+/* Positioning for Left and Right Cards */
+.left {
+  left: 0;
+  padding-right: 6rem; /* Make room for dot/line */
+}
+
+.right {
+  left: 50%; /* Push 'right' cards to the center line */
+  padding-left: 6rem; /* Make room for dot/line */
+}
+
+/* Adjust marker position for 'left' cards */
+.left::after {
+    right: -1.25rem;
+    transform: translateX(50%);
+}
+
+/* Adjust marker position for 'right' cards */
+.right::after {
+  left: -1.25rem;
+  transform: translateX(-50%);
+}
+
+/* Card Content Box Styling */
+.card-content {
+  padding: 2.4rem 3.2rem;
+  background-color: var(--timeline-card-bg);
+  color: var(--timeline-text-color);
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+/* Triangle pointer for 'left' cards */
+.left .card-content::before {
+  content: "";
+  position: absolute;
+  top: 3rem;
+  right: -0.9rem; /* Position close to the line */
+  border: 10px solid transparent;
+  border-left: 10px solid var(--timeline-card-bg);
+}
+
+/* Triangle pointer for 'right' cards */
+.right .card-content::before {
+  content: "";
+  position: absolute;
+  top: 3rem;
+  left: -0.9rem; /* Position close to the line */
+  border: 10px solid transparent;
+  border-right: 10px solid var(--timeline-card-bg);
+}
+
+/* --- 6.4. Inner Element Styles --- */
+
+.card-date {
+  font-weight: bold;
+  color: var(--timeline-accent-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  font-family: "Londrina Solid", sans-serif;
+}
+
+.card-content h2 {
+  font-family: "Pacifico", cursive;
+  margin-top: 0;
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.card-content p {
+    font-size: 1.8rem;
+    line-height: 1.5;
+}
+
+.card-image {
+    max-height: 20rem;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.card-tags {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #ccc;
+}
+
+.card-tags .tag {
+  display: inline-block;
+  background-color: #e9ecef; /* Light grey */
+  color: #6c757d;
+  padding: 0.4rem 0.8rem;
+  margin-right: 0.6rem;
+  margin-bottom: 0.6rem;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  font-family: sans-serif;
+  cursor: default; /* Not clickable for filtering here, only for display */
+}
+
+
+/* ------------------------------------------- */
+/* 7. RESPONSIVENESS / MEDIA QUERIES           */
+/* ------------------------------------------- */
+
+/* --- 7.1. Tablet (Max-width: 1024px) --- */
 @media (max-width: 1024px) {
   .navbar-content-wrapper { padding: 0 3.6rem;
 	}
   .nav-link { padding: .8rem; }
-	
+  .filter-button { font-size: 1.8rem; }
 }
 
-/* --- 6.2. Mobile (Max-width: 768px) --- */
+/* --- 7.2. Mobile (Max-width: 768px) --- */
 @media (max-width: 768px) {
-  /* Navigation adjustments (Hamburger is visible, Links hidden by default) */
-  .menu-toggle { display: inline-flex; } /* Ensure hamburger is visible */
+  /* Navigation adjustments */
+  .menu-toggle { display: inline-flex; }
   .nav-links-container { display: none; }
   
   /* Dropdown Menu State */
@@ -282,23 +489,61 @@ body {
     left: 0; right: 0; top: 100%;
     flex-direction: column;
     background: #fff;
-    border-bottom: thin solid #000;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 999; /* Below navbar, above content */
+    z-index: 999;
   }
 
   /* Content containers get slightly wider on mobile */
   .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
     max-width: 92vw;
   }
+    
+  /* --- Timeline Stacking for Mobile --- */
+
+  /* Center the timeline line on the left side (e.g., at 3.1rem) */
+  .timeline::after {
+    left: 3.1rem;
+  }
+
+  /* Make all cards full width */
+  .timeline-card {
+    width: 100%;
+    padding-left: 7rem; /* Shift content right to clear the line */
+    padding-right: 1.6rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  /* Reset 'right' card position to stack */
+  .right {
+    left: 0%;
+    padding-left: 7rem;
+  }
+
+  /* Adjust dot marker for both left/right cards to be on the left line */
+  .left::after, .right::after {
+    left: 1.5rem; /* Position relative to the new line position */
+    right: auto;
+    transform: none;
+    top: 2rem;
+  }
+
+  /* Adjust triangle pointer for both left/right cards to point from the left */
+  .left .card-content::before, .right .card-content::before {
+    top: 2rem;
+    left: -0.9rem;
+    right: auto;
+    border: 10px solid transparent;
+    border-right: 10px solid var(--timeline-card-bg);
+    border-left: none;
+  }
 }
 
-/* --- 6.3. Small Mobile (Max-width: 480px) --- */
+/* --- 7.3. Small Mobile (Max-width: 480px) --- */
 @media (max-width: 480px) {
   .navbar-content-wrapper { padding: 0 1rem; }
   .nav-logo { font-size: clamp(1.9rem, 5.5vw, 2.6rem); }
   
-  /* Redundant block from 768px - preserved as per instruction */
   .nav-links-container.open {
     display: flex;
     justify-content: center;
@@ -310,9 +555,8 @@ body {
     left: 0; right: 0; top: 100%;
     flex-direction: column;
     background: #fff;
-    border-bottom: thin solid #000;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 999; /* Below navbar, above content */
+    z-index: 999;
   }
 
   .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
@@ -321,9 +565,14 @@ body {
   }
   
   #Home { background-size: 90%; }
+    
+  .filter-button {
+    font-size: 1.6rem;
+    padding: 0.6rem 1.2rem;
+  }
 }
 
-/* --- 6.4. Accessibility Preference (Reduced Motion) --- */
+/* --- 7.4. Accessibility Preference (Reduced Motion) --- */
 @media (prefers-reduced-motion: reduce) {
   /* Disable smooth scrolling */
   * { scroll-behavior: auto !important; }
