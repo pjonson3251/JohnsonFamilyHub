@@ -237,3 +237,29 @@ body {
         background-size: 80%;
     }
 }
+
+/* ------------------------------------------- */
+/* 6. MEDIA QUERIES (SMALL MOBILE)             */
+/* ------------------------------------------- */
+@media (max-width: 480px) {
+    .navbar-content-wrapper {
+        /* Tighter padding to prevent logo wrapping on smallest phones */
+        padding: 0 1rem; 
+    }
+
+    .nav-logo {
+        /* Make the logo font size clamp down even lower */
+        font-size: clamp(1.8rem, 4.5vw, 3rem); 
+    }
+
+    .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
+        /* Reduce padding and text size in content blocks for better fit */
+        padding: 1.5rem 1rem; 
+        font-size: 1.6rem; 
+    }
+
+    #Home {
+        /* Allow the background image to take up slightly more space */
+        background-size: 90%;
+    }
+}
