@@ -84,7 +84,7 @@
 <!-- 4. JAVASCRIPT FOR DYNAMIC ELEMENTS         -->
 <!-- ------------------------------------------- -->
 <script>
-    // Set current year in the footer
+    // UTIL: Set current year in the footer
     function setCopyrightYear() {
         const yearSpan = document.getElementById('current-year');
         if (yearSpan) {
@@ -92,7 +92,7 @@
         }
     }
 
-    // Mobile menu toggle (accessible)
+    // NAV: Mobile menu toggle (accessible) + behavior
     function initMenuToggle() {
         const toggle = document.querySelector('.menu-toggle');
         const menu = document.getElementById('primary-nav');
@@ -101,6 +101,7 @@
         const closeMenu = () => {
             menu.classList.remove('open');
             toggle.setAttribute('aria-expanded', 'false');
+            toggle.classList.remove('is-active'); // ensure X returns to hamburger
         };
 
         toggle.addEventListener('click', () => {
@@ -118,9 +119,14 @@
         menu.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', closeMenu);
         });
+
+        // Safety net: when the hash changes via anchor navigation, reset state
+        window.addEventListener('hashchange', () => {
+            closeMenu();
+        }, { passive: true });
     }
 
-    // Ensure anchored sections aren't hidden behind the sticky nav
+    // Avoid anchor targets hiding under the sticky navbar
     function setScrollOffsets() {
         const nav = document.querySelector('.navbar');
         const sections = document.querySelectorAll('section.section');
@@ -133,7 +139,6 @@
         setCopyrightYear();
         initMenuToggle();
         setScrollOffsets();
-        // Update on resize in case sticky header height changes across breakpoints
         window.addEventListener('resize', setScrollOffsets);
     });
 </script>
