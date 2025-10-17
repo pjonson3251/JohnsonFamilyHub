@@ -257,6 +257,7 @@ body {
     width: 100%; /* Make link full width of the container for a large tap area */
 	height: 10vh;
     text-align: right;
+	  justify-content: center;
     padding: 1.2rem 2rem; /* Increase vertical and horizontal padding */
     font-size: 2.2rem; /* Ensure font is large enough for legibility */
   }
@@ -285,6 +286,7 @@ body {
     width: 100%; /* Make link full width of the container for a large tap area */
 	height: 10vh;
     text-align: right;
+		  justify-content: center;
     padding: 1.2rem 2rem; /* Increase vertical and horizontal padding */
     font-size: 2.2rem; /* Ensure font is large enough for legibility */
   }
