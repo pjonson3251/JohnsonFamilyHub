@@ -166,50 +166,64 @@ body {
   background-repeat: no-repeat;
 }
 
-#Updates    { background-color: #6D9860; }
-#Registry   { background-color: #764B7F; }
-#BabyShowers{ background-color: #C5B356; }
-#ContactUs  { background-color: #C58788; }
+#Updates    { background-color: #2A3E59; }
+#Registry   { background-color: #F2D98D; }
+#BabyShowers{ background-color: #D9665B; }
+#ContactUs  { background-color: #FFFFFF; }
 
 
 /* --- Pretty hamburger (aligned right) --- */
 .navbar-content-wrapper { position: relative; }
 .nav-links-container { margin-left: auto; } /* pushes links to the right of logo on desktop */
 .menu-toggle.hamburger {
-  display: none; /* desktop hidden */
+  display: none; /* visible on mobile via media query */
   position: relative;
-  width: 32px;
-  height: 24px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin-left: 1rem;
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: 8px; /* bigger hit area */
-  margin-left: 1rem;
 }
 
-.menu-toggle.hamburger .bar {
+.hamburger-line,
+.hamburger-line::before,
+.hamburger-line::after {
   position: absolute;
-  left: 8px;
-  right: 8px;
-  height: 2px;
+  left: 10px;
+  right: 10px;
+  height: 2.5px;
   background: #000;
   border-radius: 2px;
-  transition: transform 200ms ease, top 200ms ease, opacity 150ms ease;
+  content: "";
+  transition:
+    transform 220ms cubic-bezier(.4, 0, .2, 1),
+    opacity 180ms ease,
+    top 220ms cubic-bezier(.4, 0, .2, 1),
+    background-color 180ms ease;
 }
-.menu-toggle.hamburger .bar:nth-child(1) { top: 9px; }
-.menu-toggle.hamburger .bar:nth-child(2) { top: 16px; }
-.menu-toggle.hamburger .bar:nth-child(3) { top: 23px; }
 
-/* Active (X) state */
-.menu-toggle.hamburger.is-active .bar:nth-child(1) {
-  top: 16px;
+.hamburger-line { top: 21px; }           /* middle bar */
+.hamburger-line::before { top: 14px; }   /* top bar */
+.hamburger-line::after { top: 28px; }    /* bottom bar */
+
+.menu-toggle.hamburger:hover .hamburger-line,
+.menu-toggle.hamburger:hover .hamburger-line::before,
+.menu-toggle.hamburger:hover .hamburger-line::after {
+  background: #111;
+}
+
+/* Active (X) */
+.menu-toggle.hamburger.is-active .hamburger-line {
+  background-color: transparent; /* hide middle bar */
+}
+.menu-toggle.hamburger.is-active .hamburger-line::before {
+  top: 21px;
   transform: rotate(45deg);
 }
-.menu-toggle.hamburger.is-active .bar:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.hamburger.is-active .bar:nth-child(3) {
-  top: 16px;
+.menu-toggle.hamburger.is-active .hamburger-line::after {
+  top: 21px;
   transform: rotate(-45deg);
 }
 
@@ -220,7 +234,7 @@ body {
   border-radius: 10px;
 }
 
-/* Show hamburger & hide inline links on mobile */
+/* Mobile behavior */
 @media (max-width: 768px) {
   .menu-toggle.hamburger { display: inline-block; }
   .nav-links-container { display: none; }
@@ -234,6 +248,16 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
 }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hamburger-line,
+  .hamburger-line::before,
+  .hamburger-line::after {
+    transition: none;
+  }
+}
+
 /* ------------------------------------------- */
 /* 6. MEDIA QUERIES                            */
 /* ------------------------------------------- */
