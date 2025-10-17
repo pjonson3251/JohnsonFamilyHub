@@ -1,106 +1,86 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <!-- ------------------------------------------- -->
 <!-- DOCUMENT HEAD & METADATA                    -->
 <!-- ------------------------------------------- -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Johnson Family Hub</title>
-    <link rel="stylesheet" type="text/css" href="johnsonfamilyhub.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Pacifico&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Johnson Family Hub</title>
+<link href="johnsonfamilyhub.css" rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&amp;family=Pacifico&amp;display=swap" rel="stylesheet"/>
 </head>
 <body>
-
 <!-- ------------------------------------------- -->
 <!-- 1. STICKY NAVIGATION BAR (NAV)             -->
 <!-- ------------------------------------------- -->
-    <nav class="navbar" role="navigation" aria-label="Primary">
-        <div class="navbar-content-wrapper">
-            <a href="#Home" class="nav-logo pacifico-regular"><strong>Baby Johnson Hub</strong></a>
-
-            <!-- Accessible hamburger for mobile -->
-            <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
-                <span class="sr-only">Toggle menu</span>
-                <!-- Simple icon (no external assets needed) -->
-                <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
-
-            <div id="primary-nav" class="nav-links-container">
-                <a href="#Home" class="nav-link">Home</a>
-                <a href="#Updates" class="nav-link">Updates</a>
-                <a href="#Registry" class="nav-link">Registry</a>
-                <a href="#BabyShowers" class="nav-link">Baby Showers</a>
-                <a href="#ContactUs" class="nav-link">Contact Us</a>
-            </div>
-        </div>
-    </nav>
-
+<nav aria-label="Primary" class="navbar" role="navigation">
+<div class="navbar-content-wrapper"><a class="nav-logo pacifico-regular" href="#Home"><strong>Baby Johnson Hub</strong></a><div class="nav-links-container" id="primary-nav">
+<a class="nav-link" href="#Home">Home</a>
+<a class="nav-link" href="#Updates">Updates</a>
+<a class="nav-link" href="#Registry">Registry</a>
+<a class="nav-link" href="#BabyShowers">Baby Showers</a>
+<a class="nav-link" href="#ContactUs">Contact Us</a>
+</div><button aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu" aria_controls="primary-nav" aria_expanded="false" aria_label="Toggle menu" class="menu-toggle hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button></div>
+</nav>
 <!-- ------------------------------------------- -->
 <!-- 2. MAIN CONTENT SECTIONS (MAIN)            -->
 <!-- ------------------------------------------- -->
-    <main>
-        <!-- Home Section -->
-        <section id="Home" class="section" tabindex="-1">
-            <div class="hero-container">
-                <h1 class="pacifico-regular">Welcome to the Baby Johnson Hub!</h1>
-                <p class="londrina-solid-regular">Our hearts are bursting, and we can't wait to introduce you to the newest member of our family!</p> 
-                <p class="londrina-solid-regular">We put together this little hub to keep our closest friends and family in the loop.</p>
-            </div>
-        </section>
-
-        <!-- Updates Section -->
-        <section id="Updates" class="section" tabindex="-1">
-            <div class="updates-header">
-                <h1 class="pacifico-regular">Updates &amp; Milestones</h1>
-                <p class="londrina-solid-regular">Stay up-to-date with our journey here. We'll post major milestones, current status reports, and the official announcement when our daughter makes her grand entrance.</p> 
-                <p class="londrina-solid-regular">We promise to keep you in the loop!</p>
-            </div>
-        </section>
-
-        <!-- Registry Section -->
-        <section id="Registry" class="section" tabindex="-1">
-            <div class="registry-header">
-                <h1 class="pacifico-regular">Our Registry Details</h1>
-                <p class="londrina-solid-regular">Your love and support are truly the greatest gift!</p> 
-                <p class="londrina-solid-regular">For those who have asked, we've curated a list of things that will help us prepare for our journey as parents.</p>
-                <p class="londrina-solid-regular">Please know that your presence in her life is all we really need.</p>
-            </div>
-        </section>
-
-        <!-- Baby Showers Section -->
-        <section id="BabyShowers" class="section" tabindex="-1">
-            <div class="shower-header">
-                <h1 class="pacifico-regular">Upcoming Celebrations</h1>
-                <p class="londrina-solid-regular">We are so blessed that so many of you want to celebrate our daughter with us!</p> 
-                <p class="londrina-solid-regular">Find all the specific details for any baby showers or gatherings you've been invited to here, including dates, locations, and how to RSVP. We can't wait to see you!</p>
-            </div>
-        </section>
-
-        <!-- Contact Us Section -->
-        <section id="ContactUs" class="section" tabindex="-1">
-            <div class="contactus-header">
-                <h1 class="pacifico-regular">Let's Stay Connected</h1>
-                <p class="londrina-solid-regular">As things get busy, we want to ensure we have your most current contact information on file for the birth announcement and future updates.</p> 
-                <p class="londrina-solid-regular">Please take a moment to confirm your details below so we can keep our little village connected!</p>
-            </div>
-        </section>
-    </main>
-
+<main>
+<!-- Home Section -->
+<section class="section" id="Home" tabindex="-1">
+<div class="hero-container">
+<h1 class="pacifico-regular">Welcome to the Baby Johnson Hub!</h1>
+<p class="londrina-solid-regular">Our hearts are bursting, and we can't wait to introduce you to the newest member of our family!</p>
+<p class="londrina-solid-regular">We put together this little hub to keep our closest friends and family in the loop.</p>
+</div>
+</section>
+<!-- Updates Section -->
+<section class="section" id="Updates" tabindex="-1">
+<div class="updates-header">
+<h1 class="pacifico-regular">Updates &amp; Milestones</h1>
+<p class="londrina-solid-regular">Stay up-to-date with our journey here. We'll post major milestones, current status reports, and the official announcement when our daughter makes her grand entrance.</p>
+<p class="londrina-solid-regular">We promise to keep you in the loop!</p>
+</div>
+</section>
+<!-- Registry Section -->
+<section class="section" id="Registry" tabindex="-1">
+<div class="registry-header">
+<h1 class="pacifico-regular">Our Registry Details</h1>
+<p class="londrina-solid-regular">Your love and support are truly the greatest gift!</p>
+<p class="londrina-solid-regular">For those who have asked, we've curated a list of things that will help us prepare for our journey as parents.</p>
+<p class="londrina-solid-regular">Please know that your presence in her life is all we really need.</p>
+</div>
+</section>
+<!-- Baby Showers Section -->
+<section class="section" id="BabyShowers" tabindex="-1">
+<div class="shower-header">
+<h1 class="pacifico-regular">Upcoming Celebrations</h1>
+<p class="londrina-solid-regular">We are so blessed that so many of you want to celebrate our daughter with us!</p>
+<p class="londrina-solid-regular">Find all the specific details for any baby showers or gatherings you've been invited to here, including dates, locations, and how to RSVP. We can't wait to see you!</p>
+</div>
+</section>
+<!-- Contact Us Section -->
+<section class="section" id="ContactUs" tabindex="-1">
+<div class="contactus-header">
+<h1 class="pacifico-regular">Let's Stay Connected</h1>
+<p class="londrina-solid-regular">As things get busy, we want to ensure we have your most current contact information on file for the birth announcement and future updates.</p>
+<p class="londrina-solid-regular">Please take a moment to confirm your details below so we can keep our little village connected!</p>
+</div>
+</section>
+</main>
 <!-- ------------------------------------------- -->
 <!-- 3. FOOTER                                  -->
 <!-- ------------------------------------------- -->
-    <footer class="footer">
-        <div class="footer-stack">
-            <img src="images/Johnson-Family-Seal.png" class="family-seal" alt="Johnson Family Seal">
-            <div>&copy; <span id="current-year"></span> JohnsonFamilyHub<p>All rights reserved</p></div>
-        </div>
-    </footer>
-
+<footer class="footer">
+<div class="footer-stack">
+<img alt="Johnson Family Seal" class="family-seal" src="images/Johnson-Family-Seal.png"/>
+<div>© <span id="current-year"></span> JohnsonFamilyHub<p>All rights reserved</p></div>
+</div>
+</footer>
 <!-- ------------------------------------------- -->
 <!-- 4. JAVASCRIPT FOR DYNAMIC ELEMENTS         -->
 <!-- ------------------------------------------- -->
@@ -127,6 +107,7 @@
         toggle.addEventListener('click', () => {
             const isOpen = menu.classList.toggle('open');
             toggle.setAttribute('aria-expanded', String(isOpen));
+            toggle.classList.toggle('is-active', isOpen);
         });
 
         // Close on Escape
@@ -157,6 +138,5 @@
         window.addEventListener('resize', setScrollOffsets);
     });
 </script>
-
 </body>
 </html>

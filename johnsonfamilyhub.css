@@ -171,6 +171,69 @@ body {
 #BabyShowers{ background-color: #C5B356; }
 #ContactUs  { background-color: #C58788; }
 
+
+/* --- Pretty hamburger (aligned right) --- */
+.navbar-content-wrapper { position: relative; }
+.nav-links-container { margin-left: auto; } /* pushes links to the right of logo on desktop */
+.menu-toggle.hamburger {
+  display: none; /* desktop hidden */
+  position: relative;
+  width: 32px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px; /* bigger hit area */
+  margin-left: 1rem;
+}
+
+.menu-toggle.hamburger .bar {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: #000;
+  border-radius: 2px;
+  transition: transform 200ms ease, top 200ms ease, opacity 150ms ease;
+}
+.menu-toggle.hamburger .bar:nth-child(1) { top: 9px; }
+.menu-toggle.hamburger .bar:nth-child(2) { top: 16px; }
+.menu-toggle.hamburger .bar:nth-child(3) { top: 23px; }
+
+/* Active (X) state */
+.menu-toggle.hamburger.is-active .bar:nth-child(1) {
+  top: 16px;
+  transform: rotate(45deg);
+}
+.menu-toggle.hamburger.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.hamburger.is-active .bar:nth-child(3) {
+  top: 16px;
+  transform: rotate(-45deg);
+}
+
+/* Focus ring */
+.menu-toggle.hamburger:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* Show hamburger & hide inline links on mobile */
+@media (max-width: 768px) {
+  .menu-toggle.hamburger { display: inline-block; }
+  .nav-links-container { display: none; }
+  .nav-links-container.open {
+    display: flex;
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    flex-direction: column;
+    background: #fff;
+    border-bottom: thin solid #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+}
 /* ------------------------------------------- */
 /* 6. MEDIA QUERIES                            */
 /* ------------------------------------------- */
