@@ -1,5 +1,5 @@
 /* ------------------------------------------- */
-/* UNIVERSAL AND GLOBAL STYLES                 */
+/* 1. GLOBAL RESETS & FONT DEFINITIONS         */
 /* ------------------------------------------- */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -17,7 +17,6 @@ body {
     font-size: 1.6rem;
 }
 
-/* Font classes for reference */
 .londrina-solid-thin {
   font-family: "Londrina Solid", sans-serif;
   font-weight: 100;
@@ -48,8 +47,34 @@ body {
   font-style: normal;
 }
 
+
 /* ------------------------------------------- */
-/* 1. Sticky Navbar (Desktop)                  */
+/* 2. LAYOUT & SECTION BASE STYLES             */
+/* ------------------------------------------- */
+.section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+    text-align: center;
+}
+
+.hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
+	max-width: 90vw; 
+	background-color: rgba(255, 255, 255, 0.8); 
+	border: thin solid #000000;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 30px;
+    padding: 3rem;
+    color: #000000; 
+    max-width: 90vw;
+}
+
+
+/* ------------------------------------------- */
+/* 3. NAVIGATION (DESKTOP)                     */
 /* ------------------------------------------- */
 .navbar {
     position: sticky;
@@ -84,7 +109,6 @@ body {
     padding: 1rem 0;
 }
 
-/* Desktop Navigation Links */
 .nav-links-container {
     display: flex;
     align-items: center;
@@ -99,66 +123,17 @@ body {
 	font-size: 3rem;
 }
 
-/* Mobile Menu Button - Hidden on Desktop */
 .menu-toggle {
     display: none;
     cursor: pointer;
     font-size: 3rem;
     padding: 1rem;
-    z-index: 1001; /* Ensure it's above the links */
+    z-index: 1001; 
 }
-
-/* ------------------------------------------- */
-/* 2. Full-Viewport Sections (Layout)          */
-/* ------------------------------------------- */
-.section {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Font size is fluid using clamp() - good for responsiveness */
-    font-size: clamp(2.5rem, 5vw, 4rem); 
-    text-align: center;
-}
-
-/* ------------------------------------------- */
-/* 3. Section Specific Styles                  */
-/* ------------------------------------------- */
-#Home { 
-	background-color: #FFFFFF;
-	background-image: url("images/PixarFamilyPhoto-(Cropped).png");
-	background-position: center;
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-
-.hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
-    /* Made max-width more flexible for smaller screens */
-	max-width: 90vw; 
-    /* Desktop max-width is still 60vw but will shrink on small screens */
-	background-color: rgba(255, 255, 255, 0.8); 
-	border: thin solid #000000;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	border-radius: 30px;
-    padding: 3rem;
-    color: #000000; /* Fixed color code to be a valid black */
-}
-
-/* Ensure all header content containers use the same responsive styling */
-.updates-header, .registry-header, .shower-header, .contactus-header {
-	/* Removed max-height constraints */
-    max-width: 90vw;
-}
-
-#Updates { background-color: #6D9860; }
-#Registry { background-color: #764B7F; }
-#BabyShowers { background-color: #C5B356; }
-#ContactUs { background-color: #C58788; }
 
 
 /* ------------------------------------------- */
-/* 4. Footer                                   */
+/* 4. FOOTER                                   */
 /* ------------------------------------------- */
 .footer {
     max-height: 10vh;
@@ -179,7 +154,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Adjusted gap to ensure better stacking on all screens */
     gap: 0.25rem;
     font-size: clamp(1rem, 1.2vw, 1.2rem); 
 }
@@ -190,32 +164,43 @@ body {
 	object-fit: contain;
 }
 
-/* ================================================= */
-/* 5. MEDIA QUERY: MOBILE RESPONSIVENESS (< 768px) */
-/* ================================================= */
+
+/* ------------------------------------------- */
+/* 5. SECTION BACKGROUNDS & COLORS             */
+/* ------------------------------------------- */
+#Home { 
+	background-color: #FFFFFF;
+	background-image: url("images/PixarFamilyPhoto-(Cropped).png");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#Updates { background-color: #6D9860; }
+#Registry { background-color: #764B7F; }
+#BabyShowers { background-color: #C5B356; }
+#ContactUs { background-color: #C58788; }
+
+
+/* ------------------------------------------- */
+/* 6. MEDIA QUERIES (MOBILE)                   */
+/* ------------------------------------------- */
 @media (max-width: 768px) {
     
-    /* ------------------- */
-    /* Mobile Navbar Setup */
-    /* ------------------- */
-
-    /* Force the wrapper to be full width and center its content */
     .navbar-content-wrapper {
         max-width: 100%;
         padding: 0 1.5rem;
     }
 
-    /* Show the hamburger menu icon */
     .menu-toggle {
         display: block;
     }
 
-    /* Hide the default links container */
     .nav-links-container {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: clamp(5rem, 6vh, 8rem); /* Position below the header */
+        top: clamp(5rem, 6vh, 8rem); 
         left: 0;
         width: 100%;
         background-color: #FFFFFF;
@@ -224,39 +209,30 @@ body {
         z-index: 999;
     }
 
-    /* Display the links when the 'open' class is toggled by JavaScript */
     .nav-links-container.open {
         display: flex;
     }
 
-    /* Style the individual links for the stacked mobile menu */
     .nav-link {
         width: 100%;
         text-align: center;
         margin: 0;
         padding: 1.5rem 0;
         border-top: 1px solid #eee;
-        font-size: 2.5rem; /* Slightly smaller for mobile readability */
+        font-size: 2.5rem; 
     }
 
     .nav-link:first-child {
         border-top: none;
     }
 
-    /* ------------------- */
-    /* Section Content     */
-    /* ------------------- */
     .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
-        /* Ensure maximum usage of mobile screen width */
         max-width: 90vw;
         padding: 2rem 1.5rem;
-        /* Reduce font sizes slightly to fit more text on the screen */
         font-size: 1.8rem;
     }
 
-    /* Hero section specific background adjustment for better visibility */
     #Home {
-        /* Slightly more subtle background on tiny screens if needed, otherwise 'contain' is fine */
         background-size: 80%;
     }
 }
