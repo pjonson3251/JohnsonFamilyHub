@@ -1,0 +1,183 @@
+/* ------------------------------------------- */
+/* UNIVERSAL AND GLOBAL STYLES                 */
+/* ------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 1.6rem;
+}
+
+.londrina-solid-thin {
+  font-family: "Londrina Solid", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.londrina-solid-light {
+  font-family: "Londrina Solid", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.londrina-solid-regular {
+  font-family: "Londrina Solid", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.londrina-solid-black {
+  font-family: "Londrina Solid", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ------------------------------------------- */
+/* 1. Sticky Navbar                            */
+/* ------------------------------------------- */
+.navbar {
+    position: sticky;
+    top: 0;
+    height: clamp(5rem, 6vh, 8rem); 
+    width: 100%; 
+    background-color: #FFFFFF;
+    color: #000000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 0; 
+    border-bottom: thin solid #000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-content-wrapper {
+    width: 100%; 
+    max-width: 75%; 
+    height: 100%; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 2rem; 
+}
+
+.nav-logo {
+    color: #000000;
+    text-decoration: none;
+    font-size: clamp(2rem, 3.5vw, 3.5rem); 
+    padding: 1rem 0;
+}
+
+.nav-links-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: #000000;
+    text-decoration: none;
+    padding: 1rem 1.5rem; 
+    margin-left: 1rem;
+	font-family: "Londrina Solid";
+	font-size: 3rem;
+}
+
+/* ------------------------------------------- */
+/* 2. Full-Viewport Sections (Layout)          */
+/* ------------------------------------------- */
+.section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+    text-align: center;
+}
+
+/* ------------------------------------------- */
+/* 3. Section Specific Styles                  */
+/* ------------------------------------------- */
+#Home { 
+	background-color: #FFFFFF;
+	background-image: url("images/PixarFamilyPhoto-BabyBump-Cropped.png");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.hero-container {
+	max-width: 55vw;
+	background-color: rgba(255, 255, 255, 0.5); 
+	border: thin solid #000000;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 30px;
+    padding: 3rem;
+    color: #0000000;
+}
+
+#Updates { background-color: #6D9860; }
+#Registry { background-color: #764B7F; }
+#BabyShowers { background-color: #C5B356; }
+#ContactUs { background-color: #C58788; }
+
+/* ------------------------------------------- */
+/* 4. Footer                                   */
+/* ------------------------------------------- */
+.footer {
+    height: 10vh; /* Increased height to accommodate stacked items */
+    width: 100%;
+    background-color: #222;
+    color: #ccc;
+    display: flex;
+    /* Center the single 'footer-stack' item */
+    justify-content: center; 
+    align-items: center;
+}
+
+/* NEW: Style for stacking elements */
+.footer-stack {
+    display: flex;
+    /* Stack items vertically */
+    flex-direction: column;
+    /* Center text/image horizontally within the stack */
+    align-items: center; 
+    /* Add space between the image and the text */
+    font-size: 1rem; /* Make copyright text slightly smaller */
+	text-align: center;
+}
+
+.family-seal {
+	height: 5vh;
+	width: auto; 
+	object-fit: contain;
+}
+
+.updates-header {
+	max-width: 50vw;
+	max-height: 12em;
+}
+
+.registry-header {
+	max-width: 50vw;
+	max-height: 12em;
+}
+
+.shower-header {
+	max-width: 50vw;
+	max-height: 12em;
+}
