@@ -1,9 +1,12 @@
 /* ------------------------------------------- */
-/* 1. GLOBAL RESETS & FONT DEFINITIONS         */
+/* 1. BASE STYLES & RESETS                     */
 /* ------------------------------------------- */
+
+/* Universal box model reset */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { font-size: 62.5%; } /* 1rem = 10px */
+/* Set 1rem = 10px for easier calculation (62.5% of 16px default) */
+html { font-size: 62.5%; }
 
 body {
   margin: 0;
@@ -14,6 +17,19 @@ body {
   color: #000;
 }
 
+/* Base focus styles for accessibility */
+.nav-link:focus-visible,
+.menu-toggle:focus-visible,
+.nav-logo:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* ------------------------------------------- */
+/* 2. TYPOGRAPHY & UTILITIES                   */
+/* ------------------------------------------- */
+
 /* Visually hidden for accessibility */
 .sr-only {
   position: absolute !important;
@@ -23,15 +39,18 @@ body {
   white-space: nowrap; border: 0;
 }
 
+/* Font Definitions */
 .londrina-solid-thin    { font-family: "Londrina Solid", sans-serif; font-weight: 100; font-style: normal; }
 .londrina-solid-light   { font-family: "Londrina Solid", sans-serif; font-weight: 300; font-style: normal; }
 .londrina-solid-regular { font-family: "Londrina Solid", sans-serif; font-weight: 400; font-style: normal; }
 .londrina-solid-black   { font-family: "Londrina Solid", sans-serif; font-weight: 900; font-style: normal; }
 .pacifico-regular       { font-family: "Pacifico", cursive; font-weight: 400; font-style: normal; }
 
+
 /* ------------------------------------------- */
-/* 2. LAYOUT & SECTION BASE STYLES             */
+/* 3. LAYOUT & SECTION STRUCTURE               */
 /* ------------------------------------------- */
+
 .section {
   /* Use dynamic viewport unit to avoid iOS address-bar jumps */
   min-height: 100svh;
@@ -45,6 +64,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Content Container Styles (used for all main header/content boxes) */
 .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
   background-color: rgba(255, 255, 255, 0.88);
   border: thin solid #000;
@@ -56,9 +76,25 @@ body {
   font-size: clamp(1.8rem, 2.2vw, 2.4rem);
 }
 
+/* Section Backgrounds & Colors */
+#Home {
+  background-color: #FFFFFF;
+  background-image: url("images/PixarFamilyPhoto-BabyBump-Cropped.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#Updates    { background-color: #2A3E59; }
+#Registry   { background-color: #F2D98D; }
+#BabyShowers{ background-color: #D9665B; }
+#ContactUs  { background-color: #FFFFFF; }
+
+
 /* ------------------------------------------- */
-/* 3. NAVIGATION (DESKTOP-FIRST)               */
+/* 4. COMPONENT: NAVIGATION (HEADER)           */
 /* ------------------------------------------- */
+
 .navbar {
   position: sticky;
   top: 0;
@@ -95,7 +131,7 @@ body {
 }
 
 .menu-toggle {
-  display: none;
+  display: none; /* Hidden by default on desktop */
   cursor: pointer;
   padding: .6rem;
   border: none;
@@ -118,17 +154,45 @@ body {
   border-radius: 10px;
 }
 
-.nav-link:focus-visible,
-.menu-toggle:focus-visible,
-.nav-logo:focus-visible {
-  outline: 3px solid #000;
-  outline-offset: 3px;
-  border-radius: 10px;
+/* --- Start: Traditional Hamburger Animation Styles --- */
+
+/* Base bar styles */
+.hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto; /* Creates space between the bars */
+  background-color: #000;
+  transition: all 0.3s ease-in-out; /* Smooth transition for rotation/movement */
 }
 
+/* Increase padding for a better mobile touch target */
+.menu-toggle.hamburger {
+  padding: 10px; 
+}
+
+/* Transform the bars when the menu is open (menu-open class is toggled by JS) */
+.menu-toggle.menu-open .bar:nth-child(2) {
+  opacity: 0; /* Hide the middle bar */
+}
+
+.menu-toggle.menu-open .bar:nth-child(1) {
+  /* Move bar 1 down by the distance of one bar + one margin (5px + 5px = 10px, or 8px works well visually) and rotate +45 deg */
+  transform: translateY(8px) rotate(45deg); 
+}
+
+.menu-toggle.menu-open .bar:nth-child(3) {
+  /* Move bar 3 up and rotate -45 deg */
+  transform: translateY(-8px) rotate(-45deg); 
+}
+
+/* --- End: Traditional Hamburger Animation Styles --- */
+
+
 /* ------------------------------------------- */
-/* 4. FOOTER                                   */
+/* 5. COMPONENT: FOOTER                        */
 /* ------------------------------------------- */
+
 .footer {
   width: 100%;
   background-color: #222;
@@ -155,89 +219,24 @@ body {
   object-fit: contain;
 }
 
+
 /* ------------------------------------------- */
-/* 5. SECTION BACKGROUNDS & COLORS             */
+/* 6. RESPONSIVENESS / MEDIA QUERIES           */
 /* ------------------------------------------- */
-#Home {
-  background-color: #FFFFFF;
-  background-image: url("images/PixarFamilyPhoto-BabyBump-Cropped.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+
+/* Tablet (Max-width: 1024px) */
+@media (max-width: 1024px) {
+  .navbar-content-wrapper { padding: 0 1.6rem; }
+  .nav-link { padding: .8rem 1rem; }
 }
 
-#Updates    { background-color: #2A3E59; }
-#Registry   { background-color: #F2D98D; }
-#BabyShowers{ background-color: #D9665B; }
-#ContactUs  { background-color: #FFFFFF; }
-
-
-/* --- Pretty hamburger (aligned right) --- */
-.navbar-content-wrapper { position: relative; }
-.nav-links-container { margin-left: auto; } /* pushes links to the right of logo on desktop */
-.menu-toggle.hamburger {
-  display: none; /* visible on mobile via media query */
-  position: relative;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  margin-left: 1rem;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.hamburger-line,
-.hamburger-line::before,
-.hamburger-line::after {
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  height: 2.5px;
-  background: #000;
-  border-radius: 2px;
-  content: "";
-  transition:
-    transform 220ms cubic-bezier(.4, 0, .2, 1),
-    opacity 180ms ease,
-    top 220ms cubic-bezier(.4, 0, .2, 1),
-    background-color 180ms ease;
-}
-
-.hamburger-line { top: 21px; }           /* middle bar */
-.hamburger-line::before { top: 14px; }   /* top bar */
-.hamburger-line::after { top: 28px; }    /* bottom bar */
-
-.menu-toggle.hamburger:hover .hamburger-line,
-.menu-toggle.hamburger:hover .hamburger-line::before,
-.menu-toggle.hamburger:hover .hamburger-line::after {
-  background: #111;
-}
-
-/* Active (X) */
-.menu-toggle.hamburger.is-active .hamburger-line {
-  background-color: transparent; /* hide middle bar */
-}
-.menu-toggle.hamburger.is-active .hamburger-line::before {
-  top: 21px;
-  transform: rotate(45deg);
-}
-.menu-toggle.hamburger.is-active .hamburger-line::after {
-  top: 21px;
-  transform: rotate(-45deg);
-}
-
-/* Focus ring */
-.menu-toggle.hamburger:focus-visible {
-  outline: 3px solid #000;
-  outline-offset: 3px;
-  border-radius: 10px;
-}
-
-/* Mobile behavior */
+/* Mobile (Max-width: 768px) - Navigation Menu and General Layout Adjustments */
 @media (max-width: 768px) {
-  .menu-toggle.hamburger { display: inline-block; }
+  /* Navigation adjustments (Hamburger is visible, Links hidden by default) */
+  .menu-toggle { display: inline-flex; } /* Ensure hamburger is visible */
   .nav-links-container { display: none; }
+  
+  /* Dropdown Menu State */
   .nav-links-container.open {
     display: flex;
     position: absolute;
@@ -246,73 +245,35 @@ body {
     background: #fff;
     border-bottom: thin solid #000;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 999; /* Below navbar, above content */
   }
-}
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .hamburger-line,
-  .hamburger-line::before,
-  .hamburger-line::after {
-    transition: none;
-  }
-}
-
-/* ------------------------------------------- */
-/* 6. MEDIA QUERIES                            */
-/* ------------------------------------------- */
-
-/* Tablets & down */
-@media (max-width: 1024px) {
-  .navbar-content-wrapper { padding: 0 1.6rem; }
-  .nav-link { padding: .8rem 1rem; }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .menu-toggle { display: inline-flex; }
-
-  .nav-links-container {
-    display: none;
-    position: absolute;
-    left: 0; right: 0;
-    top: 100%;
-    flex-direction: column;
-    background: #fff;
-    border-bottom: thin solid #000;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-  .nav-links-container.open { display: flex; }
-
-  .nav-link {
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    padding: 1.6rem 0;
-    border-top: 1px solid #eee;
-    font-size: clamp(1.6rem, 5vw, 2.4rem);
-  }
-  .nav-link:first-child { border-top: none; }
-
+  /* Content containers get slightly wider on mobile */
   .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
     max-width: 92vw;
   }
-
-  #Home { background-size: 80%; }
 }
 
-/* Small mobile */
+/* Small Mobile (Max-width: 480px) */
 @media (max-width: 480px) {
   .navbar-content-wrapper { padding: 0 1rem; }
   .nav-logo { font-size: clamp(1.9rem, 5.5vw, 2.6rem); }
+  
   .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
     padding: 1.4rem 1rem;
     font-size: 1.6rem;
   }
+  
   #Home { background-size: 90%; }
 }
 
-/* Respect users who prefer less motion */
+/* Respect users who prefer less motion (Should always be one of the first or last media queries) */
 @media (prefers-reduced-motion: reduce) {
+  /* Disable smooth scrolling */
   * { scroll-behavior: auto !important; }
+  
+  /* Disable transitions on hamburger lines if any */
+  .hamburger .bar {
+    transition: none !important;
+  }
 }

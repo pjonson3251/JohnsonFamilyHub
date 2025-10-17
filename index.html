@@ -44,6 +44,8 @@
 <p class="londrina-solid-regular">Stay up-to-date with our journey here. We'll post major milestones, current status reports, and the official announcement when our daughter makes her grand entrance.</p>
 <p class="londrina-solid-regular">We promise to keep you in the loop!</p>
 </div>
+	
+	
 </section>
 <!-- Registry Section -->
 <section class="section" id="Registry" tabindex="-1">
@@ -83,7 +85,34 @@
 <!-- ------------------------------------------- -->
 <!-- 4. JAVASCRIPT FOR DYNAMIC ELEMENTS         -->
 <!-- ------------------------------------------- -->
+<!-- NAV: Hamburger Menu Toggle -->
 <script>
+    function setupNavToggle() {
+        const navToggle = document.querySelector('.menu-toggle');
+        const navLinksContainer = document.getElementById('primary-nav');
+
+        if (navToggle && navLinksContainer) {
+            navToggle.addEventListener('click', () => {
+                // Toggle the 'open' class for menu visibility (existing functionality)
+                navLinksContainer.classList.toggle('open');
+                
+                // Toggle the 'menu-open' class on the button for the hamburger animation
+                navToggle.classList.toggle('menu-open');
+
+                // Update aria-expanded state for accessibility
+                const isExpanded = navLinksContainer.classList.contains('open');
+                navToggle.setAttribute('aria-expanded', isExpanded);
+            });
+        }
+    }
+
+    // Initialize all utility functions
+    document.addEventListener('DOMContentLoaded', () => {
+        setCopyrightYear();
+        setupNavToggle();
+    });
+	</script>
+	<script>
     // UTIL: Set current year in the footer
     function setCopyrightYear() {
         const yearSpan = document.getElementById('current-year');
@@ -92,55 +121,7 @@
         }
     }
 
-    // NAV: Mobile menu toggle (accessible) + behavior
-    function initMenuToggle() {
-        const toggle = document.querySelector('.menu-toggle');
-        const menu = document.getElementById('primary-nav');
-        if (!toggle || !menu) return;
-
-        const closeMenu = () => {
-            menu.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-            toggle.classList.remove('is-active'); // ensure X returns to hamburger
-        };
-
-        toggle.addEventListener('click', () => {
-            const isOpen = menu.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', String(isOpen));
-            toggle.classList.toggle('is-active', isOpen);
-        });
-
-        // Close on Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeMenu();
-        });
-
-        // Close when a link is clicked (nice on mobile)
-        menu.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', closeMenu);
-        });
-
-        // Safety net: when the hash changes via anchor navigation, reset state
-        window.addEventListener('hashchange', () => {
-            closeMenu();
-        }, { passive: true });
-    }
-
-    // Avoid anchor targets hiding under the sticky navbar
-    function setScrollOffsets() {
-        const nav = document.querySelector('.navbar');
-        const sections = document.querySelectorAll('section.section');
-        if (!nav) return;
-        const navH = nav.offsetHeight || 64;
-        sections.forEach(s => s.style.scrollMarginTop = navH + 'px');
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        setCopyrightYear();
-        initMenuToggle();
-        setScrollOffsets();
-        window.addEventListener('resize', setScrollOffsets);
-    });
+  
 </script>
 </body>
 </html>
