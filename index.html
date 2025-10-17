@@ -5,23 +5,32 @@
 <!-- ------------------------------------------- -->
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Johnson Family Hub</title>
-	<link rel="stylesheet" type="text/css" href="johnsonfamilyhub.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="johnsonfamilyhub.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <!-- ------------------------------------------- -->
 <!-- 1. STICKY NAVIGATION BAR (NAV)             -->
 <!-- ------------------------------------------- -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Primary">
         <div class="navbar-content-wrapper">
-            <a href="#Home" class="nav-logo pacifico-regular" style="font-size: 3.5em;"><strong>Baby Johnson Hub</strong></a>
+            <a href="#Home" class="nav-logo pacifico-regular"><strong>Baby Johnson Hub</strong></a>
 
-            <div class="nav-links-container">
+            <!-- Accessible hamburger for mobile -->
+            <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
+                <span class="sr-only">Toggle menu</span>
+                <!-- Simple icon (no external assets needed) -->
+                <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <div id="primary-nav" class="nav-links-container">
                 <a href="#Home" class="nav-link">Home</a>
                 <a href="#Updates" class="nav-link">Updates</a>
                 <a href="#Registry" class="nav-link">Registry</a>
@@ -36,48 +45,48 @@
 <!-- ------------------------------------------- -->
     <main>
         <!-- Home Section -->
-        <section id="Home" class="section">
+        <section id="Home" class="section" tabindex="-1">
             <div class="hero-container">
-                <h1 style="font-family: Pacifico;">Welcome to the Baby Johnson Hub!</h1>
-                <p style="font-family: Londrina Solid;">Our hearts are bursting, and we can't wait to introduce you to the newest member of our family!</p> 
-                <p style="font-family: Londrina Solid;">We put together this little hub to keep our closest friends and family in the loop.</p>
+                <h1 class="pacifico-regular">Welcome to the Baby Johnson Hub!</h1>
+                <p class="londrina-solid-regular">Our hearts are bursting, and we can't wait to introduce you to the newest member of our family!</p> 
+                <p class="londrina-solid-regular">We put together this little hub to keep our closest friends and family in the loop.</p>
             </div>
         </section>
 
         <!-- Updates Section -->
-        <section id="Updates" class="section">
+        <section id="Updates" class="section" tabindex="-1">
             <div class="updates-header">
-                <h1 style="font-family: Pacifico;">Updates &amp; Milestones</h1>
-                <p style="font-family: Londrina Solid;">Stay up-to-date with our journey here. We'll post major milestones, current status reports, and the official announcement when our daughter makes her grand entrance.</p> 
-                <p style="font-family: Londrina Solid;">We promise to keep you in the loop!</p>
+                <h1 class="pacifico-regular">Updates &amp; Milestones</h1>
+                <p class="londrina-solid-regular">Stay up-to-date with our journey here. We'll post major milestones, current status reports, and the official announcement when our daughter makes her grand entrance.</p> 
+                <p class="londrina-solid-regular">We promise to keep you in the loop!</p>
             </div>
         </section>
 
         <!-- Registry Section -->
-        <section id="Registry" class="section">
+        <section id="Registry" class="section" tabindex="-1">
             <div class="registry-header">
-                <h1 style="font-family: Pacifico;">Our Registry Details</h1>
-                <p style="font-family: Londrina Solid;">Your love and support are truly the greatest gift!</p> 
-                <p style="font-family: Londrina Solid;">For those who have asked, we've curated a list of things that will help us prepare for our journey as parents.</p>
-                <p style="font-family: Londrina Solid;">Please know that your presence in her life is all we really need.</p>
+                <h1 class="pacifico-regular">Our Registry Details</h1>
+                <p class="londrina-solid-regular">Your love and support are truly the greatest gift!</p> 
+                <p class="londrina-solid-regular">For those who have asked, we've curated a list of things that will help us prepare for our journey as parents.</p>
+                <p class="londrina-solid-regular">Please know that your presence in her life is all we really need.</p>
             </div>
         </section>
 
         <!-- Baby Showers Section -->
-        <section id="BabyShowers" class="section">
+        <section id="BabyShowers" class="section" tabindex="-1">
             <div class="shower-header">
-                <h1 style="font-family: Pacifico;">Upcoming Celebrations</h1>
-                <p style="font-family: Londrina Solid;">We are so blessed that so many of you want to celebrate our daughter with us!</p> 
-                <p style="font-family: Londrina Solid;">Find all the specific details for any baby showers or gatherings you've been invited to here, including dates, locations, and how to RSVP. We can't wait to see you!</p>
+                <h1 class="pacifico-regular">Upcoming Celebrations</h1>
+                <p class="londrina-solid-regular">We are so blessed that so many of you want to celebrate our daughter with us!</p> 
+                <p class="londrina-solid-regular">Find all the specific details for any baby showers or gatherings you've been invited to here, including dates, locations, and how to RSVP. We can't wait to see you!</p>
             </div>
         </section>
 
         <!-- Contact Us Section -->
-        <section id="ContactUs" class="section">
+        <section id="ContactUs" class="section" tabindex="-1">
             <div class="contactus-header">
-                <h1 style="font-family: Pacifico;">Let's Stay Connected</h1>
-                <p style="font-family: Londrina Solid;">As things get busy, we want to ensure we have your most current contact information on file for the birth announcement and future updates.</p> 
-                <p style="font-family: Londrina Solid;">Please take a moment to confirm your details below so we can keep our little village connected!</p>
+                <h1 class="pacifico-regular">Let's Stay Connected</h1>
+                <p class="londrina-solid-regular">As things get busy, we want to ensure we have your most current contact information on file for the birth announcement and future updates.</p> 
+                <p class="londrina-solid-regular">Please take a moment to confirm your details below so we can keep our little village connected!</p>
             </div>
         </section>
     </main>
@@ -88,7 +97,6 @@
     <footer class="footer">
         <div class="footer-stack">
             <img src="images/Johnson-Family-Seal.png" class="family-seal" alt="Johnson Family Seal">
-            <!-- The span is now empty, ready to be populated by JavaScript -->
             <div>&copy; <span id="current-year"></span> JohnsonFamilyHub<p>All rights reserved</p></div>
         </div>
     </footer>
@@ -97,19 +105,57 @@
 <!-- 4. JAVASCRIPT FOR DYNAMIC ELEMENTS         -->
 <!-- ------------------------------------------- -->
 <script>
-    // Function to set the current year in the footer
+    // Set current year in the footer
     function setCopyrightYear() {
         const yearSpan = document.getElementById('current-year');
         if (yearSpan) {
-            // Get the full current year (e.g., 2024)
-            const currentYear = new Date().getFullYear();
-            // Update the span content
-            yearSpan.textContent = currentYear;
+            yearSpan.textContent = new Date().getFullYear();
         }
     }
 
-    // Use DOMContentLoaded to ensure the element exists before the script runs
-    document.addEventListener('DOMContentLoaded', setCopyrightYear);
+    // Mobile menu toggle (accessible)
+    function initMenuToggle() {
+        const toggle = document.querySelector('.menu-toggle');
+        const menu = document.getElementById('primary-nav');
+        if (!toggle || !menu) return;
+
+        const closeMenu = () => {
+            menu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        };
+
+        toggle.addEventListener('click', () => {
+            const isOpen = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
+
+        // Close when a link is clicked (nice on mobile)
+        menu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', closeMenu);
+        });
+    }
+
+    // Ensure anchored sections aren't hidden behind the sticky nav
+    function setScrollOffsets() {
+        const nav = document.querySelector('.navbar');
+        const sections = document.querySelectorAll('section.section');
+        if (!nav) return;
+        const navH = nav.offsetHeight || 64;
+        sections.forEach(s => s.style.scrollMarginTop = navH + 'px');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setCopyrightYear();
+        initMenuToggle();
+        setScrollOffsets();
+        // Update on resize in case sticky header height changes across breakpoints
+        window.addEventListener('resize', setScrollOffsets);
+    });
 </script>
 
 </body>

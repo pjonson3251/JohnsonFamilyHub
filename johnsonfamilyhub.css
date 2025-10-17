@@ -1,265 +1,231 @@
 /* ------------------------------------------- */
 /* 1. GLOBAL RESETS & FONT DEFINITIONS         */
 /* ------------------------------------------- */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
-html {
-    /* 1rem = 10px */
-    font-size: 62.5%; 
-}
+html { font-size: 62.5%; } /* 1rem = 10px */
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  background-color: #fff;
+  color: #000;
 }
 
-.londrina-solid-thin {
-  font-family: "Londrina Solid", sans-serif;
-  font-weight: 100;
-  font-style: normal;
+/* Visually hidden for accessibility */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
 }
 
-.londrina-solid-light {
-  font-family: "Londrina Solid", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.londrina-solid-regular {
-  font-family: "Londrina Solid", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.londrina-solid-black {
-  font-family: "Londrina Solid", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.pacifico-regular {
-  font-family: "Pacifico", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
+.londrina-solid-thin    { font-family: "Londrina Solid", sans-serif; font-weight: 100; font-style: normal; }
+.londrina-solid-light   { font-family: "Londrina Solid", sans-serif; font-weight: 300; font-style: normal; }
+.londrina-solid-regular { font-family: "Londrina Solid", sans-serif; font-weight: 400; font-style: normal; }
+.londrina-solid-black   { font-family: "Londrina Solid", sans-serif; font-weight: 900; font-style: normal; }
+.pacifico-regular       { font-family: "Pacifico", cursive; font-weight: 400; font-style: normal; }
 
 /* ------------------------------------------- */
 /* 2. LAYOUT & SECTION BASE STYLES             */
 /* ------------------------------------------- */
 .section {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: clamp(2.5rem, 5vw, 4rem); 
-    text-align: center;
+  /* Use dynamic viewport unit to avoid iOS address-bar jumps */
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 1.6rem;
+  /* Smooth anchor scrolling */
+  scroll-behavior: smooth;
 }
 
 .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
-	max-width: 90vw; 
-	background-color: rgba(255, 255, 255, 0.8); 
-	border: thin solid #000000;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	border-radius: 30px;
-    padding: 3rem;
-    color: #000000; 
-    max-width: 90vw;
+  background-color: rgba(255, 255, 255, 0.88);
+  border: thin solid #000;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: clamp(1.8rem, 2.5vw, 3rem);
+  color: #000;
+  max-width: min(90vw, 110rem);
+  font-size: clamp(1.8rem, 2.2vw, 2.4rem);
 }
 
-
 /* ------------------------------------------- */
-/* 3. NAVIGATION (DESKTOP)                     */
+/* 3. NAVIGATION (DESKTOP-FIRST)               */
 /* ------------------------------------------- */
 .navbar {
-    position: sticky;
-    top: 0;
-    height: clamp(5rem, 6vh, 8rem); 
-    width: 100%; 
-    background-color: #FFFFFF;
-    color: #000000;
-    z-index: 1000;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding: 0; 
-    border-bottom: thin solid #000000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  inset-inline: 0;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: thin solid #000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .navbar-content-wrapper {
-    width: 100%; 
-    max-width: 75%; 
-    height: 100%; 
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    padding: 0 2rem; 
+  width: 100%;
+  max-width: 120rem; /* ~1200px */
+  min-height: clamp(5.2rem, 6vh, 7.6rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 clamp(1.6rem, 2vw, 2.4rem);
+  gap: 1.2rem;
 }
 
 .nav-logo {
-    color: #000000;
-    text-decoration: none;
-    padding: 1rem 0;
-    /* NEW: Use clamp for responsive, non-wrapping font size */
-    font-size: clamp(2rem, 5vw, 3.5rem); 
-}
-
-.nav-links-container {
-    display: flex;
-    align-items: center;
-}
-
-.nav-link {
-    color: #000000;
-    text-decoration: none;
-    padding: 1rem 1.5rem; 
-    margin-left: 1rem;
-	font-family: "Londrina Solid";
-	font-size: 3rem;
+  color: #000;
+  text-decoration: none;
+  padding: 0.6rem 0;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 3rem;
-    padding: 1rem;
-    z-index: 1001; 
+  display: none;
+  cursor: pointer;
+  padding: .6rem;
+  border: none;
+  background: transparent;
+  line-height: 0;
 }
 
+.nav-links-container {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  padding: .8rem 1.2rem;
+  font-family: "Londrina Solid", sans-serif;
+  font-size: clamp(1.4rem, 1.6vw, 2.2rem);
+  border-radius: 10px;
+}
+
+.nav-link:focus-visible,
+.menu-toggle:focus-visible,
+.nav-logo:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+  border-radius: 10px;
+}
 
 /* ------------------------------------------- */
 /* 4. FOOTER                                   */
 /* ------------------------------------------- */
 .footer {
-    max-height: 10vh;
-    min-height: 8rem;
-    height: auto;
-    width: 100%;
-    background-color: #222;
-    color: #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.25rem 2rem; 
-    font-size: clamp(1rem, 1.5vw, 1.6rem);
-    text-align: center;
+  width: 100%;
+  background-color: #222;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .6rem 2rem;
+  font-size: clamp(1.2rem, 1.4vw, 1.6rem);
+  text-align: center;
 }
 
 .footer-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: clamp(1rem, 1.2vw, 1.2rem); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
 }
 
 .family-seal {
-    height: clamp(3rem, 4vh, 4rem); 
-	width: auto; 
-	object-fit: contain;
+  height: clamp(3rem, 4vh, 4rem);
+  width: auto;
+  object-fit: contain;
 }
-
 
 /* ------------------------------------------- */
 /* 5. SECTION BACKGROUNDS & COLORS             */
 /* ------------------------------------------- */
-#Home { 
-	background-color: #FFFFFF;
-	background-image: url("images/PixarFamilyPhoto-BabyBump-Cropped.png");
-	background-position: center;
-	background-size: contain;
-	background-repeat: no-repeat;
+#Home {
+  background-color: #FFFFFF;
+  background-image: url("images/PixarFamilyPhoto-BabyBump-Cropped.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-#Updates { background-color: #6D9860; }
-#Registry { background-color: #764B7F; }
-#BabyShowers { background-color: #C5B356; }
-#ContactUs { background-color: #C58788; }
-
+#Updates    { background-color: #6D9860; }
+#Registry   { background-color: #764B7F; }
+#BabyShowers{ background-color: #C5B356; }
+#ContactUs  { background-color: #C58788; }
 
 /* ------------------------------------------- */
-/* 6. MEDIA QUERIES (MOBILE)                   */
+/* 6. MEDIA QUERIES                            */
 /* ------------------------------------------- */
+
+/* Tablets & down */
+@media (max-width: 1024px) {
+  .navbar-content-wrapper { padding: 0 1.6rem; }
+  .nav-link { padding: .8rem 1rem; }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-    
-    .navbar-content-wrapper {
-        max-width: 100%;
-        padding: 0 1.5rem;
-    }
+  .menu-toggle { display: inline-flex; }
 
-    .menu-toggle {
-        display: block;
-    }
+  .nav-links-container {
+    display: none;
+    position: absolute;
+    left: 0; right: 0;
+    top: 100%;
+    flex-direction: column;
+    background: #fff;
+    border-bottom: thin solid #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  .nav-links-container.open { display: flex; }
 
-    .nav-links-container {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: clamp(5rem, 6vh, 8rem); 
-        left: 0;
-        width: 100%;
-        background-color: #FFFFFF;
-        border-bottom: thin solid #000000;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 999;
-    }
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 1.6rem 0;
+    border-top: 1px solid #eee;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+  }
+  .nav-link:first-child { border-top: none; }
 
-    .nav-links-container.open {
-        display: flex;
-    }
+  .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
+    max-width: 92vw;
+  }
 
-    .nav-link {
-        width: 100%;
-        text-align: center;
-        margin: 0;
-        padding: 1.5rem 0;
-        border-top: 1px solid #eee;
-        font-size: 2.5rem; 
-    }
-
-    .nav-link:first-child {
-        border-top: none;
-    }
-
-    .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
-        max-width: 90vw;
-        padding: 2rem 1.5rem;
-        font-size: 1.8rem;
-    }
-
-    #Home {
-        background-size: 80%;
-    }
+  #Home { background-size: 80%; }
 }
 
-/* ------------------------------------------- */
-/* 6. MEDIA QUERIES (SMALL MOBILE)             */
-/* ------------------------------------------- */
+/* Small mobile */
 @media (max-width: 480px) {
-    .navbar-content-wrapper {
-        /* Tighter padding to prevent logo wrapping on smallest phones */
-        padding: 0 1rem; 
-    }
+  .navbar-content-wrapper { padding: 0 1rem; }
+  .nav-logo { font-size: clamp(1.9rem, 5.5vw, 2.6rem); }
+  .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
+    padding: 1.4rem 1rem;
+    font-size: 1.6rem;
+  }
+  #Home { background-size: 90%; }
+}
 
-    .nav-logo {
-        /* Make the logo font size clamp down even lower */
-        font-size: clamp(1.8rem, 4.5vw, 3rem); 
-    }
-
-    .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
-        /* Reduce padding and text size in content blocks for better fit */
-        padding: 1.5rem 1rem; 
-        font-size: 1.6rem; 
-    }
-
-    #Home {
-        /* Allow the background image to take up slightly more space */
-        background-size: 90%;
-    }
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
 }
