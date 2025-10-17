@@ -17,7 +17,7 @@ body {
   color: #000;
 }
 
-/* Base focus styles for accessibility */
+/* Base focus styles for accessibility (Applied to interactive elements) */
 .nav-link:focus-visible,
 .menu-toggle:focus-visible,
 .nav-logo:focus-visible {
@@ -30,7 +30,9 @@ body {
 /* 2. TYPOGRAPHY & UTILITIES                   */
 /* ------------------------------------------- */
 
-/* Visually hidden for accessibility */
+/* --- 2.1. Accessibility Utilities --- */
+
+/* Visually hidden for screen readers */
 .sr-only {
   position: absolute !important;
   width: 1px; height: 1px;
@@ -39,7 +41,8 @@ body {
   white-space: nowrap; border: 0;
 }
 
-/* Font Definitions */
+/* --- 2.2. Font Definitions --- */
+
 .londrina-solid-thin    { font-family: "Londrina Solid", sans-serif; font-weight: 100; font-style: normal; }
 .londrina-solid-light   { font-family: "Londrina Solid", sans-serif; font-weight: 300; font-style: normal; }
 .londrina-solid-regular { font-family: "Londrina Solid", sans-serif; font-weight: 400; font-style: normal; }
@@ -50,6 +53,8 @@ body {
 /* ------------------------------------------- */
 /* 3. LAYOUT & SECTION STRUCTURE               */
 /* ------------------------------------------- */
+
+/* --- 3.1. Main Section Containers --- */
 
 .section {
   /* Use dynamic viewport unit to avoid iOS address-bar jumps */
@@ -64,6 +69,8 @@ body {
   scroll-behavior: smooth;
 }
 
+/* --- 3.2. Section Content Blocks --- */
+
 /* Content Container Styles (used for all main header/content boxes) */
 .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
   background-color: rgba(255, 255, 255, 0.88);
@@ -76,7 +83,8 @@ body {
   font-size: clamp(1.8rem, 2.2vw, 2.4rem);
 }
 
-/* Section Backgrounds & Colors */
+/* --- 3.3. Section Backgrounds & Colors --- */
+
 #Home {
   background-color: #FFFFFF;
   background-image: url("images/PixarFamilyPhoto-BabyBump-Cropped.png");
@@ -94,6 +102,8 @@ body {
 /* ------------------------------------------- */
 /* 4. COMPONENT: NAVIGATION (HEADER)           */
 /* ------------------------------------------- */
+
+/* --- 4.1. Nav Bar Shell & Wrapper --- */
 
 .navbar {
   position: sticky;
@@ -121,6 +131,8 @@ body {
   gap: 1.2rem;
 }
 
+/* --- 4.2. Logo & Desktop Links --- */
+
 .nav-logo {
   color: #000;
   text-decoration: none;
@@ -129,6 +141,26 @@ body {
   line-height: 1.1;
   white-space: nowrap;
 }
+
+.nav-links-container {
+  display: flex;
+  align-items: center;
+	text-align: right;
+  gap: .8rem;
+}
+
+.nav-link {
+	width: 100%;
+  color: #000;
+  text-decoration: none;
+  padding: .8rem 1.2rem;
+  font-family: "Londrina Solid", sans-serif;
+  font-size: clamp(2.4rem, 2.6vw, 4.2rem);
+  border-radius: 10px;
+	text-align: right;
+}
+
+/* --- 4.3. Mobile Menu Toggle (Hamburger) --- */
 
 .menu-toggle {
   display: none; /* Hidden by default on desktop */
@@ -139,59 +171,58 @@ body {
   line-height: 0;
 }
 
-.nav-links-container {
-  display: flex;
-  align-items: center;
-  gap: .8rem;
+/* Base style for the hamburger container */
+.hamburger {
+  width: 30px;
+  height: 22px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  z-index: 1001; /* Ensure button is clickable over menu */
 }
 
-.nav-link {
-  color: #000;
-  text-decoration: none;
-  padding: .8rem 1.2rem;
-  font-family: "Londrina Solid", sans-serif;
-  font-size: clamp(1.4rem, 1.6vw, 2.2rem);
-  border-radius: 10px;
-}
-
-/* --- Start: Traditional Hamburger Animation Styles --- */
-
-/* Base bar styles */
+/* Style for the three bar elements */
 .hamburger .bar {
   display: block;
-  width: 10vw;
+  position: absolute;
   height: 4px;
-  margin: 5px auto; /* Creates space between the bars */
-  background-color: #000;
-  transition: all 0.3s ease-in-out; /* Smooth transition for rotation/movement */
+  width: 100%;
+  background: #000;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
 }
 
-/* Increase padding for a better mobile touch target */
-.menu-toggle.hamburger {
-  padding: 10px; 
+/* Positioning the three bars */
+.hamburger .bar:nth-child(1) { top: 0px; }
+.hamburger .bar:nth-child(2) { top: 9px; }
+.hamburger .bar:nth-child(3) { top: 18px; }
+
+/* Hamburger Open State (The 'X' transformation) */
+.hamburger.menu-open .bar:nth-child(1) {
+  top: 9px;
+  transform: rotate(135deg);
 }
 
-/* Transform the bars when the menu is open (menu-open class is toggled by JS) */
-.menu-toggle.menu-open .bar:nth-child(2) {
-  opacity: 0; /* Hide the middle bar */
+.hamburger.menu-open .bar:nth-child(2) {
+  opacity: 0; /* Hide middle bar */
+  left: -60px; /* Optional: slide out middle bar */
 }
 
-.menu-toggle.menu-open .bar:nth-child(1) {
-  /* Move bar 1 down by the distance of one bar + one margin (5px + 5px = 10px, or 8px works well visually) and rotate +45 deg */
-  transform: translateY(8px) rotate(45deg); 
+.hamburger.menu-open .bar:nth-child(3) {
+  top: 9px;
+  transform: rotate(-135deg);
 }
-
-.menu-toggle.menu-open .bar:nth-child(3) {
-  /* Move bar 3 up and rotate -45 deg */
-  transform: translateY(-8px) rotate(-45deg); 
-}
-
-/* --- End: Traditional Hamburger Animation Styles --- */
 
 
 /* ------------------------------------------- */
 /* 5. COMPONENT: FOOTER                        */
 /* ------------------------------------------- */
+
+/* --- 5.1. Footer Container --- */
 
 .footer {
   width: 100%;
@@ -204,6 +235,8 @@ body {
   font-size: clamp(1.2rem, 1.4vw, 1.6rem);
   text-align: center;
 }
+
+/* --- 5.2. Footer Content Stack --- */
 
 .footer-stack {
   display: flex;
@@ -224,13 +257,13 @@ body {
 /* 6. RESPONSIVENESS / MEDIA QUERIES           */
 /* ------------------------------------------- */
 
-/* Tablet (Max-width: 1024px) */
+/* --- 6.1. Tablet (Max-width: 1024px) --- */
 @media (max-width: 1024px) {
   .navbar-content-wrapper { padding: 0 1.6rem; }
   .nav-link { padding: .8rem 1rem; }
 }
 
-/* Mobile (Max-width: 768px) - Navigation Menu and General Layout Adjustments */
+/* --- 6.2. Mobile (Max-width: 768px) --- */
 @media (max-width: 768px) {
   /* Navigation adjustments (Hamburger is visible, Links hidden by default) */
   .menu-toggle { display: inline-flex; } /* Ensure hamburger is visible */
@@ -239,68 +272,65 @@ body {
   /* Dropdown Menu State */
   .nav-links-container.open {
     display: flex;
+    justify-content: center;
+    align-items: right;
+    text-align: right;
+    font-size: 8vh;
     position: absolute;
+    width: 100%;
     left: 0; right: 0; top: 100%;
     flex-direction: column;
     background: #fff;
     border-bottom: thin solid #000;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     z-index: 999; /* Below navbar, above content */
-    
-    /* NEW: Align links to the right */
-    align-items: flex-end;
-    padding-right: 2rem; /* Add some padding on the right for spacing */
   }
-  
-  /* NEW: Increase link size for better tap target */
-  .nav-links-container.open .nav-link {
-    width: 100%; /* Make link full width of the container for a large tap area */
-	height: 10vh;
-    text-align: right;
-	  justify-content: center;
-    padding: 1.2rem 2rem; /* Increase vertical and horizontal padding */
-    font-size: 2.2rem; /* Ensure font is large enough for legibility */
-  }
-
 
   /* Content containers get slightly wider on mobile */
   .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
     max-width: 92vw;
   }
-	
-	
 }
 
-
-/* Small Mobile (Max-width: 480px) */
+/* --- 6.3. Small Mobile (Max-width: 480px) --- */
 @media (max-width: 480px) {
   .navbar-content-wrapper { padding: 0 1rem; }
   .nav-logo { font-size: clamp(1.9rem, 5.5vw, 2.6rem); }
   
+  /* Redundant block from 768px - preserved as per instruction */
+  .nav-links-container.open {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    text-align: right;
+    font-size: 8vh;
+    position: absolute;
+    width: 100%;
+    left: 0; right: 0; top: 100%;
+    flex-direction: column;
+    background: #fff;
+    border-bottom: thin solid #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 999; /* Below navbar, above content */
+  }
+
   .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
     padding: 1.4rem 1rem;
     font-size: 1.6rem;
-  }
-	
-	  .nav-links-container.open .nav-link {
-    width: 100%; /* Make link full width of the container for a large tap area */
-	height: 10vh;
-    text-align: right;
-		  justify-content: center;
-    padding: 1.2rem 2rem; /* Increase vertical and horizontal padding */
-    font-size: 2.2rem; /* Ensure font is large enough for legibility */
   }
   
   #Home { background-size: 90%; }
 }
 
-/* Respect users who prefer less motion (Should always be one of the first or last media queries) */
+/* --- 6.4. Accessibility Preference (Reduced Motion) --- */
 @media (prefers-reduced-motion: reduce) {
   /* Disable smooth scrolling */
   * { scroll-behavior: auto !important; }
   
   /* Disable transitions on hamburger lines if any */
-  .hamburger .bar {
+  .hamburger .bar,
+  .hamburger .bar:nth-child(1),
+  .hamburger .bar:nth-child(3) {
     transition: none !important;
   }
 }

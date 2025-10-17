@@ -85,23 +85,44 @@
 <!-- ------------------------------------------- -->
 <!-- 4. JAVASCRIPT FOR DYNAMIC ELEMENTS         -->
 <!-- ------------------------------------------- -->
-<!-- NAV: Hamburger Menu Toggle -->
 <script>
+    // UTIL: Set current year in the footer
+    function setCopyrightYear() {
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    }
+
+    // NAV: Hamburger Menu Toggle
     function setupNavToggle() {
         const navToggle = document.querySelector('.menu-toggle');
         const navLinksContainer = document.getElementById('primary-nav');
 
         if (navToggle && navLinksContainer) {
             navToggle.addEventListener('click', () => {
-                // Toggle the 'open' class for menu visibility (existing functionality)
+                // Toggle the 'open' class for menu visibility (CSS handles display)
                 navLinksContainer.classList.toggle('open');
                 
-                // Toggle the 'menu-open' class on the button for the hamburger animation
-                navToggle.classList.toggle('menu-open');
+                // NEW: Toggle the 'menu-open' class on the button to trigger the 'X' animation
+                navToggle.classList.toggle('menu-open'); 
 
                 // Update aria-expanded state for accessibility
                 const isExpanded = navLinksContainer.classList.contains('open');
                 navToggle.setAttribute('aria-expanded', isExpanded);
+            });
+
+            // Close menu when a link is clicked (useful for single-page scrolling)
+            const navLinks = navLinksContainer.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navLinksContainer.classList.remove('open');
+                        // NEW: Remove 'menu-open' to reset the icon back to 3 bars
+                        navToggle.classList.remove('menu-open'); 
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
             });
         }
     }
@@ -111,17 +132,6 @@
         setCopyrightYear();
         setupNavToggle();
     });
-	</script>
-	<script>
-    // UTIL: Set current year in the footer
-    function setCopyrightYear() {
-        const yearSpan = document.getElementById('current-year');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
-    }
-
-  
 </script>
 </body>
 </html>
