@@ -58,6 +58,7 @@ body {
     color: #000000;
     z-index: 1000;
     display: flex;
+    /* RESTORED: Center the whole navbar-content-wrapper */
     justify-content: center; 
     align-items: center;
     padding: 0; 
@@ -66,6 +67,7 @@ body {
 }
 
 .navbar-content-wrapper {
+    /* RESTORED: Wrapper to handle max-width and internal spacing/justification */
     width: 100%; 
     max-width: 75%; 
     height: 100%; 
@@ -76,6 +78,7 @@ body {
 }
 
 .nav-logo {
+    /* RESTORED: Style for the logo inside the wrapper */
     color: #000000;
     text-decoration: none;
     font-size: clamp(2rem, 3.5vw, 3.5rem); 
@@ -91,13 +94,14 @@ body {
     color: #000000;
     text-decoration: none;
     padding: 1rem 1.5rem; 
+    /* Changed margin-left back to 1rem based on the uploaded file */
     margin-left: 1rem;
 	font-family: "Londrina Solid";
 	font-size: 3rem;
 }
 
 /* ------------------------------------------- */
-/* 2. Full-Viewport Sections (Layout)          */
+/* 2. Full-Viewport Sections (Layout & General)*/
 /* ------------------------------------------- */
 .section {
     height: 100vh;
@@ -114,15 +118,15 @@ body {
 /* ------------------------------------------- */
 #Home { 
 	background-color: #FFFFFF;
-	background-image: url("images/PixarFamilyPhoto-BabyBump-Cropped.png");
+	background-image: url("images/PixarFamilyPhoto-(Cropped).png");
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
 }
 
 .hero-container {
-	max-width: 55vw;
-	background-color: rgba(255, 255, 255, 0.5); 
+	max-width: 60vw;
+	background-color: rgba(255, 255, 255, 0.8); 
 	border: thin solid #000000;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 30px;
@@ -135,34 +139,43 @@ body {
 #BabyShowers { background-color: #C5B356; }
 #ContactUs { background-color: #C58788; }
 
+
 /* ------------------------------------------- */
 /* 4. Footer                                   */
 /* ------------------------------------------- */
 .footer {
-    height: 10vh; /* Increased height to accommodate stacked items */
+    /* Changed fixed height to max-height to respect the 10vh limit while allowing content flexibility */
+    max-height: 10vh;
+    /* Added min-height to ensure the footer is always visible */
+    min-height: 8rem;
+    height: auto;
     width: 100%;
     background-color: #222;
     color: #ccc;
     display: flex;
-    /* Center the single 'footer-stack' item */
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
+    /* Reduced padding to maximize vertical space for content */
+    padding: 0.25rem 2rem; 
+    
+    /* Ensure text size is scalable and centered */
+    font-size: clamp(1rem, 1.5vw, 1.6rem);
+    text-align: center;
 }
 
-/* NEW: Style for stacking elements */
 .footer-stack {
     display: flex;
-    /* Stack items vertically */
     flex-direction: column;
-    /* Center text/image horizontally within the stack */
-    align-items: center; 
-    /* Add space between the image and the text */
-    font-size: 1rem; /* Make copyright text slightly smaller */
-	text-align: center;
+    align-items: center;
+    /* Set gap for stacking. Using a small value helps contain everything in 10vh */
+    gap: 0.1rem;
+    /* Ensure font size for the text lines remains small and readable */
+    font-size: clamp(1rem, 1.2vw, 1.2rem); 
 }
 
 .family-seal {
-	height: 5vh;
+    /* Scale image relative to the viewport height for responsiveness */
+    height: clamp(3rem, 4vh, 4rem); 
 	width: auto; 
 	object-fit: contain;
 }
