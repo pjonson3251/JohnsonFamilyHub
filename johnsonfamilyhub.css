@@ -159,8 +159,8 @@ body {
 /* Base bar styles */
 .hamburger .bar {
   display: block;
-  width: 25px;
-  height: 3px;
+  width: 10vw;
+  height: 4px;
   margin: 5px auto; /* Creates space between the bars */
   background-color: #000;
   transition: all 0.3s ease-in-out; /* Smooth transition for rotation/movement */
@@ -246,13 +246,30 @@ body {
     border-bottom: thin solid #000;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     z-index: 999; /* Below navbar, above content */
+    
+    /* NEW: Align links to the right */
+    align-items: flex-end;
+    padding-right: 2rem; /* Add some padding on the right for spacing */
   }
+  
+  /* NEW: Increase link size for better tap target */
+  .nav-links-container.open .nav-link {
+    width: 100%; /* Make link full width of the container for a large tap area */
+	height: 10vh;
+    text-align: right;
+    padding: 1.2rem 2rem; /* Increase vertical and horizontal padding */
+    font-size: 2.2rem; /* Ensure font is large enough for legibility */
+  }
+
 
   /* Content containers get slightly wider on mobile */
   .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
     max-width: 92vw;
   }
+	
+	
 }
+
 
 /* Small Mobile (Max-width: 480px) */
 @media (max-width: 480px) {
@@ -262,6 +279,14 @@ body {
   .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
     padding: 1.4rem 1rem;
     font-size: 1.6rem;
+  }
+	
+	  .nav-links-container.open .nav-link {
+    width: 100%; /* Make link full width of the container for a large tap area */
+	height: 10vh;
+    text-align: right;
+    padding: 1.2rem 2rem; /* Increase vertical and horizontal padding */
+    font-size: 2.2rem; /* Ensure font is large enough for legibility */
   }
   
   #Home { background-size: 90%; }
