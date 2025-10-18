@@ -333,7 +333,10 @@ const NAME_TRIGGERS = [
   { match: '[^A-Za-z]', type: 'regex', message: 'Alright Elon... Real names only please', block: true },
   { match: 'Patricia', type: 'exact', message: "I totally get why you suggested Patricia—it's a great name. But we already have an amazing Trish in the family, and I think we'd run into too much confusion! We should probably save the name 'Trish' for our original, awesome one.", block: true },
 	{ match: 'Trish', type: 'exact', message: "I totally get why you suggested Patricia—it's a great name. But we already have an amazing Trish in the family, and I think we'd run into too much confusion! We should probably save the name 'Trish' for our original, awesome one.", block: true },
-  { match: 'Mildred', type: 'regex', message: "We love Aunt Mildred, and she truly is one of the strongest people we know! But we're looking for something that's just for our daughter, so we'll pass on that name.", block: true}
+  { match: 'Mildred', type: 'exact', message: "We love Aunt Mildred, and she truly is one of the strongest people we know! But we're looking for something that's just for our daughter, so we'll pass on that name.", block: true},
+	{ match: 'Kathy', type: 'exact', message: "We're going to hold off on Kathryn—we're convinced my mom would charge us a royalty fee for using her name! We'll keep looking for something else.", block: true},
+	{ match: 'Kathryn', type: 'exact', message: "We're going to hold off on Kathryn—we're convinced my mom would charge us a royalty fee for using her name! We'll keep looking for something else.", block: true},
+	{ match: '^(?:[^A-Za-z]*[A-Za-z]){9,}', type: 'regex', message: "Thank you for the suggestion. While we admire the name’s impressive typographic density, we're trying to stick to names that can be announced without having to take a breath halfway through.", block: true },
 	
 ];
 
