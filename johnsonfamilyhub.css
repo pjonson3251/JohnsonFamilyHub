@@ -606,6 +606,7 @@ body {
 	box-shadow: 4px 4px 8px rgba(0,0,0,0.6);
 	align-content: space-around;
 	text-align: center;
+	object-fit: contain;
 	background-color: #E6ABC1
 }
 
