@@ -498,7 +498,9 @@ body {
   .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
     max-width: 92vw; 
   }
-    
+	.hero-container{
+		  background-color: rgba(255, 255, 255, 0.3);
+	}  
   /* --- Timeline Stacking for Mobile --- */
 
   /* Center the timeline line on the left side (e.g., at 3.1rem) */
@@ -564,7 +566,9 @@ body {
     padding: 1.4rem 1rem;
     font-size: 1.6rem;
   }
-  
+  	.hero-container{
+		  background-color: rgba(255, 255, 255, 0.3);
+	}  
   #Home { background-size: 90%; }
     
   .filter-button {
