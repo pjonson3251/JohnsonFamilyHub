@@ -109,6 +109,7 @@ body {
 #Registry   { background-color: #F2D98D; }
 #BabyShowers{ background-color: #D9665B; }
 #ContactUs  { background-color: #FFFFFF; }
+#NameGame  { background-color: #B83C9D; }
 
 
 /* ------------------------------------------- */
@@ -1080,4 +1081,63 @@ body {
 }
 @keyframes l3 {
     100% {background-size:100%}
+}
+
+/* =========================
+   10. COMPONENT: NAME GAME
+   (scoped to #NameGame)
+   ========================= */
+#NameGame { padding: 2rem 0; }
+#NameGame .updates-header { text-align: center; margin-bottom: 1.5rem; }
+#NameGame .updates-header h1 { font-family: "Pacifico", cursive; font-size: clamp(28px,5vh,52px); margin: 0 0 .3rem; }
+#NameGame .updates-header p { font-family: "Londrina Solid", system-ui, sans-serif; font-size: clamp(18px,2.2vh,28px); margin: 0; }
+
+#NameGame .ng-grid { width: 100%; max-width: 120rem; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 0 1.2rem; }
+#NameGame .ng-card { background:#fff; border: 1px solid #000; border-radius: 16px; box-shadow: 0 4px 8px rgba(0,0,0,.08); text-align: left; padding: 2rem; }
+#NameGame .ng-h2 { font-family: "Pacifico", cursive; font-size: 2.4rem; margin: 0 0 1.2rem; }
+#NameGame .ng-muted { color: #555; font-size: 1.4rem; margin:.4rem 0 1rem; }
+
+#NameGame .cf-field { margin-bottom: 1rem; }
+#NameGame .form-label { font-weight: 700; display:block; margin-bottom:.4rem; }
+#NameGame input[type="text"]{ width:100%; padding:.9rem 1rem; border:1px solid #bbb; border-radius:10px; font-size:1.6rem; }
+#NameGame .cf-btn{ border:2px solid #2A3E59; background: gray; color:#fff; border-radius:10px; font-family:"Londrina Solid", system-ui, sans-serif; font-size:1.6rem; padding:.6rem 1.2rem; cursor:pointer; }
+#NameGame .cf-btn[disabled]{opacity:.6; cursor:not-allowed}
+
+#NameGame .hp-field{ position:absolute; left:-9999px; height:0; width:0; opacity:0; }
+#NameGame .cf-alert{ border-radius:10px; padding:1rem 1.2rem; margin-bottom:1rem; font-size:1.5rem; }
+#NameGame .cf-alert.success{ background:#e8f5e9; color:#256029; border:1px solid #a5d6a7; }
+#NameGame .cf-alert.error{ background:#ffebee; color:#b71c1c; border:1px solid #ef9a9a; }
+#NameGame .hidden{ display:none; }
+
+#NameGame .ng-leader-list{ display:grid; gap:1rem; }
+#NameGame .ng-leader{ border:1px solid #ddd; border-radius:12px; background:#fafafa; padding:1rem 1rem 1.2rem; }
+#NameGame .ng-leader-row{ display:grid; grid-template-columns: 5ch 1fr auto; align-items:center; gap:1rem; margin-bottom:.4rem; }
+#NameGame .ng-leader-rank{ font-family:"Londrina Solid", system-ui, sans-serif; font-size:2rem; color: var(--timeline-accent-color, #D9665B); }
+#NameGame .ng-leader-name{ font-size:2rem; font-weight:700; }
+#NameGame .ng-leader-score{ font-size:1.6rem; justify-self:end; }
+
+#NameGame .ng-subrow{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:.4rem 0 .6rem; }
+#NameGame .ng-vote-pack{ display:flex; gap:.4rem; }
+#NameGame .ng-vote-btn{ display:inline-flex; align-items:center; gap:.3rem; padding:.45rem .75rem; border-radius:10px; border:1px solid #bbb; background:#fff; font-size:1.5rem; cursor:pointer; }
+#NameGame .ng-vote-btn[disabled]{opacity:.5; cursor:not-allowed}
+
+#NameGame .ng-meter{ height:10px; background:#eee; border-radius:999px; overflow:hidden; }
+#NameGame .ng-meter-fill{ height:100%; width:0%; background: var(--timeline-line-color, #F2D98D); }
+
+#NameGame .ng-empty{ color:#555; font-style:italic; }
+#NameGame .ng-actions{ margin-top:1rem; }
+#NameGame .ng-footnote{ margin-top:.8rem; }
+
+/* Popup / Modal */
+#NameGame .ng-modal{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:9999; }
+#NameGame .ng-modal.show{ display:flex; }
+#NameGame .ng-modal .ng-modal-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.45); }
+#NameGame .ng-modal .ng-modal-card{ position:relative; background:#fff; border:1px solid #000; border-radius:16px; width:min(90vw,520px); padding:1.2rem 1.4rem; box-shadow:0 10px 30px rgba(0,0,0,.25); }
+#NameGame .ng-modal h3{ font-family:"Pacifico", cursive; font-size:2rem; margin:0 0 .6rem; }
+#NameGame .ng-modal p{ margin:.4rem 0; font-size:1.5rem; }
+#NameGame .ng-modal .ng-modal-actions{ margin-top:1rem; display:flex; justify-content:flex-end; gap:.6rem; }
+
+/* Responsiveness */
+@media (max-width: 900px){
+  #NameGame .ng-grid{ grid-template-columns: 1fr; }
 }

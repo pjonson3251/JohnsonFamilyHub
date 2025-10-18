@@ -19,6 +19,7 @@
         <a class="nav-link" href="#Updates">Updates</a>
         <a class="nav-link" href="#Registry">Registry</a>
         <a class="nav-link" href="#BabyShowers">Baby Showers</a>
+		<a class="nav-link" href="#NameGame">Baby Name Submissions</a>
         <a class="nav-link" href="#ContactUs">Contact Us</a>
       </div>
       <button aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu" class="menu-toggle hamburger">
@@ -238,7 +239,324 @@
       </div>
     </section>
 
-    <!-- Contact Us -->
+  <!-- BABY NAME GAME -->
+<section class="section" id="NameGame" tabindex="-1" aria-labelledby="ng-header">
+  <div class="updates-header">
+    <h1 id="ng-header" style="font-family: Pacifico; font-size: 5vh">Baby Name Submissions</h1>
+    <p style="font-family: Londrina Solid">Help us find the perfect name for our daughter! Suggest a name and cast an up/down vote.</p>
+  </div>
+
+  <div class="ng-grid">
+    <!-- Suggestion card -->
+    <div class="ng-card" role="form" aria-labelledby="ng-suggest-title">
+      <h2 id="ng-suggest-title" class="ng-h2">Suggest a Name</h2>
+
+      <div id="ngMessage" class="cf-alert hidden" role="status" aria-live="polite"></div>
+
+      <form id="nameGameForm" novalidate>
+        <!-- Honeypot + timing -->
+        <input type="text" id="ng_guard" class="hp-field" tabindex="-1" aria-hidden="true" autocomplete="new-password" inputmode="none" />
+        <input type="hidden" name="ngStartedAt" id="ngStartedAt" />
+
+        <div class="cf-field">
+          <label class="form-label" for="ng_name">Name</label>
+          <input id="ng_name" name="ng_name" type="text" required />
+        </div>
+
+        <div class="cf-actions">
+          <button type="submit" id="ng_submit" class="cf-btn">Submit Suggestion</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Leaders card -->
+    <div class="ng-card" aria-labelledby="ng-leaders-title">
+      <h2 id="ng-leaders-title" class="ng-h2">Current Leaders</h2>
+      <p class="ng-muted">Upvote/downvote existing names. You can react to each name once.</p>
+      <div id="ngLeaders" class="ng-leader-list" role="list">
+        <div class="ng-empty">Fetching leaders…</div>
+      </div>
+      <div class="ng-actions">
+        <button type="button" id="ng_refresh" class="cf-btn" aria-label="Refresh leaders">Refresh</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup / Modal -->
+  <div id="ngModal" class="ng-modal" role="dialog" aria-modal="true" aria-labelledby="ngModalTitle" aria-hidden="true">
+    <div class="ng-modal-backdrop" data-close="1"></div>
+    <div class="ng-modal-card">
+      <div id="ngModalBody"></div>
+      <div class="ng-modal-actions">
+        <button type="button" class="cf-btn" data-close="1">OK</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// =========================
+//  Baby Name Game (inline)
+// =========================
+
+// === 1) CONFIG ===
+const NAMEGAME_URL = "https://script.google.com/macros/s/AKfycbw3Vz_AqlZolAsuqP87VW-QODzXpef6-oZS1P2sOy7ylKbsyPYqiirr8jI6ZVX9kfRb/exec";  // your /exec URL
+const NAMEGAME_SITE_LABEL = ""; // optional: override origin+path for logging
+
+// Set which names trigger a popup (exact/startsWith/includes/regex).
+// `block: true` cancels submission; false shows the note but still submits.
+const NAME_TRIGGERS = [
+  { match: 'Karen', type: 'exact', message: 'Ummmm... No... Hard pass from the committee.', block: true },
+  { match: '^X [A-ZÆ]{1}', type: 'regex', message: 'Rocket science detected. Maybe a simpler spelling?', block: true },
+  { match: 'Kevin', type: 'exact', message: 'No, Emily...', block: true },
+  { match: 'jujitsu', type: 'exact', message: 'No, Emily...', block: true },
+	{ match: 'jujistu', type: 'exact', message: 'No, Emily...', block: true },
+	{ match: 'Sarah', type: 'exact', message: 'Sarah, we are not naming our daughter after you', block: true },
+	{ match: '[^A-Za-z]', type: 'regex', message: 'Alright Elon... Letters only please', block: true },
+];
+
+// === 2) ELEMENTS ===
+const ngForm        = document.getElementById('nameGameForm');
+const ngMsg         = document.getElementById('ngMessage');
+const ngStartedAt   = document.getElementById('ngStartedAt');
+const ngGuard       = document.getElementById('ng_guard');
+const ngName        = document.getElementById('ng_name');
+// (optional) const ngWho  = document.getElementById('ng_who');
+const ngLeaders     = document.getElementById('ngLeaders');
+const ngRefreshBtn  = document.getElementById('ng_refresh');
+const ngSubmitBtn   = document.getElementById('ng_submit');
+
+// Popup
+const ngModal       = document.getElementById('ngModal');
+const ngModalBody   = document.getElementById('ngModalBody');
+
+// === 3) UTILITIES ===
+const siteLabel = (NAMEGAME_SITE_LABEL && NAMEGAME_SITE_LABEL.trim()) ? NAMEGAME_SITE_LABEL.trim() : (location.origin + location.pathname);
+
+function escapeHTML(s = '') {
+  return s.replace(/[&<>"']/g, c => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[c]);
+}
+function showMsg(text, type='success'){ if(!ngMsg) return; ngMsg.textContent = text; ngMsg.className = 'cf-alert ' + type; ngMsg.classList.remove('hidden'); }
+function clearMsg(){ if(!ngMsg) return; ngMsg.textContent = ''; ngMsg.className = 'cf-alert hidden'; }
+function lsKey(k){ return 'NameGame::' + k + '::' + siteLabel; }
+
+// Voter id (sticky per browser/site)
+function getVoterId(){
+  try {
+    const k = lsKey('voterId');
+    let v = localStorage.getItem(k);
+    if(!v){ v = 'v_' + Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem(k, v); }
+    return v;
+  } catch { return 'v_' + Math.random().toString(36).slice(2); }
+}
+const VOTER_ID = getVoterId();
+
+// Trigger matching (case + diacritic insensitive for non-regex types)
+function normalize(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim(); }
+function shouldTriggerPopup(name){
+  const raw = name || '';
+  for(const t of NAME_TRIGGERS){
+    if(!t || !t.match) continue;
+    const type = (t.type||'exact').toLowerCase();
+    if(type==='regex'){
+      try { if(new RegExp(t.match,'i').test(raw)) return t; } catch {}
+    } else {
+      const target = normalize(t.match||'');
+      const val = normalize(raw);
+      if(type==='exact' && val === target) return t;
+      if(type==='startswith' && val.startsWith(target)) return t;
+      if(type==='includes' && val.includes(target)) return t;
+    }
+  }
+  return null;
+}
+
+// Modal helpers
+function openModal(html){ if(!ngModal) return; ngModalBody.innerHTML = html; ngModal.classList.add('show'); ngModal.setAttribute('aria-hidden','false'); }
+function closeModal(){ if(!ngModal) return; ngModal.classList.remove('show'); ngModal.setAttribute('aria-hidden','true'); }
+if(ngModal){
+  ngModal.addEventListener('click', (e)=>{ if(e.target?.dataset?.close) closeModal(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+}
+
+// Arm timer + honeypot
+if(ngForm && ngStartedAt){
+  const arm = () => { if(!ngStartedAt.value) ngStartedAt.value = Date.now().toString(); };
+  ngForm.addEventListener('input', arm, {once:true});
+  ngForm.addEventListener('focusin', arm, {once:true});
+}
+if(ngGuard){
+  ngGuard.setAttribute('name', 'hp_' + Math.random().toString(36).slice(2));
+  ngGuard.value = ''; ngGuard.addEventListener('focus', e=>{ e.target.value=''; });
+}
+
+// === 4) API (CORS-safe simple requests) ===
+async function apiGetLeaders(){
+  const url = NAMEGAME_URL + `?action=leaders&voterId=${encodeURIComponent(VOTER_ID)}`;
+  const res = await fetch(url, { method:'GET' }); // no custom headers (avoid preflight)
+  if(!res.ok) throw new Error(`leaders fetch failed (HTTP ${res.status})`);
+  return res.json();
+}
+async function apiSuggest(name, who){
+  const payload = { mode:'suggest', name, suggestedBy: (who||''), note:'', voterId: VOTER_ID, site: siteLabel };
+  const res = await fetch(NAMEGAME_URL, { method:'POST', headers:{ 'Content-Type':'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
+  const text = await res.text();
+  if(!res.ok) throw new Error(`suggest failed (HTTP ${res.status}): ${text.slice(0,300)}`);
+  try { return JSON.parse(text); } catch { return { ok:true }; }
+}
+async function apiVote(name, dir){
+  const payload = { mode:'vote', name, voterId: VOTER_ID, dir };
+  const res = await fetch(NAMEGAME_URL, { method:'POST', headers:{ 'Content-Type':'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
+  const text = await res.text();
+  if(!res.ok) throw new Error(`vote failed (HTTP ${res.status}): ${text.slice(0,300)}`);
+  try { return JSON.parse(text); } catch { return { ok:true }; }
+}
+
+// === 5) RENDER ===
+function renderLeaders(data){
+  const root = ngLeaders;
+  if(!root) return;
+  root.innerHTML = '';
+
+  const leaders = Array.isArray(data?.leaders) ? data.leaders : [];
+  const your = data?.yourVotes || {};  // keys are exact names
+
+  if(leaders.length === 0){
+    const d = document.createElement('div');
+    d.className = 'ng-empty';
+    d.textContent = 'No suggestions yet — be the first!';
+    root.appendChild(d);
+    return;
+  }
+
+  const maxScore = Math.max(1, ...leaders.map(x => Math.max(1, Number(x.score||0))));
+
+  leaders.forEach((item, idx)=>{
+    const name  = String(item.name||'').trim();
+    const ups   = Number(item.ups||0);     // <-- use server keys
+    const downs = Number(item.downs||0);   // <-- use server keys
+    const score = Number(item.score ?? (ups - downs));
+    const you   = your[name];              // 1 | -1 | undefined (exact match)
+
+    const wrap = document.createElement('div');
+    wrap.className = 'ng-leader';
+    wrap.setAttribute('role','listitem');
+
+    wrap.innerHTML = `
+      <div class="ng-leader-row">
+        <div class="ng-leader-rank">#${idx+1}</div>
+        <div class="ng-leader-name">${escapeHTML(name)}</div>
+        <div class="ng-leader-score" aria-label="Score ${score}">
+          Score ${score} (↑${ups} / ↓${downs})
+        </div>
+      </div>
+      <div class="ng-subrow">
+        <div class="ng-muted">${you === 1 ? 'You voted ▲' : you === -1 ? 'You voted ▼' : ''}</div>
+        <div class="ng-vote-pack">
+          <button class="ng-vote-btn ng-vote-up"  ${you ? 'disabled' : ''}>👍 <span class="sr-only">Upvote</span></button>
+          <button class="ng-vote-btn ng-vote-down" ${you ? 'disabled' : ''}>👎 <span class="sr-only">Downvote</span></button>
+        </div>
+      </div>
+      <div class="ng-meter" aria-hidden="true">
+        <div class="ng-meter-fill" style="width:${Math.round((Math.max(0, score) / maxScore) * 100)}%"></div>
+      </div>
+    `;
+
+    const upBtn = wrap.querySelector('.ng-vote-up');
+    const dnBtn = wrap.querySelector('.ng-vote-down');
+
+    if (!you) {
+      upBtn.addEventListener('click', async () => {
+        try { upBtn.disabled = true; dnBtn.disabled = true; await apiVote(name, 1); await refreshLeaders(); }
+        catch (err) { console.error(err); upBtn.disabled = false; dnBtn.disabled = false; }
+      });
+      dnBtn.addEventListener('click', async () => {
+        try { upBtn.disabled = true; dnBtn.disabled = true; await apiVote(name, -1); await refreshLeaders(); }
+        catch (err) { console.error(err); upBtn.disabled = false; dnBtn.disabled = false; }
+      });
+    }
+
+    root.appendChild(wrap);
+  });
+}
+
+// Refresh handler
+async function refreshLeaders(){
+  try{
+    const data = await apiGetLeaders();
+    renderLeaders(data);
+  }catch(err){
+    console.error('[leaders]', err);
+    if(ngLeaders){
+      ngLeaders.innerHTML = `<div class="ng-empty">Could not load leaders: ${escapeHTML(err.message || String(err))}</div>`;
+    }
+  }
+}
+
+// === 6) FORM SUBMIT ===
+function validateHuman(){
+  const started = parseInt(ngStartedAt?.value || '0', 10);
+  const elapsed = started ? (Date.now() - started) : 0;
+  const isLocal = ['localhost','127.0.0.1',''].includes(location.hostname);
+  const hp = (ngGuard?.value || '').trim();
+  const hpLooksBot = hp.length > 0 && !isLocal && elapsed > 0 && elapsed < 1500;
+  if(hpLooksBot) { showMsg('Spam detected. Please refresh and try again.','error'); return false; }
+  if(hp.length > 0){ try{ ngGuard.value = ''; }catch{} }
+  return true;
+}
+
+if(ngForm){
+  ngForm.addEventListener('submit', async (e)=>{
+    e.preventDefault(); clearMsg();
+    if(!NAMEGAME_URL || NAMEGAME_URL.includes('PASTE_YOUR_NAMEGAME_WEB_APP_URL_HERE')){
+      showMsg('ERROR: Please set NAMEGAME_URL in the HTML.', 'error'); return;
+    }
+    if(!validateHuman()) return;
+
+    const name = (ngName?.value || '').trim();
+    // const who  = (ngWho?.value || '').trim();
+    if(!name){ ngForm.reportValidity(); return; }
+
+    // Check popup triggers
+    const trig = shouldTriggerPopup(name);
+    if(trig){
+      const note = '<p>' + escapeHTML(trig.message || 'Heads up!') + '</p>';
+      openModal(note);
+      if(trig.block){ return; } // don't submit if blocking
+    }
+
+    const orig = ngSubmitBtn ? ngSubmitBtn.textContent : '';
+    if(ngSubmitBtn){ ngSubmitBtn.disabled = true; ngSubmitBtn.textContent = 'Submitting…'; }
+
+    try{
+      await apiSuggest(name, /*who*/ '');
+      showMsg('Suggestion recorded — thank you!','success');
+      ngForm.reset(); if(ngStartedAt) ngStartedAt.value='';
+      refreshLeaders();
+    }catch(err){
+      console.error(err);
+      showMsg('Sorry, something went wrong submitting your suggestion.','error');
+    }finally{
+      if(ngSubmitBtn){ ngSubmitBtn.disabled = false; ngSubmitBtn.textContent = orig || 'Submit Suggestion'; }
+    }
+  });
+}
+
+// Refresh button
+if(ngRefreshBtn){ ngRefreshBtn.addEventListener('click', refreshLeaders); }
+
+// Initial load
+refreshLeaders();
+</script>
+
+
+<!-- Contact Us -->
     <section class="section" id="ContactUs" tabindex="-1">
       <div class="contactus-header">
         <h1 style="font-family: Pacifico; font-size: 5vh">Let's Stay Connected</h1>
