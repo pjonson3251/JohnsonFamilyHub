@@ -244,6 +244,7 @@
   <div class="updates-header">
     <h1 id="ng-header" style="font-family: Pacifico; font-size: 5vh">Baby Name Submissions</h1>
     <p style="font-family: Londrina Solid">Help us find the perfect name for our daughter! Suggest a name and cast an up/down vote.</p>
+	<p style="font-size: 1.5vh">(Please don't make me keep writing unique lines of code to catch dumb responses...)</p>
   </div>
 
   <div class="ng-grid">
@@ -312,7 +313,7 @@ const NAME_TRIGGERS = [
   { match: 'jujitsu', type: 'exact', message: 'No, Emily...', block: true },
 	{ match: 'jujistu', type: 'exact', message: 'No, Emily...', block: true },
 	{ match: 'Sarah', type: 'exact', message: 'Sarah, we are not naming our daughter after you', block: true },
-	{ match: '[^A-Za-z]', type: 'regex', message: 'Alright Elon... Letters only please', block: true },
+	{ match: '[^A-Za-z]', type: 'regex', message: 'Alright Elon... Real names only please', block: true },
 ];
 
 // === 2) ELEMENTS ===
