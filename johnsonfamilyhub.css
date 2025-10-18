@@ -604,7 +604,8 @@ body {
 	box-sizing: content-box;
 	border-radius: 120px;
 	box-shadow: 4px 4px 8px rgba(0,0,0,0.6);
-	align-content: space-around;
+	align-content: center;
+	justify-content: center;
 	text-align: center;
 	object-fit: contain;
 	background-color: #E6ABC1
