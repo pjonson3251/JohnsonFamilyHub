@@ -83,8 +83,9 @@ body {
 
 /* Content Container Styles (used for all main header/content boxes) */
 .hero-container, .updates-header, .registry-header, .shower-header, .contactus-header {
-  background-color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(255, 255, 255, 0.3);
   border: thin solid #000;
+  text-shadow: 2px 2px 3px #FFFFFF;
   border-radius: 30px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   padding: clamp(1.8rem, 2.5vw, 3rem);
