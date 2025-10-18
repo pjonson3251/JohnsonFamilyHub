@@ -220,17 +220,20 @@
         <div id="userMessage" class="cf-alert hidden" role="status" aria-live="polite"></div>
 
         <form id="contactForm" novalidate>
-          <!-- Honeypot (renamed + hardened) -->
-          <input type="text"
-                 id="cf_guard"
-                 name="cf_guard"
-                 class="hp-field"
-                 tabindex="-1"
-                 aria-hidden="true"
-                 autocomplete="off"
-                 inputmode="none"
-                 data-lpignore="true"
-                 data-form-type="other">
+          <!-- Honeypot (randomized name at runtime; ignored by autofill) -->
+          <input
+            type="text"
+            id="cf_guard"
+            class="hp-field"
+            tabindex="-1"
+            aria-hidden="true"
+            autocomplete="new-password"
+            inputmode="none"
+            data-lpignore="true"
+            data-1p-ignore="true"
+            data-form-type="other"
+          />
+          <!-- Timing stamp to reduce false positives -->
           <input type="hidden" name="formStartedAt" id="formStartedAt">
 
           <div class="cf-field">
@@ -262,7 +265,7 @@
 
               <div class="cf-field">
                 <label for="state" class="form-label">State / Province</label>
-                <input type="text" name="state" id="state" required autocomplete="address-level1" placeholder="TN">
+                <input type="text" name="state" id="state" required autocomplete="address-level1">
               </div>
 
               <div class="cf-field">
@@ -272,11 +275,7 @@
                   name="zipCode"
                   id="zipCode"
                   required
-                  inputmode="numeric"
                   autocomplete="postal-code"
-                  pattern="\d{5}(-\d{4})?"
-                  placeholder="37209 or 37209-1234">
-                <small class="cf-hint">US ZIP example: 37209 or 37209-1234</small>
               </div>
             </div>
           </fieldset>
@@ -299,7 +298,7 @@
 
   <!-- =========================
        CONTACT FORM SCRIPT
-       (JSON POST matching Apps Script)
+       (JSON POST matching Apps Script, with robust anti-spam)
   ========================= -->
   <script>
     // CONFIG
@@ -315,14 +314,20 @@
     const formStartedAt   = document.getElementById('formStartedAt');
     const hpInput         = document.getElementById('cf_guard');
 
-    // Arm the timer on first user interaction
+    // Randomize honeypot "name" so autofill tools can't target it; clear any prefill
+    if (hpInput) {
+      const rnd = 'hp_' + Math.random().toString(36).slice(2);
+      hpInput.setAttribute('name', rnd);
+      hpInput.value = '';
+      hpInput.addEventListener('focus', e => { e.target.value = ''; });
+    }
+
+    // Arm the timer on first user interaction (prevents instant false positives)
     if (form && formStartedAt) {
       const armTimer = () => { if (!formStartedAt.value) formStartedAt.value = Date.now().toString(); };
       form.addEventListener('input', armTimer, { once: true });
       form.addEventListener('focusin', armTimer, { once: true });
     }
-    // Clear honeypot on focus if any autofill pokes it
-    hpInput?.addEventListener('focus', (e) => { e.target.value = ''; });
 
     // UTILITIES
     const showMessage = (msg, type = 'success') => {
@@ -371,20 +376,34 @@
       }
     };
 
+    // Robust validator: combines honeypot + timing heuristics
     const validateForm = () => {
       if (!form) return false;
-      const hp = (hpInput?.value || '').trim();
-      if (hp.length > 0) {
-        showMessage("Spam detected. Please refresh and try again.", 'error');
-        return false;
-      }
+
       const started = parseInt(formStartedAt?.value || '0', 10);
       const elapsed = started ? (Date.now() - started) : 0;
       const isLocal = ['localhost','127.0.0.1',''].includes(location.hostname);
+
+      const hp = (hpInput?.value || '').trim();
+
+      // Treat as spam only if honeypot is filled AND submit happened bot-fast
+      const hpLooksBot = hp.length > 0 && !isLocal && elapsed > 0 && elapsed < 1500;
+      if (hpLooksBot) {
+        showMessage("Spam detected. Please refresh and try again.", 'error');
+        return false;
+      }
+
+      // If honeypot filled but elapsed looks human → clear & continue
+      if (hp.length > 0) {
+        if (hpInput) hpInput.value = '';
+      }
+
+      // Gentle human-time check to catch instant bot submits (off on localhost)
       if (!isLocal && elapsed > 0 && elapsed < 600) {
         showMessage("Please take a moment to complete the form before submitting.", 'error');
         return false;
       }
+
       if (!form.checkValidity()) {
         form.reportValidity();
         return false;
@@ -568,7 +587,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       setupNavToggle();
       setupTimelineFilters();
-      // copyright year after DOM ready
       (function(){ const y = document.getElementById('current-year'); if (y) y.textContent = new Date().getFullYear(); })();
     });
   </script>
