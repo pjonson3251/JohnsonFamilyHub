@@ -979,3 +979,100 @@ body {
 @media (max-width: 560px){
   #ContactUs .person-grid{ grid-template-columns: 1fr; }
 }
+/* ------------------------------------------- */
+/* 9. COMPONENT: STICKY COUNTDOWN BAR          */
+/* ------------------------------------------- */
+
+:root {
+  /* JS will measure navbar + countdown and update these at runtime */
+  --nav-h: 64px;
+  --cd-h: 56px;
+  --cd-bg: rgba(255,255,255,0.88);
+  --cd-fg: #000;
+  --cd-accent: #F2D98D; /* your palette gold */
+  --cd-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.countdown-bar {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 999; /* under .navbar (1000) so menus can overlay */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--cd-bg);
+  backdrop-filter: saturate(140%) blur(6px);
+  -webkit-backdrop-filter: saturate(140%) blur(6px);
+  border-bottom: 1px solid #000;
+  box-shadow: var(--cd-shadow);
+}
+
+.countdown-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: .9rem 1.2rem;          /* BIG mode padding */
+  font-variant-numeric: tabular-nums;
+  width: 100%;
+  max-width: 120rem;               /* align with navbar width */
+}
+
+.countdown-label {
+  font-family: "Londrina Solid", sans-serif;
+  font-size: clamp(1.6rem, 2.0vw, 2.2rem); /* BIG mode */
+  color: var(--cd-fg);
+  white-space: nowrap;
+}
+
+.countdown-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--cd-accent);
+  box-shadow: 0 0 10px var(--cd-accent);
+}
+
+.countdown-grid {
+  display: inline-grid;
+  grid-template-columns: repeat(7, auto);
+  align-items: end;
+  column-gap: .6rem;
+}
+
+.cd-cell { display: flex; flex-direction: column; align-items: center; min-width: 3.6ch; }
+.cd-num  { font-weight: 900; line-height: 1; font-size: clamp(2.4rem, 4vw, 3.6rem); } /* BIG mode */
+.cd-unit { font-size: clamp(1.0rem, 1.4vw, 1.2rem); opacity: .7; text-transform: uppercase; letter-spacing: .08em; }
+.cd-sep  { align-self: end; font-weight: 700; opacity: .55; margin: 0 .1rem; }
+
+/* Shrink after #Home is out of view */
+.countdown-bar.is-compact .countdown-inner { padding: .5rem .9rem; }
+.countdown-bar.is-compact .countdown-label { font-size: clamp(1.3rem, 1.6vw, 1.6rem); opacity: .9; }
+.countdown-bar.is-compact .cd-num  { font-size: clamp(1.8rem, 2.6vw, 2.4rem); }
+.countdown-bar.is-compact .cd-unit { font-size: clamp(.9rem, 1.2vw, 1.1rem); }
+.countdown-bar.is-compact .countdown-dot { width: 8px; height: 8px; }
+
+/* Keep anchors from hiding under sticky header + countdown */
+.section {
+  scroll-margin-top: calc(var(--nav-h) + var(--cd-h) + 16px);
+}
+
+/* Responsiveness */
+@media (max-width: 640px) {
+  .countdown-label { display: none; }
+  .countdown-grid { column-gap: .4rem; }
+  .cd-unit { display: none; }        /* numbers-only for small screens */
+  .cd-sep  { margin: 0 .05rem; }
+}
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 120px;
+  height: 20px;
+  border-radius: 20px;
+  background:
+   repeating-linear-gradient(135deg,#E72079 0 10px,#BF9CE2 0 20px) 0/0%   no-repeat,
+   repeating-linear-gradient(135deg,#ddd    0 10px,#eee    0 20px) 0/100%;
+  animation: l3 4s infinite;
+}
+@keyframes l3 {
+    100% {background-size:100%}
+}

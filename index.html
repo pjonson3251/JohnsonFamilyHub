@@ -26,6 +26,39 @@
       </button>
     </div>
   </nav>
+<!-- STICKY COUNTDOWN (below header) -->
+<div id="CountdownBar"
+     class="countdown-bar"
+     role="timer"
+     aria-live="polite"
+     data-target="2026-04-09T00:00:00-04:00"
+     data-finish-text="It's baby time!">
+  <div class="countdown-inner">
+    <span class="countdown-dot" aria-hidden="true"></span>
+    <span class="countdown-label">Baby Loading</span><div class="loader"></div>
+    <div class="countdown-grid" aria-hidden="true">
+      <div class="cd-cell">
+        <span id="cd-days" class="cd-num">—</span>
+        <span class="cd-unit">Days</span>
+      </div>
+      <span class="cd-sep">:</span>
+      <div class="cd-cell">
+        <span id="cd-hours" class="cd-num">—</span>
+        <span class="cd-unit">Hours</span>
+      </div>
+      <span class="cd-sep">:</span>
+      <div class="cd-cell">
+        <span id="cd-mins" class="cd-num">—</span>
+        <span class="cd-unit">Minutes</span>
+      </div>
+      <span class="cd-sep">:</span>
+      <div class="cd-cell">
+        <span id="cd-secs" class="cd-num">—</span>
+        <span class="cd-unit">Seconds</span>
+      </div>
+    </div>
+  </div>
+</div>
 
   <main>
     <!-- Home -->
@@ -590,5 +623,90 @@
       (function(){ const y = document.getElementById('current-year'); if (y) y.textContent = new Date().getFullYear(); })();
     });
   </script>
+	  
+<script>
+/* =========================
+   COUNTDOWN + COMPACT MODE
+   ========================= */
+(function () {
+  const el = document.getElementById('CountdownBar');
+  if (!el) return;
+
+  // --- Measure & set CSS vars so the bar sits neatly below the navbar
+  const nav = document.querySelector('.navbar');
+  function setMeasuredVars() {
+    const navH = nav ? nav.getBoundingClientRect().height : 64;
+    document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    // Also measure the current countdown height for anchor scroll margins
+    const cdH = el.getBoundingClientRect().height || 48;
+    document.documentElement.style.setProperty('--cd-h', cdH + 'px');
+  }
+  setMeasuredVars();
+  window.addEventListener('resize', () => { setMeasuredVars(); }, { passive: true });
+
+  // --- Countdown logic
+  const tAttr = el.getAttribute('data-target') || '2026-04-09T00:00:00-04:00';
+  const finishText = el.getAttribute('data-finish-text') || "It's baby time!";
+  const target = new Date(tAttr);
+
+  const dEl = document.getElementById('cd-days');
+  const hEl = document.getElementById('cd-hours');
+  const mEl = document.getElementById('cd-mins');
+  const sEl = document.getElementById('cd-secs');
+
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
+  function render(msLeft) {
+    if (msLeft <= 0) {
+      el.setAttribute('aria-label', finishText);
+      dEl.textContent = '0'; hEl.textContent = '00'; mEl.textContent = '00'; sEl.textContent = '00';
+      return false;
+    }
+    const totalSec = Math.floor(msLeft / 1000);
+    const days  = Math.floor(totalSec / 86400);
+    const hours = Math.floor((totalSec % 86400) / 3600);
+    const mins  = Math.floor((totalSec % 3600) / 60);
+    const secs  = totalSec % 60;
+
+    dEl.textContent = String(days);
+    hEl.textContent = pad2(hours);
+    mEl.textContent = pad2(mins);
+    sEl.textContent = pad2(secs);
+
+    el.setAttribute('aria-label', `${days} days, ${hours} hours, ${mins} minutes, and ${secs} seconds remaining`);
+    return true;
+  }
+
+  function tick() {
+    const now = Date.now();
+    const ok = render(target.getTime() - now);
+    if (!ok) clearInterval(timer);
+  }
+
+  const timer = setInterval(tick, 1000);
+  tick(); // initial paint
+
+  // --- Compact mode: shrink once we scroll past #Home entirely
+  const home = document.getElementById('Home');
+  if (home) {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      // If any part of #Home is visible → BIG; otherwise → COMPACT
+      if (entry && entry.intersectionRatio > 0) {
+        el.classList.remove('is-compact');
+      } else {
+        el.classList.add('is-compact');
+      }
+      // Re-measure height after mode change for accurate scroll margins
+      setMeasuredVars();
+    }, { threshold: [0] });
+    observer.observe(home);
+  }
+
+  // In case fonts load late & change heights
+  window.addEventListener('load', setMeasuredVars, { once: true });
+})();
+</script>
+
 </body>
 </html>
