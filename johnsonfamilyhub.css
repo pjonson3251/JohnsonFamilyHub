@@ -60,6 +60,11 @@ body {
 
 /* --- 3.1. Main Section Containers --- */
 
+
+.h1{
+	font-family: "Pacifico";
+}
+
 .section {
   /* Use dynamic viewport unit to avoid iOS address-bar jumps */
   min-height: 100svh;
@@ -851,4 +856,126 @@ body {
         margin-bottom: 10px;
         flex: 1 0 100%;
     }
+}
+
+
+/* Custom animation for new person entries */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.person-entry {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* === Contact Form (scoped to #ContactUs only) === */
+#ContactUs .contact-form {
+  width: min(100%, 900px);
+  margin: 2rem auto 0;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,.08);
+  text-align: left;
+}
+
+#ContactUs .cf-field { margin-bottom: 1.2rem; }
+#ContactUs .cf-hint { display:block; font-size: 1.3rem; color:#555; margin-top:.4rem; }
+
+#ContactUs .cf-people { display: grid; gap: 1.2rem; }
+
+#ContactUs .cf-fieldset {
+  border: 1px dashed #aaa;
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin-top: 1rem;
+}
+
+#ContactUs .cf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 1.2rem;
+}
+
+#ContactUs label.form-label { font-weight: 700; display:block; margin-bottom:.4rem; }
+
+#ContactUs input[type="text"],
+#ContactUs input[type="email"],
+#ContactUs input[type="tel"],
+#ContactUs input[type="number"] {
+  width: 100%;
+  padding: .9rem 1rem;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  font-size: 1.6rem;
+}
+
+#ContactUs input:focus {
+  outline: 3px solid #000; /* matches your existing focus styles */
+  outline-offset: 2px;
+}
+
+#ContactUs .cf-actions { margin-top: 1.6rem; }
+
+#ContactUs .cf-btn {
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  padding: 1.0rem 1.6rem;
+  border: 2px solid #2A3E59;
+  background: gray;
+  color:white;
+  border-radius: 10px;
+  font-family: "Londrina Solid", sans-serif;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+#ContactUs .cf-btn[disabled] { opacity: .6; cursor: not-allowed; }
+
+#ContactUs .hp-field { position:absolute; left:-9999px; opacity:0; height:0; width:0; }
+
+#ContactUs .cf-alert {
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+#ContactUs .cf-alert.success { background: #e8f5e9; color:#256029; border: 1px solid #a5d6a7; }
+#ContactUs .cf-alert.error   { background: #ffebee; color:#b71c1c; border: 1px solid #ef9a9a; }
+#ContactUs .hidden{ display:none; }
+
+@media (max-width: 768px) {
+  #ContactUs .cf-grid { grid-template-columns: 1fr; }
+}
+
+/* Person card */
+#ContactUs .person-entry {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fafafa;
+  animation: fadeIn .35s ease-in-out;
+}
+#ContactUs .person-entry legend {
+  font-family: "Pacifico", cursive;
+  font-size: 2.1rem;
+  padding: 0 .6rem;
+}
+
+#ContactUs .person-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 1.2rem;
+}
+@media (max-width: 560px){
+  #ContactUs .person-grid{ grid-template-columns: 1fr; }
 }

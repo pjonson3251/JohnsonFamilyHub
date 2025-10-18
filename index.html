@@ -1,379 +1,576 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<!-- ------------------------------------------- -->
-<!-- DOCUMENT HEAD & METADATA                    -->
-<!-- ------------------------------------------- -->
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<title>Johnson Family Hub</title>
-<link href="johnsonfamilyhub.css" rel="stylesheet" type="text/css"/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Pacifico&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+  <title>Johnson Family Hub</title>
+  <link href="johnsonfamilyhub.css" rel="stylesheet" type="text/css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Pacifico&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
 <body>
-<!-- ------------------------------------------- -->
-<!-- 1. STICKY NAVIGATION BAR (NAV)             -->
-<!-- ------------------------------------------- -->
-<nav aria-label="Primary" class="navbar" role="navigation">
-<div class="navbar-content-wrapper"><a class="nav-logo pacifico-regular" href="#Home"><strong>Baby Johnson Hub</strong></a><div class="nav-links-container" id="primary-nav">
-<a class="nav-link" href="#Updates">Updates</a>
-<a class="nav-link" href="#Registry">Registry</a>
-<a class="nav-link" href="#BabyShowers">Baby Showers</a>
-<a class="nav-link" href="#ContactUs">Contact Us</a>
-</div><button aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu" aria_controls="primary-nav" aria_expanded="false" aria_label="Toggle menu" class="menu-toggle hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button></div>
-</nav>
-<!-- ------------------------------------------- -->
-<!-- 2. MAIN CONTENT SECTIONS (MAIN)            -->
-<!-- ------------------------------------------- -->
-<main>
-<!-- Home Section -->
-<section class="section" id="Home" tabindex="-1">
-<div class="hero-container">
-<h1 class="pacifico-regular">Welcome to the Baby Johnson Hub!</h1>
-<p class="londrina-solid-regular">Our hearts are bursting, and we can't wait to introduce you to the newest member of our family!</p>
-<p class="londrina-solid-regular">We put together this little hub to keep our closest friends and family in the loop.</p>
-</div>
-</section>
-<!-- Updates Section -->
-<section class="section" id="Updates" tabindex="-1">
-<div class="updates-header">
-<h1 class="pacifico-regular">Updates &amp; Milestones</h1>
-<p class="londrina-solid-regular">Stay up-to-date with our journey here. We'll post major milestones, current status reports, and the official announcement when our daughter makes her grand entrance.</p>
-<p class="londrina-solid-regular">We promise to keep you in the loop!</p>
-</div>
-<!-- Timeline Filter Buttons -->
-<div class="filter-container">
-    <div class="filter-buttons" id="timeline-filters">
-        <!-- Filter buttons will be generated here by JavaScript -->
+  <!-- NAV -->
+  <nav aria-label="Primary" class="navbar" role="navigation">
+    <div class="navbar-content-wrapper">
+      <a class="nav-logo pacifico-regular" href="#Home"><strong>Baby Johnson Hub</strong></a>
+      <div class="nav-links-container" id="primary-nav">
+        <a class="nav-link" href="#Updates">Updates</a>
+        <a class="nav-link" href="#Registry">Registry</a>
+        <a class="nav-link" href="#BabyShowers">Baby Showers</a>
+        <a class="nav-link" href="#ContactUs">Contact Us</a>
+      </div>
+      <button aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu" class="menu-toggle hamburger">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
     </div>
-</div>
-<!-- Timeline Content -->
-<div class="timeline">
- <div class="timeline-card left" data-tags="confirmation">
-  <div class="card-content">
-    <div class="card-date">2025-07-31</div>
-    <div class="card-image">
-      <img class="timeline-image" alt="Event Image: Positive Test" src="images/PregnancyTest.png">
-    </div>
-    <h2>Everything's about to change...</h2>
-    <p>Melissa left the positive home test on the bathroom sink for Pat. This was the moment everything changed!</p>
-    <div class="card-tags">
-    </div>
-  </div>
-</div>
+  </nav>
 
-<div class="timeline-card right" data-tags="confirmation">
-  <div class="card-content">
-    <div class="card-date">2025-08-04</div>
-    <div class="card-image">
-      <img alt="Event Image: Official Confirmation" src="images/Hormonetest.png">
-    </div>
-    <h2>Official Confirmation</h2>
-    <p>We received positive hormone test results back from the clinic. The official word was a relief, but we were still anxiously waiting for more certainty.</p>
-    <div class="card-tags">
-    </div>
-  </div>
-</div>
+  <main>
+    <!-- Home -->
+    <section class="section" id="Home" tabindex="-1">
+      <div class="hero-container">
+        <h1 style="font-family: Pacifico; font-size: 5vh">Welcome to the Baby Johnson Hub!</h1>
+        <p style="font-family: Londrina Solid">Our hearts are bursting, and we can't wait to introduce you to the newest member of our family!</p>
+        <p style="font-family: Londrina Solid">We put together this little hub to keep our closest friends and family in the loop.</p>
+      </div>
+    </section>
 
-<div class="timeline-card left" data-tags="sonogram,heartbeat">
-  <div class="card-content">
-    <div class="card-date">2025-09-04</div>
-    <div class="card-image">
-      <img alt="Event Image: First Glimpse" src="images/FirstSonogram.jpg">
-    </div>
-    <h2>First Glimpse of the Bean</h2>
-    <p>We saw our little "kidney bean" for the first time during the sonogram. We could see the flicker of a heartbeat, but it was too early to hear it.</p>
-    <div class="card-tags">
-      <span class="tag" data-filter="sonogram">Sonogram</span>
-      <span class="tag" data-filter="heartbeat">Heartbeat</span>
-    </div>
-  </div>
-</div>
+    <!-- Updates -->
+    <section class="section" id="Updates" tabindex="-1">
+      <div class="updates-header">
+        <h1 style="font-family: Pacifico; font-size: 5vh">Updates &amp; Milestones</h1>
+        <p style="font-family: Londrina Solid">Stay up-to-date with our journey here. We'll post major milestones, current status reports, and the official announcement when our daughter makes her grand entrance.</p>
+        <p style="font-family: Londrina Solid">We promise to keep you in the loop!</p>
+      </div>
 
-<div class="timeline-card right" data-tags="heartbeat">
-  <div class="card-content">
-    <div class="card-date">2025-10-02</div>
-    <h2>The First Beat Drop</h2>
-    <p>We heard the baby's heartbeats for the very first time! No sonogram, and there was a stressful minute as the tech searched, but the sound was strong and perfect.</p>
-    <div class="card-tags">
-      <span class="tag" data-filter="heartbeat">Heartbeat</span>
-    </div>
-  </div>
-</div>
+      <div class="filter-container">
+        <div class="filter-buttons" id="timeline-filters"></div>
+      </div>
 
-<div class="timeline-card left" data-tags="sonogram,movement">
-  <div class="card-content">
-    <div class="card-date">2025-10-08</div>
-    <div class="card-image">
-      <img alt="Event Image: Wiggles" src="images/Ultrasound2.gif" style="justify-content: center; height: 100%">
-    </div>
-    <h2>Little Wiggle Worm</h2>
-    <p>Our next sonogram showed a very active baby who refused to roll over. We got to see two arms, two legs, and a whole lot of wiggles.</p>
-    <div class="card-tags">
-      <span class="tag" data-filter="sonogram">Sonogram</span>
-      <span class="tag" data-filter="movement">Movement</span>
-    </div>
-  </div>
-</div>
+      <div class="timeline">
+        <div class="timeline-card left" data-tags="confirmation">
+          <div class="card-content">
+            <div class="card-date">2025-07-31</div>
+            <div class="card-image">
+              <img class="timeline-image" alt="Event Image: Positive Test" src="images/PregnancyTest.png">
+            </div>
+            <h2>Everything's about to change...</h2>
+            <p>Melissa left the positive home test on the bathroom sink for Pat. This was the moment everything changed!</p>
+            <div class="card-tags"></div>
+          </div>
+        </div>
 
-<div class="timeline-card right" data-tags="">
-  <div class="card-content" style="background-color: pink">
-    <div class="card-date">2025-10-13</div>
-    <div class="card-image">
-      <img alt="Event Image: It's a Girl" src="images/Itsagirl.png">
-    </div>
-    <h2>It's a Girl!</h2>
-    <p>The genetic testing results came back with the best news: we are having a healthy little daughter!</p>
-    <div class="card-tags">
-      <span class="tag" data-filter="gender">Gender</span>
-      <span class="tag" data-filter="confirmation">Confirmation</span>
-    </div>
-  </div>
-</div>
+        <div class="timeline-card right" data-tags="confirmation">
+          <div class="card-content">
+            <div class="card-date">2025-08-04</div>
+            <div class="card-image">
+              <img alt="Event Image: Official Confirmation" src="images/Hormonetest.png">
+            </div>
+            <h2>Official Confirmation</h2>
+            <p>We received positive hormone test results back from the clinic. The official word was a relief, but we were still anxiously waiting for more certainty.</p>
+            <div class="card-tags"></div>
+          </div>
+        </div>
 
-<!--
-<div class="timeline-card right" data-tags="">
-  <div class="card-content">
-    <div class="card-date">YYYY-MM-DD</div>
-    <div class="card-image">
-      <img alt="" src="https://placehold.co/400x200/2A3E59/FFFFFF?text=It's+a+Girl!">
-    </div>
-    <h2>HEADER</h2>
-    <p>Description</p>
-    <div class="card-tags">
-      <span class="tag" data-filter=""></span>
-      <span class="tag" data-filter=""></span>
-    </div>
-  </div>
-</div>
--->
+        <div class="timeline-card left" data-tags="sonogram,heartbeat">
+          <div class="card-content">
+            <div class="card-date">2025-09-04</div>
+            <div class="card-image">
+              <img alt="Event Image: First Glimpse" src="images/FirstSonogram.jpg">
+            </div>
+            <h2>First Glimpse of the Bean</h2>
+            <p>We saw our little "kidney bean" for the first time during the sonogram. We could see the flicker of a heartbeat, but it was too early to hear it.</p>
+            <div class="card-tags">
+              <span class="tag" data-filter="sonogram">Sonogram</span>
+              <span class="tag" data-filter="heartbeat">Heartbeat</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="timeline-card right" data-tags="heartbeat">
+          <div class="card-content">
+            <div class="card-date">2025-10-02</div>
+            <h2>The First Beat Drop</h2>
+            <p>We heard the baby's heartbeats for the very first time! No sonogram, and there was a stressful minute as the tech searched, but the sound was strong and perfect.</p>
+            <div class="card-tags">
+              <span class="tag" data-filter="heartbeat">Heartbeat</span>
+            </div>
+          </div>
+        </div>
 
-    
-</div>
-</section>
-	
-	
-<!-- Registry Section -->
-<section class="section" id="Registry" tabindex="-1">
-<div class="registry-header">
-<h1 class="pacifico-regular">Our Registry Details</h1>
-<p class="londrina-solid-regular" style="font-size: 5vh">Your love and support are truly the greatest gift!</p>
-<p class="londrina-solid-regular">Please know that your presence in her life is all we really need.</p>
-<p class="londrina-solid-regular">For those who have asked, we've curated a list of things that will help us prepare for our journey as parents.</p>
+        <div class="timeline-card left" data-tags="sonogram,movement">
+          <div class="card-content">
+            <div class="card-date">2025-10-08</div>
+            <div class="card-image">
+              <img alt="Event Image: Wiggles" src="images/Ultrasound2.gif" style="justify-content: center; height: 100%">
+            </div>
+            <h2>Little Wiggle Worm</h2>
+            <p>Our next sonogram showed a very active baby who refused to roll over. We got to see two arms, two legs, and a whole lot of wiggles.</p>
+            <div class="card-tags">
+              <span class="tag" data-filter="sonogram">Sonogram</span>
+              <span class="tag" data-filter="movement">Movement</span>
+            </div>
+          </div>
+        </div>
 
-</div>
-<a href="https://www.babylist.com/list/melissa-blasingame"><div class="registry-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Babylist_Logo_03.png" alt="">
-    </div>
-</a>
-</section>
+        <div class="timeline-card right" data-tags="">
+          <div class="card-content" style="background-color: pink">
+            <div class="card-date">2025-10-13</div>
+            <div class="card-image">
+              <img alt="Event Image: It's a Girl" src="images/Itsagirl.png">
+            </div>
+            <h2>It's a Girl!</h2>
+            <p>The genetic testing results came back with the best news: we are having a healthy little daughter!</p>
+            <div class="card-tags">
+              <span class="tag" data-filter="gender">Gender</span>
+              <span class="tag" data-filter="confirmation">Confirmation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Registry -->
+    <section class="section" id="Registry" tabindex="-1">
+      <div class="registry-header">
+        <h1 style="font-family: Pacifico; font-size: 5vh">Our Registry Details</h1>
+        <p style="font-family: Londrina Solid; font-size: 5vh">Your love and support are truly the greatest gift!</p>
+        <p style="font-family: Londrina Solid; font-size: 2vh">Please know that your presence in her life is all we really need.</p>
+        <p style="font-family: Londrina Solid; font-size: 2vh">For those who have asked, we've curated a list of things that will help us prepare for our journey as parents.</p>
+      </div>
+      <a href="https://www.babylist.com/list/melissa-blasingame">
+        <div class="registry-container">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Babylist_Logo_03.png" alt="">
+        </div>
+      </a>
+    </section>
 
-
-
-<!-- Baby Showers Section -->
-<section class="section" id="BabyShowers" tabindex="-1">
-<div class="shower-header">
-<h1 class="pacifico-regular">Upcoming Celebrations</h1>
-<p class="londrina-solid-regular">We are so blessed that so many of you want to celebrate our daughter with us!</p>
-<p class="londrina-solid-regular">Find all the specific details for any baby showers or gatherings you've been invited to here, including dates, locations, and how to RSVP. We can't wait to see you!</p>
-	<ul class="baby-shower-cards-container">
-        <li class="booking-card" style="background-image: url(https://www.cubesmart.com/blog/wp-content/uploads/Decatur-2-1.jpg); background-size: 55vh; background-position: top;">
+    <!-- Baby Showers -->
+    <section class="section" id="BabyShowers" tabindex="-1">
+      <div class="shower-header">
+        <h1 style="font-family: Pacifico; font-size: 5vh">Upcoming Celebrations</h1>
+        <p style="font-family: Londrina Solid; font-size: 2vh">We are so blessed that so many of you want to celebrate our daughter with us!</p>
+        <p style="font-family: Londrina Solid; font-size: 2vh">Find all the specific details for any baby showers or gatherings you've been invited to here, including dates, locations, and how to RSVP. We can't wait to see you!</p>
+        <ul class="baby-shower-cards-container">
+          <li class="booking-card" style="background-image: url(https://www.cubesmart.com/blog/wp-content/uploads/Decatur-2-1.jpg); background-size: 55vh; background-position: top;">
             <div class="book-container">
-                <div class="content">
-                    <a class="btn" aria-label="RSVP for Local Shower">Details to follow</a>
-                </div>
+              <div class="content">
+                <a class="btn" aria-label="RSVP for Local Shower">Details to follow</a>
+              </div>
             </div>
             <div class="informations-container">
-                <h2 class="title">Atlanta</h2>
-                <p class="sub-title"></p>
-                <p class="key-detail-info"></p>
-                <div class="more-information">
-                    <div class="info-and-date-container">
-                        <div class="box info">
-                            <span class="icon" style="width:24px;height:24px">📍</span>
-                            <p>TBD, Atlanta, GA</p>
-                        </div>
-                        <div class="box date">
-                            <span class="icon" style="width:24px;height:24px">🗓️</span>
-                            <p>TBD</p>
-                        </div>
-                    </div>
-                    <p class="disclaimer">Click the 'RSVP NOW' button to confirm your attendance and get the full address details!</p>
+              <h2 class="title">Atlanta</h2>
+              <div class="more-information">
+                <div class="info-and-date-container">
+                  <div class="box info">
+                    <span class="icon" style="width:24px;height:24px">📍</span>
+                    <p>TBD, Atlanta, GA</p>
+                  </div>
+                  <div class="box date">
+                    <span class="icon" style="width:24px;height:24px">🗓️</span>
+                    <p>TBD</p>
+                  </div>
                 </div>
+                <p class="disclaimer">Click the 'RSVP NOW' button to confirm your attendance and get the full address details!</p>
+              </div>
             </div>
-        </li>
+          </li>
 
-        <li class="booking-card" style="background-image: url(https://www.busytourist.com/wp-content/uploads/2019/08/things-to-do-in-Chattanooga.jpg);">
+          <li class="booking-card" style="background-image: url(https://www.busytourist.com/wp-content/uploads/2019/08/things-to-do-in-Chattanooga.jpg);">
             <div class="book-container">
-                <div class="content">
-                    <a class="btn" aria-label="RSVP for Local Shower">Details to follow</a>
-                </div>
+              <div class="content">
+                <a class="btn" aria-label="RSVP for Local Shower">Details to follow</a>
+              </div>
             </div>
             <div class="informations-container">
-                <h2 class="title">Chattanooga</h2>
-                <p class="sub-title"></p>
-                <p class="key-detail-info"></p>
-                <div class="more-information">
-                    <div class="info-and-date-container">
-                        <div class="box info">
-                            <span class="icon" style="width:24px;height:24px">📍</span>
-                            <p>TBD, Chattanooga, TN</p>
-                        </div>
-                        <div class="box date">
-                            <span class="icon" style="width:24px;height:24px">🗓️</span>
-                            <p>TBD</p>
-                        </div>
-                    </div>
-                    <p class="disclaimer">Click the 'RSVP NOW' button to confirm your attendance and get the full address details!</p>
+              <h2 class="title">Chattanooga</h2>
+              <div class="more-information">
+                <div class="info-and-date-container">
+                  <div class="box info">
+                    <span class="icon" style="width:24px;height:24px">📍</span>
+                    <p>TBD, Chattanooga, TN</p>
+                  </div>
+                  <div class="box date">
+                    <span class="icon" style="width:24px;height:24px">🗓️</span>
+                    <p>TBD</p>
+                  </div>
                 </div>
+                <p class="disclaimer">Click the 'RSVP NOW' button to confirm your attendance and get the full address details!</p>
+              </div>
             </div>
-        </li>
-    </ul>
-	</div>
-</section>
-<!-- Contact Us Section -->
-<section class="section" id="ContactUs" tabindex="-1">
-<div class="contactus-header">
-<h1 class="pacifico-regular">Let's Stay Connected</h1>
-<p class="londrina-solid-regular">As things get busy, we want to ensure we have your most current contact information on file for the birth announcement and future updates.</p>
-<p class="londrina-solid-regular">Please take a moment to confirm your details below so we can keep our little village connected!</p>
-</div>
-</section>
-</main>
-<!-- ------------------------------------------- -->
-<!-- 3. FOOTER                                  -->
-<!-- ------------------------------------------- -->
-<footer class="footer">
-<div class="footer-stack">
-<img alt="Johnson Family Seal" class="family-seal" src="images/Johnson-Family-Seal.png"/>
-<div>© <span id="current-year"></span> JohnsonFamilyHub<p>All rights reserved</p></div>
-</div>
-</footer>
-<!-- ------------------------------------------- -->
-<!-- 4. JAVASCRIPT FOR DYNAMIC ELEMENTS         -->
-<!-- ------------------------------------------- -->
-<script>
-    // UTIL: Set current year in the footer
-    function setCopyrightYear() {
-        const yearSpan = document.getElementById('current-year');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="section" id="ContactUs" tabindex="-1">
+      <div class="contactus-header">
+        <h1 style="font-family: Pacifico; font-size: 5vh">Let's Stay Connected</h1>
+        <p style="font-family: Londrina Solid; font-size: 2vh">As things get busy, we want to ensure we have your most current contact information on file for the birth announcement and future updates.</p>
+        <p style="font-family: Londrina Solid; font-size: 2vh">Please take a moment to confirm your details below so we can keep our little village connected!</p>
+      </div>
+
+      <div class="contact-form" role="form">
+        <h1 style="font-family: Pacifico; font-size: 3vh">Contact Information Form</h1>
+        <p>Add one or more people who share the same mailing address.</p>
+
+        <div id="userMessage" class="cf-alert hidden" role="status" aria-live="polite"></div>
+
+        <form id="contactForm" novalidate>
+          <!-- Honeypot (renamed + hardened) -->
+          <input type="text"
+                 id="cf_guard"
+                 name="cf_guard"
+                 class="hp-field"
+                 tabindex="-1"
+                 aria-hidden="true"
+                 autocomplete="off"
+                 inputmode="none"
+                 data-lpignore="true"
+                 data-form-type="other">
+          <input type="hidden" name="formStartedAt" id="formStartedAt">
+
+          <div class="cf-field">
+            <label for="numPeople" class="form-label">How many people are you registering?</label>
+            <input type="number" id="numPeople" name="numPeople" min="1" max="10" inputmode="numeric" value="1" required>
+            <small class="cf-hint">You can register up to 10 people at the same address.</small>
+          </div>
+
+          <div id="peopleContainer" class="cf-people"></div>
+
+          <fieldset class="mailing-address cf-fieldset">
+            <legend>Mailing Address (applies to everyone above)</legend>
+
+            <div class="cf-grid">
+              <div class="cf-field">
+                <label for="streetAddress" class="form-label">Street Address</label>
+                <input type="text" name="streetAddress" id="streetAddress" required autocomplete="address-line1">
+              </div>
+
+              <div class="cf-field">
+                <label for="address2" class="form-label">Address 2 <span aria-hidden="true"></span></label>
+                <input type="text" name="address2" id="address2" autocomplete="address-line2" placeholder="Apt / Suite / Unit">
+              </div>
+
+              <div class="cf-field">
+                <label for="city" class="form-label">City</label>
+                <input type="text" name="city" id="city" required autocomplete="address-level2">
+              </div>
+
+              <div class="cf-field">
+                <label for="state" class="form-label">State / Province</label>
+                <input type="text" name="state" id="state" required autocomplete="address-level1" placeholder="TN">
+              </div>
+
+              <div class="cf-field">
+                <label for="zipCode" class="form-label">ZIP / Postal Code</label>
+                <input
+                  type="text"
+                  name="zipCode"
+                  id="zipCode"
+                  required
+                  inputmode="numeric"
+                  autocomplete="postal-code"
+                  pattern="\d{5}(-\d{4})?"
+                  placeholder="37209 or 37209-1234">
+                <small class="cf-hint">US ZIP example: 37209 or 37209-1234</small>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="cf-actions">
+            <button type="submit" id="submitButton" class="cf-btn">Submit Information</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-stack">
+      <img alt="Johnson Family Seal" class="family-seal" src="images/Johnson-Family-Seal.png"/>
+      <div>© <span id="current-year"></span> JohnsonFamilyHub<p>All rights reserved</p></div>
+    </div>
+  </footer>
+
+  <!-- =========================
+       CONTACT FORM SCRIPT
+       (JSON POST matching Apps Script)
+  ========================= -->
+  <script>
+    // CONFIG
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx1C1Sz8qZDAUbxacGztks1-kqcRU1rBjNUSBgnR3U1uvczQTfvvmiboo0BWsFL-wQ/exec";
+    const SITE_LABEL = ""; // optional override; "" uses location.origin+pathname
+
+    // ELEMENTS
+    const form            = document.getElementById('contactForm');
+    const submitButton    = document.getElementById('submitButton');
+    const userMessage     = document.getElementById('userMessage');
+    const numPeopleInput  = document.getElementById('numPeople');
+    const peopleContainer = document.getElementById('peopleContainer');
+    const formStartedAt   = document.getElementById('formStartedAt');
+    const hpInput         = document.getElementById('cf_guard');
+
+    // Arm the timer on first user interaction
+    if (form && formStartedAt) {
+      const armTimer = () => { if (!formStartedAt.value) formStartedAt.value = Date.now().toString(); };
+      form.addEventListener('input', armTimer, { once: true });
+      form.addEventListener('focusin', armTimer, { once: true });
+    }
+    // Clear honeypot on focus if any autofill pokes it
+    hpInput?.addEventListener('focus', (e) => { e.target.value = ''; });
+
+    // UTILITIES
+    const showMessage = (msg, type = 'success') => {
+      if (!userMessage) return;
+      userMessage.textContent = msg;
+      userMessage.className = `cf-alert ${type}`;
+      userMessage.classList.remove('hidden');
+    };
+    const clearMessage = () => {
+      if (!userMessage) return;
+      userMessage.textContent = '';
+      userMessage.className = 'cf-alert hidden';
+    };
+
+    const createPersonEntry = (index) => {
+      const wrap = document.createElement('fieldset');
+      wrap.className = 'person-entry';
+      wrap.id = `person-${index}`;
+      wrap.innerHTML = `
+        <legend>Person ${index}</legend>
+        <div class="person-grid">
+          <div class="cf-field">
+            <label for="fullName-${index}" class="form-label">Full Name</label>
+            <input type="text" id="fullName-${index}" name="fullName-${index}" required autocomplete="name" />
+          </div>
+          <div class="cf-field">
+            <label for="email-${index}" class="form-label">Email Address</label>
+            <input type="email" id="email-${index}" name="email-${index}" required autocomplete="email" />
+          </div>
+          <div class="cf-field">
+            <label for="phone-${index}" class="form-label">Phone Number</label>
+            <input type="tel" id="phone-${index}" name="phone-${index}" required inputmode="tel" autocomplete="tel" pattern="^[0-9()\\-\\.\\s+]{7,}$" />
+            <small class="cf-hint">Digits only or formats like (555) 555-5555</small>
+          </div>
+        </div>
+      `;
+      return wrap;
+    };
+
+    const updatePeopleEntries = () => {
+      if (!numPeopleInput || !peopleContainer) return;
+      const count = Math.max(1, Math.min(10, parseInt(numPeopleInput.value || '1', 10)));
+      peopleContainer.innerHTML = '';
+      for (let i = 1; i <= count; i++) {
+        peopleContainer.appendChild(createPersonEntry(i));
+      }
+    };
+
+    const validateForm = () => {
+      if (!form) return false;
+      const hp = (hpInput?.value || '').trim();
+      if (hp.length > 0) {
+        showMessage("Spam detected. Please refresh and try again.", 'error');
+        return false;
+      }
+      const started = parseInt(formStartedAt?.value || '0', 10);
+      const elapsed = started ? (Date.now() - started) : 0;
+      const isLocal = ['localhost','127.0.0.1',''].includes(location.hostname);
+      if (!isLocal && elapsed > 0 && elapsed < 600) {
+        showMessage("Please take a moment to complete the form before submitting.", 'error');
+        return false;
+      }
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return false;
+      }
+      return true;
+    };
+
+    if (numPeopleInput) {
+      numPeopleInput.addEventListener('change', updatePeopleEntries);
+      numPeopleInput.addEventListener('input', updatePeopleEntries);
     }
 
-    // NAV: Hamburger Menu Toggle
-    function setupNavToggle() {
-        const navToggle = document.querySelector('.menu-toggle');
-        const navLinksContainer = document.getElementById('primary-nav');
+    // SUBMIT (send JSON → Apps Script)
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearMessage();
 
-        if (navToggle && navLinksContainer) {
-            navToggle.addEventListener('click', () => {
-                // Toggle the 'open' class for menu visibility (CSS handles display)
-                navLinksContainer.classList.toggle('open');
-                
-                // NEW: Toggle the 'menu-open' class on the button to trigger the 'X' animation
-                navToggle.classList.toggle('menu-open'); 
+        if (!validateForm()) return;
 
-                // Update aria-expanded state for accessibility
-                const isExpanded = navLinksContainer.classList.contains('open');
-                navToggle.setAttribute('aria-expanded', isExpanded);
-            });
-
-            // Close menu when a link is clicked (useful for single-page scrolling)
-            const navLinks = navLinksContainer.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
-                        navLinksContainer.classList.remove('open');
-                        // NEW: Remove 'menu-open' to reset the icon back to 3 bars
-                        navToggle.classList.remove('menu-open'); 
-                        navToggle.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
+        if (!SCRIPT_URL || SCRIPT_URL.includes("YOUR_GOOGLE_APPS_SCRIPT_URL_HERE")) {
+          showMessage("ERROR: Please update the SCRIPT_URL in the HTML file.", 'error');
+          return;
         }
-    }
 
-    // TIMELINE: Filter functionality
-    function setupTimelineFilters() {
-        const timeline = document.querySelector('.timeline');
-        const filterContainer = document.getElementById('timeline-filters');
-        // Select all timeline cards
-        const cards = timeline.querySelectorAll('.timeline-card');
-        const uniqueTags = new Set();
+        const fd        = new FormData(form);
+        const count     = Math.max(1, Math.min(10, parseInt(fd.get('numPeople') || '1', 10)));
+        const siteLabel = (SITE_LABEL && SITE_LABEL.trim()) ? SITE_LABEL.trim() : (location.origin + location.pathname);
 
-        // 1. Collect all unique tags from data-tags attribute
-        cards.forEach(card => {
-            const tagsAttribute = card.getAttribute('data-tags');
-            if (tagsAttribute) {
-                // Split the comma-separated string into an array, trim whitespace
-                const tags = tagsAttribute.split(',').map(tag => tag.trim());
-                tags.forEach(tag => uniqueTags.add(tag));
-            }
-        });
-
-        // 2. Create the "All" button and add the unique tag buttons
-        
-        // Helper to format tag for display (e.g., "first-trimester" -> "First Trimester")
-        const formatTag = (tag) => {
-            return tag.split('-')
-                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                      .join(' ');
+        const address = {
+          address1: (fd.get('streetAddress') || '').toString().trim(),
+          address2: (fd.get('address2') || '').toString().trim(),
+          city:     (fd.get('city') || '').toString().trim(),
+          state:    (fd.get('state') || '').toString().trim(),
+          zip:      (fd.get('zipCode') || '').toString().trim()
         };
 
-        // Add "All" button
-        const allButton = document.createElement('button');
-        allButton.textContent = 'All Updates';
-        allButton.classList.add('filter-button', 'active');
-        allButton.setAttribute('data-filter', 'all');
-        filterContainer.appendChild(allButton);
+        const people = [];
+        for (let i = 1; i <= count; i++) {
+          people.push({
+            fullName: (fd.get(`fullName-${i}`) || '').toString().trim(),
+            email:    (fd.get(`email-${i}`)    || '').toString().trim(),
+            phone:    (fd.get(`phone-${i}`)    || '').toString().trim()
+          });
+        }
 
-        // Add unique tag buttons
-        uniqueTags.forEach(tag => {
-            const button = document.createElement('button');
-            button.textContent = formatTag(tag);
-            button.classList.add('filter-button');
-            button.setAttribute('data-filter', tag);
-            filterContainer.appendChild(button);
-        });
+        const payload = {
+          householdSize: count,
+          address,
+          people,
+          site: siteLabel
+        };
 
-        // 3. Add click event listener to the filter container
-        filterContainer.addEventListener('click', (event) => {
-            const target = event.target;
-            if (target.classList.contains('filter-button')) {
-                const filterValue = target.getAttribute('data-filter');
+        const originalLabel = submitButton ? submitButton.textContent : '';
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Submitting…";
+        }
 
-                // Update active button state
-                filterContainer.querySelectorAll('.filter-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                target.classList.add('active');
+        try {
+          // text/plain keeps it CORS-simple; Apps Script reads e.postData.contents
+          const res = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload)
+          });
 
-                // Filter the timeline cards
-                cards.forEach(card => {
-                    const cardTags = card.getAttribute('data-tags') || '';
-                    
-                    if (filterValue === 'all' || cardTags.includes(filterValue)) {
-                        card.style.display = 'block'; // Show card
-                    } else {
-                        card.style.display = 'none'; // Hide card
-                    }
-                });
+          const text = await res.text();
+          let ok = res.ok;
+          try {
+            const parsed = JSON.parse(text);
+            if (parsed?.ok === true) {
+              ok = true;
+              const peopleCount = Array.isArray(parsed.people) ? parsed.people.length : people.length;
+              showMessage(`Submitted! HouseholdPk: ${parsed.householdPk || '—'} • People: ${peopleCount}`, 'success');
             }
-        });
+          } catch { /* ignore non-JSON */ }
+
+          if (!ok) throw new Error(text || `Submission failed${res.status ? ` (HTTP ${res.status})` : ''}`);
+
+          form.reset();
+          updatePeopleEntries();
+          if (formStartedAt) formStartedAt.value = '';
+        } catch (err) {
+          console.error(err);
+          showMessage(`An error occurred: ${err.message}`, 'error');
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalLabel;
+          }
+        }
+      });
+
+      updatePeopleEntries();
+    }
+  </script>
+
+  <!-- =========================
+       SITE UTILITIES / NAV / TIMELINE
+  ========================= -->
+  <script>
+    // Footer year
+    function setCopyrightYear() {
+      const yearSpan = document.getElementById('current-year');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
     }
 
+    // Hamburger + close on link click
+    function setupNavToggle() {
+      const navToggle = document.querySelector('.menu-toggle');
+      const navLinksContainer = document.getElementById('primary-nav');
 
-    // Initialize all utility functions
+      if (navToggle && navLinksContainer) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = navLinksContainer.classList.toggle('open');
+          navToggle.classList.toggle('menu-open', isOpen);
+          navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        navLinksContainer.querySelectorAll('a[href]').forEach(link => {
+          link.addEventListener('click', () => {
+            if (navLinksContainer.classList.contains('open')) {
+              navLinksContainer.classList.remove('open');
+              navToggle.classList.remove('menu-open');
+              navToggle.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+      }
+    }
+
+    // Timeline filters
+    function setupTimelineFilters() {
+      const timeline = document.querySelector('.timeline');
+      const filterContainer = document.getElementById('timeline-filters');
+      if (!timeline || !filterContainer) return;
+
+      const cards = document.querySelectorAll('.timeline .timeline-card');
+      const uniqueTags = new Set();
+
+      cards.forEach(card => {
+        const tagsAttribute = card.getAttribute('data-tags');
+        if (tagsAttribute) {
+          tagsAttribute.split(',').map(t => t.trim()).forEach(tag => uniqueTags.add(tag));
+        }
+      });
+
+      const formatTag = (tag) => tag.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
+
+      filterContainer.innerHTML = '';
+      const allBtn = document.createElement('button');
+      allBtn.textContent = 'All';
+      allBtn.classList.add('filter-button', 'active');
+      allBtn.setAttribute('data-filter', 'all');
+      filterContainer.appendChild(allBtn);
+
+      Array.from(uniqueTags).sort().forEach(tag => {
+        const button = document.createElement('button');
+        button.textContent = formatTag(tag);
+        button.classList.add('filter-button');
+        button.setAttribute('data-filter', tag);
+        filterContainer.appendChild(button);
+      });
+
+      filterContainer.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!target.classList.contains('filter-button')) return;
+
+        const filterValue = target.getAttribute('data-filter');
+
+        filterContainer.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+        target.classList.add('active');
+
+        cards.forEach(card => {
+          const cardTags = card.getAttribute('data-tags') || '';
+          card.style.display = (filterValue === 'all' || cardTags.includes(filterValue)) ? 'block' : 'none';
+        });
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-        setCopyrightYear();
-        setupNavToggle();
-        setupTimelineFilters();
+      setupNavToggle();
+      setupTimelineFilters();
+      // copyright year after DOM ready
+      (function(){ const y = document.getElementById('current-year'); if (y) y.textContent = new Date().getFullYear(); })();
     });
-</script>
+  </script>
 </body>
 </html>
