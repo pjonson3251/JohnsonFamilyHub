@@ -328,9 +328,12 @@ const NAME_TRIGGERS = [
   { match: 'Kevin', type: 'exact', message: 'No, Emily...', block: true },
   { match: 'jujitsu', type: 'exact', message: 'No, Emily...', block: true },
   { match: 'Nora', type: 'exact', message: 'Nora... you know I love you... but, no. 🤣', block: true },
-	{ match: 'jujistu', type: 'exact', message: 'No, Emily...', block: true },
-	{ match: 'Sarah', type: 'exact', message: 'Sarah, we are not naming our daughter after you', block: true },
-	{ match: '[^A-Za-z]', type: 'regex', message: 'Alright Elon... Real names only please', block: true },
+  { match: 'jujistu', type: 'exact', message: 'No, Emily...', block: true },
+  { match: 'Sarah', type: 'exact', message: "Sarah... we're not naming our daughter after you", block: true },
+  { match: '[^A-Za-z]', type: 'regex', message: 'Alright Elon... Real names only please', block: true },
+  { match: 'Patricia', type: 'exact', message: "I totally get why you suggested Patricia—it's a great name. But we already have an amazing Trish in the family, and I think we'd run into too much confusion! We should probably save the name 'Trish' for our original, awesome one.", block: true },
+	{ match: 'Trish', type: 'exact', message: "I totally get why you suggested Patricia—it's a great name. But we already have an amazing Trish in the family, and I think we'd run into too much confusion! We should probably save the name 'Trish' for our original, awesome one.", block: true },
+  { match: 'Mildred', type: 'regex', message: "We love Aunt Mildred, and she truly is one of the strongest people we know! But we're looking for something that's just for our daughter, so we'll pass on that name.", block: true}
 	
 ];
 
