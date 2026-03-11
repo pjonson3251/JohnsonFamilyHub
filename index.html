@@ -2,42 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-  <title>Johnson Family Hub</title>
-  <link href="johnsonfamilyhub.css" rel="stylesheet" type="text/css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <title>Johnson Family Hub · Isla Claire</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Pacifico&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Pacifico&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="johnsonfamilyhub.css"/>
 </head>
 
 <body>
-  <!-- NAV -->
-  <nav aria-label="Primary" class="navbar" role="navigation">
-    <div class="navbar-content-wrapper">
-      <a class="nav-logo pacifico-regular" href="#Home"><strong>Baby Johnson Hub</strong></a>
-      <div class="nav-links-container" id="primary-nav">
-        <a class="nav-link" href="#Updates">Updates</a>
-        <a class="nav-link" href="#Registry">Registry</a>
-        <a class="nav-link" href="#BabyShowers">Baby Showers</a>
-		<a class="nav-link" href="#NameGame">Baby Name Submissions</a>
-        <a class="nav-link" href="#ContactUs">Contact Us</a>
-      </div>
-      <button aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu" class="menu-toggle hamburger">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+<script>
+var noPrint=true;
+var noCopy=true;
+var noScreenshot=true;
+var autoBlur=false;
+</script>
+
+<script type="text/javascript" src="https://pdfanticopy.com/noprint.js"></script>
+  <nav class="navbar" role="navigation" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#Home"><span>Johnson</span> Family Hub</a>
+      <ul class="nav-links" id="primary-nav" role="list">
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#Gallery">Photos</a></li>
+        <li><a href="#Registry">Registry</a></li>
+        <li><a href="#ContactUs">Stay Connected</a></li>
+      </ul>
+      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
     </div>
   </nav>
-<!-- STICKY COUNTDOWN (below header) -->
-<div id="CountdownBar"
-     class="countdown-bar"
-     role="timer"
-     aria-live="polite"
-     data-target="2026-04-09T00:00:00-04:00"
-     data-finish-text="It's baby time!">
-  <div class="countdown-inner">
-    <span class="countdown-dot" aria-hidden="true"></span>
-    <span class="countdown-label">Baby Loading</span><div class="loader"></div>
-    <div class="countdown-grid" aria-hidden="true">
+
+  <div id="CountdownBar" class="countdown-bar"
+       role="timer" aria-live="polite"
+       data-target="2026-04-09T00:00:00-04:00">
+    <span class="cd-dot" aria-hidden="true"></span>
+    <span class="cd-label">Isla arrives in</span>
+    <div class="cd-grid" aria-hidden="true">
       <div class="cd-cell">
         <span id="cd-days" class="cd-num">—</span>
         <span class="cd-unit">Days</span>
@@ -45,1305 +52,391 @@
       <span class="cd-sep">:</span>
       <div class="cd-cell">
         <span id="cd-hours" class="cd-num">—</span>
-        <span class="cd-unit">Hours</span>
+        <span class="cd-unit">Hrs</span>
       </div>
       <span class="cd-sep">:</span>
       <div class="cd-cell">
         <span id="cd-mins" class="cd-num">—</span>
-        <span class="cd-unit">Minutes</span>
+        <span class="cd-unit">Min</span>
       </div>
       <span class="cd-sep">:</span>
       <div class="cd-cell">
         <span id="cd-secs" class="cd-num">—</span>
-        <span class="cd-unit">Seconds</span>
+        <span class="cd-unit">Sec</span>
       </div>
     </div>
+    <span class="cd-label" aria-hidden="true">· April 9th 🎀</span>
   </div>
-</div>
+
+  <div class="page-offset" aria-hidden="true"></div>
 
   <main>
-    <!-- Home -->
+
     <section class="section" id="Home" tabindex="-1">
-      <div class="hero-container" style="background-color: rgba(255, 255, 255, 0.2); border: none;">
-        <h1 style="font-family: Pacifico; font-size: 5vh">Welcome to the Baby Johnson Hub!</h1>
-        <p style="font-family: Londrina Solid">Our hearts are bursting, and we can't wait to introduce you to the newest member of our family!</p>
-        <p style="font-family: Londrina Solid">We put together this little hub to keep our closest friends and family in the loop.</p>
+      <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="hero-pretitle">
+          <span class="hero-pretitle-dot" aria-hidden="true"></span>
+          <span class="eyebrow">Coming April 9, 2026</span>
+          <span class="hero-pretitle-dot" aria-hidden="true"></span>
+        </div>
+
+        <h1 class="hero-name">Isla Claire</h1>
+        <span class="hero-name-sub">Johnson</span>
+
+        <p class="hero-desc">
+          Our hearts are bursting! We built this little hub to keep our
+          closest family and friends in the loop as we get ready to meet her. 💕
+        </p>
+
+        <div class="hero-stats">
+          <div class="hstat">
+            <span class="hstat-num" id="hero-days-left">—</span>
+            <span class="hstat-label">Days Left</span>
+          </div>
+          <div class="hstat">
+           	<span class="hstat-num" id="hero-weeks-along">—</span>
+            <span class="hstat-label">Weeks Along</span>
+          </div>
+          <div class="hstat">
+            <span class="hstat-num text-rose">♀</span>
+            <span class="hstat-label">Baby Girl</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero-scroll-line"></div>
       </div>
     </section>
 
-    <!-- Updates -->
-    <section class="section" id="Updates" tabindex="-1">
-      <div class="updates-header">
-        <h1 style="font-family: Pacifico; font-size: 5vh">Updates &amp; Milestones</h1>
-        <p style="font-family: Londrina Solid">Stay up-to-date with our journey here. We'll post major milestones, current status reports, and the official announcement when our daughter makes her grand entrance.</p>
-        <p style="font-family: Londrina Solid">We promise to keep you in the loop!</p>
-      </div>
+    <section class="section" id="Gallery" tabindex="-1">
+      <div class="section-inner">
 
-      <div class="filter-container">
-        <div class="filter-buttons" id="timeline-filters"></div>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-card left" data-tags="confirmation">
-          <div class="card-content">
-            <div class="card-date">2025-07-31</div>
-            <div class="card-image">
-              <img class="timeline-image" alt="Event Image: Positive Test" src="images/PregnancyTest.png">
-            </div>
-            <h2>Everything's about to change...</h2>
-            <p>Melissa left the positive home test on the bathroom sink for Pat. This was the moment everything changed!</p>
-            <div class="card-tags"></div>
-          </div>
+        <div class="sh fade-up">
+          <span class="eyebrow">Our Family</span>
+          <h2 class="sh-title">Photo Gallery</h2>
+          <p class="sh-desc">A little peek into our world — the love, the laughs, and the life we're building together.</p>
+          <div class="sh-divider">🎀</div>
         </div>
 
-        <div class="timeline-card right" data-tags="confirmation">
-          <div class="card-content">
-            <div class="card-date">2025-08-04</div>
-            <div class="card-image">
-              <img alt="Event Image: Official Confirmation" src="images/Hormonetest.png">
-            </div>
-            <h2>Official Confirmation</h2>
-            <p>We received positive hormone test results back from the clinic. The official word was a relief, but we were still anxiously waiting for more certainty.</p>
-            <div class="card-tags"></div>
-          </div>
+        <div class="gallery-disclaimer fade-up" aria-live="polite">
+          <span>🔒</span>
+          Photos on this page are private and protected. Please do not screenshot or share.
         </div>
 
-        <div class="timeline-card left" data-tags="sonogram,heartbeat">
-          <div class="card-content">
-            <div class="card-date">2025-09-04</div>
-            <div class="card-image">
-              <img alt="Event Image: First Glimpse" src="images/FirstSonogram.jpg">
+        <div class="gallery-grid" id="photo-gallery">
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/WeddingDay.png" alt="Our Wedding Day" draggable="false"/>
             </div>
-            <h2>First Glimpse of the Bean</h2>
-            <p>We saw our little "kidney bean" for the first time during the sonogram. We could see the flicker of a heartbeat, but it was too early to hear it.</p>
-            <div class="card-tags">
-              <span class="tag" data-filter="sonogram">Sonogram</span>
-              <span class="tag" data-filter="heartbeat">Heartbeat</span>
-            </div>
+            <div class="gallery-caption">Our Wedding Day</div>
           </div>
-        </div>
-
-        <div class="timeline-card right" data-tags="heartbeat">
-          <div class="card-content">
-            <div class="card-date">2025-10-02</div>
-            <h2>The First Beat Drop</h2>
-            <p>We heard the baby's heartbeats for the very first time! No sonogram, and there was a stressful minute as the tech searched, but the sound was strong and perfect.</p>
-            <div class="card-tags">
-              <span class="tag" data-filter="heartbeat">Heartbeat</span>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/MF-Wedding.png" alt="Wedding Celebration" draggable="false"/>
             </div>
+            <div class="gallery-caption">Wedding Celebration</div>
           </div>
-        </div>
-		  
-		<div class="timeline-card left" data-tags="preparation">
-          <div class="card-content">
-            <div class="card-date">2025-10-16</div>
-			  <div class="card-image">
-              <img alt="BABYPMP" src="images/Whiteboard.png">
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/ErinsWedding.png" alt="Erin's Wedding" draggable="false"/>
             </div>
-            <h2>Dad has lost his mind...</h2>
-            <p>Pat is currently deep in a cycle of stress and over-preparation, having entered full project management mode for our baby's impending arrival.</p>
-            <p>Every detail is charted, every risk is mitigated, and his internal PM clock is running on overdrive.</p>
-<div class="card-tags">
-            <span class="tag" data-filter="Preparation">Preparation</span>
-            </div>
+            <div class="gallery-caption">Erin's Wedding</div>
           </div>
-        </div>
-
-        <div class="timeline-card right" data-tags="sonogram,movement">
-          <div class="card-content">
-            <div class="card-date">2025-10-08</div>
-            <div class="card-image">
-              <img alt="Event Image: Wiggles" src="images/Ultrasound2.gif" style="justify-content: center; height: 100%">
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/MarriageLicense.png" alt="Marriage License" draggable="false"/>
             </div>
-            <h2>Little Wiggle Worm</h2>
-            <p>Our next sonogram showed a very active baby who refused to roll over. We got to see two arms, two legs, and a whole lot of wiggles.</p>
-            <div class="card-tags">
-              <span class="tag" data-filter="sonogram">Sonogram</span>
-              <span class="tag" data-filter="movement">Movement</span>
-            </div>
+            <div class="gallery-caption">It's Official! 💍</div>
           </div>
-        </div>
-
-        <div class="timeline-card left" data-tags="">
-          <div class="card-content" style="background-color: pink">
-            <div class="card-date">2025-10-13</div>
-            <div class="card-image">
-              <img alt="Event Image: It's a Girl" src="images/Itsagirl.png">
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/CaboSunset.jpg" alt="Cabo Sunset" draggable="false"/>
             </div>
-            <h2>It's a Girl!</h2>
-            <p>The genetic testing results came back with the best news: we are having a healthy little daughter!</p>
-			<p>Dad has already started planning how to prepare for teenage boys...</p>
-            <small>(Anyone know someone selling a used backhoe? Asking for a friend...)</small>
-<div class="card-tags">
-            <span class="tag" data-filter="confirmation">Confirmation</span>
-            </div>
+            <div class="gallery-caption">Cabo Sunset</div>
           </div>
-        </div>
-		  
-		<div class="timeline-card right" data-tags="sonogram,movement">
-          <div class="card-content">
-            <div class="card-date">2025-11-25</div>
-            <div class="card-image">
-              <img alt="Event Image: Wiggles" src="images/Ultrasound3.gif" style="justify-content: center; height: 100%">
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/MelissaCabo.jpg" alt="Melissa in Cabo" draggable="false"/>
             </div>
-            <h2>It turns out our little girl is already stubborn... help me!</h2>
-			  <p>She was feeling stubborn and refused to roll over for the camera.</p>
-				<p>Despite the attitude, we were so happy to see 10 little fingers and catch some very cute kicks.</p>
-            <div class="card-tags">
-              <span class="tag" data-filter="sonogram">Sonogram</span>
-              <span class="tag" data-filter="movement">Movement</span>
-            </div>
+            <div class="gallery-caption">Cabo Vibes</div>
           </div>
-        </div>
-		  
-        <div class="timeline-card left" data-tags="">
-          <div class="card-content" style="background-color: maroon">
-            <div class="card-date">2025-20-12</div>
-            <div class="card-image">
-              <img alt="" src="images/babyshower1.jpg">
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/MelissaCaboDinner.png" alt="Cabo Dinner" draggable="false"/>
             </div>
-            <h2>Xmas Baby Shower in Chattanooga</h2>
-            <p>Surrounded by friends, laughter, and the tackiest Christmas outfits imaginable, Melissa’s first baby shower in Chattanooga was unforgettable.</p>
-  <div class="card-tags">
-            <span class="tag" data-filter="Celebrations">Celebrations</span>
-            </div>
+            <div class="gallery-caption">Cabo Dinner</div>
           </div>
-        </div>
-
-<div class="timeline-card right" data-tags="sonogram,movement">
-          <div class="card-content">
-            <div class="card-date">2026-01-07</div>
-            <div class="card-image">
-              <img alt="Event Image: Wiggles" src="images/Sonogram No 3.jpg" style="justify-content: center; height: 100%">
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/CaboMarg.png" alt="Cabo Margs" draggable="false"/>
             </div>
-            <h2>She Finally Cooperated!</h2>
-			  <p>It looks like she was just waiting for her close-up! After refusing to roll over last time, 
-				  she still fought it but we got all the images we were looking for. </p>
-				<p>We are thrilled to report that all anatomy is confirmed 
-				  healthy, counting 10 little fingers and 10 little toes. Best of all, we finally got to see 
-				  who she looks like—we saw her face for the very first time.</p>
-            <div class="card-tags">
-              <span class="tag" data-filter="sonogram">Sonogram</span>
-              <span class="tag" data-filter="movement">Milestone</span>
-            </div>
+            <div class="gallery-caption">Last Margarita for a while... 😂</div>
           </div>
-        </div>
-		  
-		  
-      </div>
-
-
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/Skiing.png" alt="Skiing" draggable="false"/>
+            </div>
+            <div class="gallery-caption">On the Slopes</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/Hozier.png" alt="Hozier Concert" draggable="false"/>
+            </div>
+            <div class="gallery-caption">Hozier 🎶</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/Hamilton.png" alt="Hamilton" draggable="false"/>
+            </div>
+            <div class="gallery-caption">Hamilton 🎭</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/TikiBarChicago.png" alt="Tiki Bar Chicago" draggable="false"/>
+            </div>
+            <div class="gallery-caption">Tiki Bar · Chicago</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/AtlantaUnited.jpg" alt="Atlanta United" draggable="false"/>
+            </div>
+            <div class="gallery-caption">Atlanta United ⚽</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/Ziggy Happy.jpg" alt="Ziggy" draggable="false"/>
+            </div>
+            <div class="gallery-caption">Ziggy — Future Big Sister 🐾</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/ZiggyTruck.jpg" alt="Ziggy in the Truck" draggable="false"/>
+            </div>
+            <div class="gallery-caption">Ziggy LOVES car rides 🛻!</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/ZiggyKisses.png" alt="Ziggy Kisses" draggable="false"/>
+            </div>
+            <div class="gallery-caption">Ziggy's Kisses 😘</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/ZiggyDragon.png" alt="Ziggy Dragon" draggable="false"/>
+            </div>
+            <div class="gallery-caption">Dragon Mode 🐉</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/Itsagirl.png" alt="It's a Girl — Isla Claire!" draggable="false"/>
+            </div>
+            <div class="gallery-caption">It's a Girl! Hello, Isla Claire! 🎀</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/FirstSonogram.jpg" alt="First Sonogram" draggable="false"/>
+            </div>
+            <div class="gallery-caption">First Glimpse 🫘</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/Sonogram No 3.jpg" alt="Isla's Face Reveal Sonogram" draggable="false"/>
+            </div>
+            <div class="gallery-caption">We saw her face! 🥹</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/babyshower1.jpg" alt="Baby Shower Chattanooga" draggable="false"/>
+            </div>
+            <div class="gallery-caption">Chattanooga Baby Shower 🎊</div>
+          </div>
+          <div class="gallery-item fade-up">
+            <div class="protected watermarked">
+              <img src="images/Whiteboard.png" alt="Dad's Baby Project Plan" draggable="false"/>
+            </div>
+            <div class="gallery-caption">Dad has entered the chat 📋😅</div>
+          </div>
+        </div></div>
     </section>
 
-    <!-- Registry -->
     <section class="section" id="Registry" tabindex="-1">
-      <div class="registry-header">
-        <h1 style="font-family: Pacifico; font-size: 5vh">Our Registry Details</h1>
-        <p style="font-family: Londrina Solid; font-size: 5vh">Your love and support are truly the greatest gift!</p>
-        <p style="font-family: Londrina Solid; font-size: 2vh">Please know that your presence in her life is all we really need.</p>
-        <p style="font-family: Londrina Solid; font-size: 2vh">For those who have asked, we've curated a list of things that will help us prepare for our journey as parents.</p>
-      <!--</div>
-      <a href="https://www.babylist.com/list/melissa-blasingame">
-        <div class="registry-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Babylist_Logo_03.png" alt="">
+      <div class="section-inner">
+
+        <div class="sh fade-up">
+          <span class="eyebrow">For those who've asked</span>
+          <h2 class="sh-title">Our Registry</h2>
+          <p class="sh-desc">Your love and presence in Isla's life is truly the greatest gift. For those who've asked — here's our wish list!</p>
+          <div class="sh-divider">🛍️</div>
         </div>
-      </a> -->
-		  
-        <a href="https://my.babylist.com/melissa-blasingame">
-		  <div class="registry-container">
-			<img style="max-width: 50vw" src="https://s4-recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/400/077/500/original/babylist_3x.png?1627577862" alt="">
-        </div>
-		</a>
-      
+
+        <a href="https://my.babylist.com/melissa-blasingame"
+           target="_blank" rel="noopener noreferrer"
+           class="registry-card fade-up" style="margin: 0 auto;">
+          <img
+            src="https://s4-recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/400/077/500/original/babylist_3x.png?1627577862"
+            alt="Babylist"
+            class="registry-logo"
+            draggable="false"
+          />
+          <p class="registry-note">
+            We're registered on <strong>Babylist</strong> — one convenient spot for everything we need
+            as we get ready to bring Isla Claire home. ✨
+          </p>
+          <div class="registry-btn">
+            View Our Registry
+            <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5" viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </div>
+        </a>
+
+      </div>
     </section>
 
-    <!-- Baby Showers -->
-    <section class="section" id="BabyShowers" tabindex="-1">
-      <div class="shower-header">
-        <h1 style="font-family: Pacifico; font-size: 5vh">Upcoming Celebrations</h1>
-        <p style="font-family: Londrina Solid; font-size: 2vh">We are so blessed that so many of you want to celebrate our daughter with us!</p>
-        <p style="font-family: Londrina Solid; font-size: 2vh">Find all the specific details for any baby showers or gatherings you've been invited to here, including dates, locations, and how to RSVP. We can't wait to see you!</p>
-        <ul class="baby-shower-cards-container">
-          <li class="booking-card" style="background-image: url(https://www.cubesmart.com/blog/wp-content/uploads/Decatur-2-1.jpg); background-size: 55vh; background-position: top;">
-            <div class="book-container">
-              <div class="content">
-                <a class="btn" aria-label="RSVP for Local Shower">Details to follow</a>
+    <section class="section" id="ContactUs" tabindex="-1">
+      <div class="section-inner">
+
+        <div class="sh fade-up">
+          <span class="eyebrow">Let's stay in touch</span>
+          <h2 class="sh-title">Stay Connected</h2>
+          <p class="sh-desc">As things get wonderfully chaotic, we want to make sure you don't miss a single update — or the big announcement!</p>
+          <div class="sh-divider">📬</div>
+        </div>
+
+        <div class="contact-wrap">
+
+          <div class="contact-info fade-up">
+            <h3 class="contact-info-title">Keep our village connected!</h3>
+            <p class="contact-info-text">
+              Please take a moment to confirm your contact details so we can make sure
+              you're on the list for Isla's birth announcement and any future updates
+              from the Johnson family. We can't wait to share her with you! 💕
+            </p>
+            <div class="contact-people">
+              <div class="contact-person">
+                <div class="contact-avatar">M</div>
+                <div>
+                  <div class="contact-person-name">Melissa</div>
+                  <div class="contact-person-role">Mom-to-Be 🤰</div>
+                </div>
+              </div>
+              <div class="contact-person">
+                <div class="contact-avatar">P</div>
+                <div>
+                  <div class="contact-person-name">Pat</div>
+                  <div class="contact-person-role">Dad-to-Be · Chief Project Manager 📋</div>
+                </div>
               </div>
             </div>
-            <div class="informations-container">
-              <h2 class="title">Atlanta</h2>
-              <div class="more-information">
-                <div class="info-and-date-container">
-                  <div class="box info">
-                    <span class="icon" style="width:24px;height:24px">📍</span>
-                    <p>TBD, Atlanta, GA</p>
+          </div>
+
+          <div class="cf-card fade-up">
+            <h3 class="cf-title">Contact Information</h3>
+            <p class="cf-subtitle">Add one or more people who share the same mailing address.</p>
+
+            <div id="userMessage" class="cf-alert" role="status" aria-live="polite"></div>
+
+            <form id="contactForm" novalidate>
+              <input
+                type="text"
+                id="cf_guard"
+                class="hp-field"
+                tabindex="-1"
+                aria-hidden="true"
+                autocomplete="new-password"
+                inputmode="none"
+                data-lpignore="true"
+                data-1p-ignore="true"
+                data-form-type="other"
+              />
+              <input type="hidden" id="formStartedAt" name="formStartedAt"/>
+
+              <div class="cf-field">
+                <label for="numPeople" class="cf-label">How many people are you registering?</label>
+                <input
+                  type="number"
+                  id="numPeople"
+                  name="numPeople"
+                  min="1" max="10"
+                  inputmode="numeric"
+                  value="1"
+                  required
+                  class="cf-input"
+                  style="max-width:120px;"
+                />
+                <small class="cf-hint">Up to 10 people at the same address.</small>
+              </div>
+
+              <div id="peopleContainer" class="cf-people"></div>
+
+              <fieldset class="cf-fieldset">
+                <legend>Mailing Address</legend>
+                <div class="cf-field">
+                  <label for="streetAddress" class="cf-label">Street Address</label>
+                  <input type="text" name="streetAddress" id="streetAddress"
+                         required autocomplete="address-line1" class="cf-input"/>
+                </div>
+                <div class="cf-field">
+                  <label for="address2" class="cf-label">
+                    Address 2 <small style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</small>
+                  </label>
+                  <input type="text" name="address2" id="address2"
+                         autocomplete="address-line2" placeholder="Apt / Suite / Unit" class="cf-input"/>
+                </div>
+                <div class="cf-grid">
+                  <div class="cf-field">
+                    <label for="city" class="cf-label">City</label>
+                    <input type="text" name="city" id="city"
+                           required autocomplete="address-level2" class="cf-input"/>
                   </div>
-                  <div class="box date">
-                    <span class="icon" style="width:24px;height:24px">🗓️</span>
-                    <p>Feb 28th, 2026</p>
+                  <div class="cf-field">
+                    <label for="state" class="cf-label">State</label>
+                    <input type="text" name="state" id="state"
+                           required autocomplete="address-level1" class="cf-input"/>
                   </div>
                 </div>
-                <p class="disclaimer">Click the 'RSVP NOW' button to confirm your attendance and get the full address details!</p>
-              </div>
-            </div>
-          </li>
+                <div class="cf-field">
+                  <label for="zipCode" class="cf-label">ZIP Code</label>
+                  <input type="text" name="zipCode" id="zipCode"
+                         required autocomplete="postal-code" class="cf-input"
+                         style="max-width:180px;"/>
+                </div>
+              </fieldset>
 
-        </ul>
+              <button type="submit" id="submitButton" class="cf-btn">
+                Submit Information 💌
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
 
-  <!-- BABY NAME GAME -->
-<section class="section" id="NameGame" tabindex="-1" aria-labelledby="ng-header">
-  <div class="updates-header">
-    <h1 id="ng-header" style="font-family: Pacifico; font-size: 5vh">Baby Name Submissions</h1>
-    <p style="font-family: Londrina Solid">Help us find the perfect name for our daughter! Suggest a name and cast an up/down vote.</p>
-	<p style="font-size: 1.5vh">(Please don't make me keep writing unique lines of code to catch dumb responses...)</p>
-  </div>
-
-  <div class="ng-grid">
-    <!-- Suggestion card -->
-    <div class="ng-card" role="form" aria-labelledby="ng-suggest-title">
-      <h2 id="ng-suggest-title" class="ng-h2">Suggest a Name</h2>
-
-      <div id="ngMessage" class="cf-alert hidden" role="status" aria-live="polite"></div>
-
-      <form id="nameGameForm" novalidate>
-        <!-- Honeypot + timing -->
-        <input type="text" id="ng_guard" class="hp-field" tabindex="-1" aria-hidden="true" autocomplete="new-password" inputmode="none" />
-        <input type="hidden" name="ngStartedAt" id="ngStartedAt" />
-
-        <div class="cf-field">
-          <label class="form-label" for="ng_name">Name</label>
-          <input id="ng_name" name="ng_name" type="text" required />
-        </div>
-
-        <div class="cf-actions">
-          <button type="submit" id="ng_submit" class="cf-btn">Submit Suggestion</button>
-        </div>
-      </form>
-    </div>
-
-    <!-- Leaders card -->
-    <div class="ng-card" aria-labelledby="ng-leaders-title">
-      <h2 id="ng-leaders-title" class="ng-h2">Current Leaders</h2>
-      <p class="ng-muted">Upvote/downvote existing names. You can react to each name once.</p>
-      <div id="ngLeaders" class="ng-leader-list" role="list">
-        <div class="ng-empty">Fetching leaders…</div>
-      </div>
-      <div class="ng-actions">
-        <button type="button" id="ng_refresh" class="cf-btn" aria-label="Refresh leaders">Refresh</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Popup / Modal -->
-  <div id="ngModal" class="ng-modal" role="dialog" aria-modal="true" aria-labelledby="ngModalTitle" aria-hidden="true">
-    <div class="ng-modal-backdrop" data-close="1"></div>
-    <div class="ng-modal-card">
-      <div id="ngModalBody"></div>
-      <div class="ng-modal-actions">
-        <button type="button" class="cf-btn" data-close="1">OK</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-// =========================
-//  Baby Name Game (inline)
-// =========================
-
-// === 1) CONFIG ===
-const NAMEGAME_URL = "https://script.google.com/macros/s/AKfycbw3Vz_AqlZolAsuqP87VW-QODzXpef6-oZS1P2sOy7ylKbsyPYqiirr8jI6ZVX9kfRb/exec";  // your /exec URL
-const NAMEGAME_SITE_LABEL = ""; // optional: override origin+path for logging
-
-// Set which names trigger a popup (exact/startsWith/includes/regex).
-// `block: true` cancels submission; false shows the note but still submits.
-const NAME_TRIGGERS = [
-  // -----------------------------------------------------------------
-  // --- A. PERSONAL & FAMILY BLOCKS (Highest Priority) ---
-  // -----------------------------------------------------------------
-
-  // Wife/Mother (Melissa)
-  { match: 'Melissa', type: 'exact', message: "Awww, **Melissa**! That's a beautiful suggestion. We already have the best one, though—the amazing mother of this baby girl! We can't have two 'Melissas' in the house; the original would be too powerful. 😉 Thanks for trying!", block: true },
-  { match: 'Melisa', type: 'exact', message: "We love the sound of **Melisa**! But since the mother of the baby is already the fabulous Melissa, we're trying to find a name that's totally new and unique to our daughter.", block: true },
-  { match: 'Mellissa', type: 'exact', message: "Fantastic suggestion! But we've decided to let the baby's amazing mom, **Melissa**, keep this beautiful name all to herself. Let's find a fresh name for the new little one!", block: true },
-  { match: 'Mel', type: 'exact', message: "That's a great nickname! Unfortunately, **Mel** is strictly reserved for the original—the baby's mom! We need a name that doesn't belong to the matriarch.", block: true },
-  { match: 'Missy', type: 'exact', message: "Ooh, a sweet suggestion! But the only **Missy** we need is already here (and she's the baby's mom). We're seeking something that's totally new to our family.", block: true },
-  
-  // Maternal Grandmother (Beverly)
-  { match: 'Beverly', type: 'exact', message: "What a classic name! We already have an awesome **Beverly** in the family—the baby's grandmother! We want to find a name that's unique to the new generation.", block: true },
-  { match: 'Bev', type: 'exact', message: "**Bev** is a fun nickname, but it belongs exclusively to the baby's amazing grandmother! Let's save that name for the original.", block: true },
-  
-  // Paternal Grandmother (Kathryn)
-  { match: 'Kathy', type: 'exact', message: "We're going to hold off on **Kathy**—we're convinced my mom would charge us a royalty fee for using her name! We'll keep looking for something else.", block: true},
-  { match: 'Kathryn', type: 'exact', message: "We're going to hold off on **Kathryn**—we're convinced my mom would charge us a royalty fee for using her name! We'll keep looking for something else.", block: true},
-
-  // Maternal Aunt (Meredith)
-  { match: 'Meredith', type: 'exact', message: "**Meredith** is a sophisticated choice! Unfortunately, the baby's favorite aunt has already claimed this name. We must respect the O.G. Meredith!", block: true },
-
-  // Maternal Aunt (Mallory variations)
-  { match: 'Mallory', type: 'exact', message: "**Mallory** is a great name! But the world only needs one—and the baby's awesome aunt already holds the title. Time to find an undiscovered gem!", block: true },
-  { match: 'Malorie', type: 'exact', message: "We appreciate the suggestion! But we have a real-life version—the baby's aunt!—and having two 'Mal(l)ories' would be too confusing.", block: true },
-  { match: 'Mallorie', type: 'exact', message: "**Mallorie** has a lovely ring to it. Unfortunately, our family already hosts a fantastic one (the aunt!), and we'd like to prevent the great name confusion of '24!", block: true },
-
-  // Dad's Cousin (Erin)
-  { match: 'Erin', type: 'exact', message: "**Erin** is a lovely choice, but we already have an amazing one (Dad's cousin!) who is irreplaceable. We need a name that's 100% unique to the baby!", block: true },
-
-  // Pat's Cousin (Nora)
-  { match: 'Nora', type: 'exact', message: "That's a beautiful choice! We love **Nora** (the cousin!) dearly, and she is truly one of our favorites. However, we're trying to find a new, unique name that belongs only to our baby girl. We must protect Cousin Nora's 'Original' status!", block: true },
-
-  // Multiple Laurens
-  { match: 'Lauren', type: 'exact', message: "**Lauren** is great, but we actually know approximately 75 different Laurens already. We're trying to cut down on name confusion at parties! Please find a new name.", block: true },
-  { match: 'Laura', type: 'exact', message: "Another beautiful name, but like Lauren, we're swimming in **Lauras**! We need something fresh that won't require a last-initial qualifier when we call it out.", block: true },
-  { match: 'Lori', type: 'exact', message: "**Lori** is a no-go, unfortunately! It falls into the 'too many friends with this name' category. Thanks for the effort!", block: true },
-
-  // Family Friend & Husband (Morgan & Ryan)
-  { match: 'Ryan', type: 'exact', message: "We love **Ryan**! But we're trying to avoid a scenario where we yell 'Ryan!' and three different people look up. We must protect the unique identity of the existing Ryan in our circle!", block: true },
-  { match: 'Morgan', type: 'exact', message: "A strong suggestion! But adding a new **Morgan** would be chaos. We already have the *original* Morgan, and having two people answer when you call that name is a logistical nightmare we just can't handle right now.", block: true },
-
-  // Family Friend (Emily)
-  { match: 'Emily', type: 'exact', message: "**Emily** is such a sweet name! Unfortunately, our framily has reached its maximum quota for 'Ems.' Any more, and we'll accidentally summon an entire sorority. Let's find a new name!", block: true },
-
-  // Paternal Great-Aunt (Patricia)
-  { match: 'Patricia', type: 'exact', message: "I totally get why you suggested **Patricia**—it's a great name. But we already have an amazing Trish in the family (the great-aunt!), and I think we'd run into too much confusion! We should probably save the name 'Trish' for our original, awesome one.", block: true },
-  { match: 'Trish', type: 'exact', message: "We love **Trish**, but we must reserve this nickname for the baby's wonderful great-aunt. We're looking for something that hasn't been claimed by a family legend!", block: true },
-  { match: 'Pat', type: 'exact', message: "**Pat** doesn't need a mini-me! We'll keep looking for something else.", block: true},
-  
-  // Mildred (Aunt)
-  { match: 'Mildred', type: 'exact', message: "We love Aunt **Mildred**, and she truly is one of the strongest people we know! But we're looking for something that's just for our daughter, so we'll pass on that name.", block: true},
-
-
-  // ---------------------------------------------------------------------------------
-  // --- B. JOHNSON-PROOF BLOCKS (Targeted Last Name Puns) ---
-  // ---------------------------------------------------------------------------------
-
-  { match: 'Phil', type: 'exact', message: "We appreciate the suggestion, but we cannot name our baby **Phil Johnson**. We're trying to avoid names that sound like an action item, especially in a suggestive way. Try again!", block: true },
-  { match: 'Harry', type: 'exact', message: "We are blocking **Harry**. Combined with our last name, it creates a visual joke we are not willing to live with for 18 years. We must protect the baby from future bullies!", block: true },
-  { match: 'Mike', type: 'exact', message: "A fine name, but **Mike Johnson** is a non-starter. It's too close to a classic, unfortunate joke. We need a name that doesn't invite smirks!", block: true },
-  { match: 'Jenna', type: 'exact', message: "**Jenna Johnson** is lovely, but we are rejecting all names that become highly suggestive or anatomical when paired with the last name. You know who you are.", block: true },
-  { match: 'Jenny', type: 'exact', message: "**Jenny** is too close to 'Jenna,' and the risk of inappropriate jokes with our last name is too great. Blocked!", block: true },
-  { match: 'Rod', type: 'exact', message: "Simple, but dangerous! We are vetoing **Rod Johnson** to prevent immature giggles from everyone who hears it. Aim higher than a grade school joke.", block: true },
-  { match: 'Richard', type: 'exact', message: "**Richard** is out. The nickname potential is too high, and we are not having a Dick Johnson in this family. Find a name that encourages respect, not jokes.", block: true },
-  { match: 'Seaman', type: 'exact', message: "Hard pass. Not a name. Do not submit words that are explicitly inappropriate, especially with our last name.", block: true },
-  { match: 'Rusty', type: 'exact', message: "We must block **Rusty Johnson**. We are not naming the baby after an adjective, especially a vaguely suggestive one. Find a real name!", block: true },
-  { match: 'Tad', type: 'exact', message: "**Tad** is a cute nickname, but **Tad Johnson** is too close to a common pun. Let's find a name that doesn't sound like a size reference.", block: true },
-  { match: 'Willie', type: 'exact', message: "Already blocked for other reasons, but **Willie Johnson** is a double-hard no. We are not setting the baby up for a lifetime of jokes.", block: true },
-  { match: 'Barry', type: 'exact', message: "A fine name, but **Barry Johnson** is out. It sounds like an action phrase that sets up an unfortunate mental image.", block: true },
-  { match: 'Chuck', type: 'exact', message: "A nice, classic name, but **Chuck Johnson** is another unfortunate phonetic pun we must avoid. No more suggestive names!", block: true },
-  { match: 'Doug', type: 'exact', message: "**Doug Johnson** sounds too much like a generic male name in a bad joke. We're aiming for something with less B-movie potential.", block: true },
-
-  // ---------------------------------------------------------------------------------
-  // --- C. INSTIGATOR JOKES, PUNS, AND POP CULTURE (General Filters) ---
-  // ---------------------------------------------------------------------------------
-
-  // --- Phonetic Puns & Say-Aloud Jokes ---
-  { match: 'Ophelia', type: 'exact', message: "We appreciate the suggestion, but we're avoiding names that sound like a cry for help (Ophelia Payne? No thanks!).", block: true },
-  { match: 'Anita', type: 'exact', message: "A lovely name, but we're already prepared for all the 'Anita Bath/Job/Knapp' jokes. Find a name that doesn't sound like a request!", block: true },
-  { match: 'Justin', type: 'exact', message: "That's a nice name, but if we use it, she'll spend her whole life answering to 'Justin Case.' We need a name that stands alone!", block: true },
-  { match: 'Holly', type: 'exact', message: "A beautiful name, but we're blocking this one to avoid too many 'Holly Wood' or 'Holly Day' jokes. Find something more grounded!", block: true },
-  { match: 'Carrie', type: 'exact', message: "We don't need the baby's name sounding like she is perpetually in motion (Carrie Oakey or Carrie Load).", block: true },
-  { match: 'Rose', type: 'exact', message: "A beautiful flower! But we're trying to avoid names that become part of a garden pun (Rose Bush).", block: true },
-  { match: 'Ginny', type: 'exact', message: "A sweet name, but no Ginny Tonic puns, please. We'll stick to real names, not cocktails!", block: true },
-  { match: 'Ivana', type: 'exact', message: "We're not looking for names that sound like pranks Bart Simpson would pull (Ivana Tinkle is a no-go).", block: true },
-  { match: 'Misty', type: 'exact', message: "We love the weather, but we're not naming her after atmospheric conditions (Misty Shore is a bit much!).", block: true },
-  { match: 'Ella', type: 'exact', message: "A lovely name, but we can't risk the 'Ella Vator' puns. The bar is higher than that!", block: true },
-  { match: 'Hugh', type: 'exact', message: "No **Hugh** names, please! We're not naming her after body parts or large measurements (Hugh Jass/Janus).", block: true },
-  { match: 'Wayne', type: 'exact', message: "While a nice name, we're blocking this to avoid any jokes related to male anatomy or general insults (Wayne Kerr).", block: true },
-  { match: 'Amanda', type: 'exact', message: "**Amanda** is a beautiful name, but we can't risk anyone submitting 'Amanda Huggenkiss' or 'A Man Da Lynn.'", block: true },
-  { match: 'Seymour', type: 'exact', message: "We're not allowing **Seymour** because it fails the 'say it out loud' test. Let's find something less visually suggestive!", block: true },
-  { match: 'Ben', type: 'exact', message: "Nope! We are blocking all names associated with 'Ben Dover' or 'Ben Thair.' Find a name that doesn't sound like an instruction.", block: true },
-  { match: 'Shirley', type: 'exact', message: "We love her, but not enough to tolerate endless 'Shirley You Jest' puns.", block: true },
-  { match: 'Sue', type: 'exact', message: "No **Sue** names, please. We're trying to avoid 'Sue Flay' or 'Sue Shi.'", block: true },
-  
-  // --- Pop Culture & Media Blocks ---
-  { match: 'Alexa', type: 'exact', message: "**Alexa** is off-limits. We don't want the baby responding every time we ask for the weather!", block: true },
-  { match: 'Siri', type: 'exact', message: "No artificial intelligence names, please. We need a name that won't try to place an Amazon order.", block: true },
-  { match: 'Renesmee', type: 'exact', message: "Oh no, no Twilight names! We must draw the line somewhere. We're looking for a name that wasn't invented by combining two other names.", block: true },
-  { match: 'Khaleesi', type: 'exact', message: "We love Game of Thrones, but we'll pass on names that require owning three dragons.", block: true },
-  { match: 'Daenerys', type: 'exact', message: "We love GoT, but we don't want to name the baby after someone who might go insane and burn down the city. We need stability!", block: true },
-  { match: 'North', type: 'exact', message: "We're not looking for a directional name, thank you. This baby is going to be grounded!", block: true },
-  { match: 'Stormi', type: 'exact', message: "Ah, a meteorological name! We're hoping to keep our weather events external to the house, though.", block: true },
-  { match: 'Vader', type: 'exact', message: "We love Star Wars, but 'Vader' is a bit too dark side. Plus, she's definitely not our father.", block: true },
-  { match: 'Zelda', type: 'exact', message: "While she is certainly a princess, we're not naming her after a video game character.", block: true },
-  { match: 'Hermione', type: 'exact', message: "We're passing on **Hermione**. It's a bit too much pressure for a baby, and we don't want her carrying a book everywhere.", block: true },
-  { match: 'Luna', type: 'exact', message: "**Luna** is beautiful, but our circle has a quota on Harry Potter names. Next!", block: true },
-
-  // --- STAGE NAME BLOCKS ---
-  { match: 'Crystal', type: 'exact', message: "A classic choice, but we're avoiding names that sound like a pole or a drink. We need names for a person, not a pseudonym!", block: true },
-  { match: 'Amber', type: 'exact', message: "A warm color and a pretty name, but it's *too* perfect for a stage name. We're keeping it off the list to prevent giggles.", block: true },
-  { match: 'Brandy', type: 'exact', message: "We're blocking **Brandy**. No names that sound like alcohol or have an 80s adult vibe.", block: true },
-  { match: 'Tiffany', type: 'exact', message: "While we love the jewelry store, we're passing on **Tiffany** to avoid names that sound like they belong in a rap song or a stage show.", block: true },
-  { match: 'Angel', type: 'exact', message: "Every baby is an **Angel**, but we're looking for a grounded, given name, not a heavenly title or a stage moniker.", block: true },
-  { match: 'Lola', type: 'exact', message: "**Lola** is adorable, but it's a name that has been claimed by many a cabaret singer and stage dancer. Next!", block: true },
-  { match: 'Candy', type: 'exact', message: "We love sweet things, but **Candy** is an immediate red flag for a stage name. No sugary-sweet submissions, please.", block: true },
-  { match: 'Cherry', type: 'exact', message: "We're blocking **Cherry**. No sweet fruits or objects with suggestive connotations.", block: true },
-  { match: 'Ginger', type: 'exact', message: "We love redheads, but **Ginger** has too much of a classic 40s/50s stage vibe. Blocked!", block: true },
-  { match: 'Bambi', type: 'exact', message: "We are **not** naming her after a small, frightened deer. And it's a huge stage name cliché. Hard pass.", block: true },
-  { match: 'Bunny', type: 'exact', message: "She is not a small mammal or a mascot. Find a human name!", block: true },
-  { match: 'Fawn', type: 'exact', message: "We're not naming her after woodland creatures or a submissive verb. Next submission, please.", block: true },
-  { match: 'Dolly', type: 'exact', message: "While we respect the greats, we are not naming our baby **Dolly**. It's too strongly associated with a certain toy and a stage presence. **Dolly** is a no-go.", block: true },
-  { match: 'Cali', type: 'exact', message: "**Cali** is blocked. We're avoiding names that sound like a region or a too-short nickname with a stage vibe.", block: true },
-  { match: 'Blaze', type: 'exact', message: "Too dramatic! We are looking for calm, gentle names, not fiery verbs or powerful stage monikers.", block: true },
-  { match: 'Sapphire', type: 'exact', message: "No gems or stones, please. We are not naming the baby after a precious object.", block: true },
-  { match: 'Velvet', type: 'exact', message: "We appreciate luxurious fabrics, but we are not naming our daughter **Velvet**. Try a name for a person!", block: true },
-  { match: 'Satin', type: 'exact', message: "Another luxurious fabric! But still not a name for a baby.", block: true },
-  { match: 'Mystique', type: 'exact', message: "We love the X-Men, but this is a word, not a name. Find a real name!", block: true },
-  { match: 'Starla', type: 'exact', message: "**Starla** sounds like a name invented for a cartoon or a show. We're seeking something a bit more grounded.", block: true },
-  { match: 'Lacey', type: 'exact', message: "**Lacey** is a no-go. It's too suggestive of lingerie and stage names.", block: true },
-  { match: 'Vixen', type: 'exact', message: "Absolutely not. We are not naming our daughter after a naughty female fox.", block: true },
-  { match: 'Bliss', type: 'exact', message: "**Bliss** is a feeling, not a name. Please submit a proper noun.", block: true },
-  { match: 'Mistress', type: 'exact', message: "This is a title, not a name! Submissions should be first names only.", block: true },
-  { match: 'Babs', type: 'exact', message: "**Babs** is too cutesy and falls into the 'stage name nickname' category. Blocked!", block: true },
-  { match: 'Bonbon', type: 'exact', message: "She is not a chocolate confection. Find a human name!", block: true },
-  { match: 'Cupcake', type: 'exact', message: "She is not a dessert. Find a human name!", block: true },
-  { match: 'Diva', type: 'exact', message: "She may be one, but we are not naming her **Diva**. It is a title, not a name.", block: true },
-  { match: 'Allure', type: 'exact', message: "**Allure** is an action, not a name. We need a name for a child, not a fragrance. Allure is out.", block: true },
-  { match: 'Destiny', type: 'exact', message: "**Destiny** is a word, not a great name. It carries too much of a stage name cliché.", block: true },
-  
-  // --- NEW: WORST NAMES (Inappropriate/Negative Word Names) ---
-  { match: 'Lucifer', type: 'exact', message: "We're not naming our daughter after the Devil, thank you. We're going for something with a slightly more positive vibe!", block: true },
-  { match: 'Phelony', type: 'exact', message: "We will not be naming our baby after a criminal offense. Hard pass on **Phelony**!", block: true },
-  { match: 'Felanie', type: 'exact', message: "No names that sound like crimes, please. We're looking for names, not police reports!", block: true },
-  { match: 'Danger', type: 'exact', message: "While she will be a fierce woman, we are not naming her **Danger**.", block: true },
-  { match: 'Chaos', type: 'exact', message: "Having a baby is chaotic enough! We don't need to name her after the concept.", block: true },
-  { match: 'Burden', type: 'exact', message: "No negative-connotation words, please. This baby is a blessing, not a **Burden**!", block: true },
-  { match: 'Pain', type: 'exact', message: "No, we will not name her **Pain**. We are actively trying to avoid that particular outcome.", block: true },
-  { match: 'Thana', type: 'exact', message: "This name has an unfortunate meaning in some languages (death). We are blocking it!", block: true },
-  { match: 'Ebolah', type: 'exact', message: "We are banning all disease names. Please stop.", block: true },
-  { match: 'Anous', type: 'exact', message: "This name has an unfortunate pronunciation. We are protecting the baby's future social life.", block: true },
-
-  // --- NEW: WORST NAMES (Misspelled/Made-Up Names) ---
-  { match: 'Nevaeh', type: 'exact', message: "**Nevaeh** (Heaven backwards) is one of the most cliché names to avoid. Find something original!", block: true },
-  { match: 'Airwrecka', type: 'exact', message: "No phonetic spellings that sound like a disaster (**Airwrecka**). We're sticking to names people can actually read.", block: true },
-  { match: 'Phorever', type: 'exact', message: "We are not naming her after misspelled adjectives. Please submit a real name!", block: true },
-  { match: 'Abcde', type: 'exact', message: "Please stop typing the alphabet. We need a real, pronounceable name.", block: true },
-  { match: 'Peightyn', type: 'exact', message: "We're banning all names that have unnecessary silent letters or confusing spellings.", block: true },
-  { match: 'Psamantha', type: 'exact', message: "The 'P' is silent, but the groan is loud. Please submit a traditionally spelled name.", block: true },
-  { match: 'Kviiilyn', type: 'exact', message: "Absolutely not. We're not using Roman numerals or excessive letters to spell a simple name.", block: true },
-
-  // --- NEW: WORST NAMES (Food, Drink, and Brand Names) ---
-  { match: 'Tequila', type: 'exact', message: "No alcohol names! We are looking for names for a baby, not a late-night shot.", block: true },
-  { match: 'Daiquiri', type: 'exact', message: "No cocktail names! Keep the bar menu out of the baby name pool.", block: true },
-  { match: 'Bacardi', type: 'exact', message: "We're blocking all liquor brand names. Hard stop.", block: true },
-  { match: 'Fanta', type: 'exact', message: "No names of sugary, carbonated beverages. This baby is for water only!", block: true },
-  { match: 'Raspberry', type: 'exact', message: "No fruits, especially ones that sound like a stage name.", block: true },
-  { match: 'Pancake', type: 'exact', message: "We are not naming the baby after breakfast food. Next!", block: true },
-  { match: 'Lasagna', type: 'exact', message: "No naming the baby after a baked pasta dish! We need a human name.", block: true },
-  { match: 'Burger', type: 'exact', message: "No fast-food items! Keep the drive-thru out of the delivery room.", block: true },
-  { match: 'Custard', type: 'exact', message: "No desserts, especially one that sounds vaguely ill-fitting.", block: true },
-  { match: 'Velveeta', type: 'exact', message: "We are not naming the baby after processed cheese.", block: true },
-  { match: 'Mercedes', type: 'exact', message: "No car brands! We want her to be fabulous on her own, not a walking advertisement.", block: true },
-  { match: 'Loreal', type: 'exact', message: "No cosmetics or hair product brands! We'll stick to real names.", block: true },
-
-  // --- NEW: WORST NAMES (Over-the-Top Titles and Objects) ---
-  { match: 'King', type: 'exact', message: "She is not a boy, and she is not royalty—yet. **King** is blocked!", block: true },
-  { match: 'Sir', type: 'exact', message: "This is a title for a knight, not a name for a baby girl. Blocked!", block: true },
-  { match: 'Champion', type: 'exact', message: "She will be a champion, but that is a description, not a name.", block: true },
-  { match: 'Legend', type: 'exact', message: "She is already a **Legend** to us, but we won't put that pressure on her birth certificate.", block: true },
-  { match: 'Arson', type: 'exact', message: "We are not naming the baby after a crime or the act of starting fires.", block: true },
-  { match: 'Denim', type: 'exact', message: "No naming her after fabrics or building materials.", block: true },
-  { match: 'Brick', type: 'exact', message: "No naming her after building materials.", block: true },
-
-  // --- Object, Title, and Common Word Blocks (Existing) ---
-  { match: 'Baby', type: 'exact', message: "We appreciate the sentiment, but 'Baby' is a title, not a name! We'll stick to calling her that for now.", block: true },
-  { match: 'Girl', type: 'exact', message: "Correct! She is a girl. Now, what's a suitable *name* for her?", block: true },
-  { match: 'Princess', type: 'exact', message: "**Princess** is a title we grant, not a name we give! We'll let her earn that one.", block: true },
-  { match: 'Queen', type: 'exact', message: "While she's definitely royalty to us, we need a given name. Try again!", block: true },
-  { match: 'Diamond', type: 'exact', message: "A beautiful gem, but we'll stick to names for people, not jewelry.", block: true },
-  { match: 'Heaven', type: 'exact', message: "A nice thought, but we're keeping this baby grounded on Earth.", block: true },
-  { match: 'Star', type: 'exact', message: "Every baby is a star, but her name needs to be a bit more conventional.", block: true },
-  { match: 'Waffle', type: 'exact', message: "We love breakfast, but we're not naming our daughter after a breakfast food.", block: true },
-  { match: 'Nugget', type: 'exact', message: "She is a golden nugget, but that's a nickname, not a full name!", block: true },
-  { match: 'Casserole', type: 'exact', message: "We love a good **casserole** at a potluck, but not as a baby name! Please stick to people names.", block: true },
-  { match: 'Apple', type: 'exact', message: "Unless Gwyneth Paltrow is submitting this, it's a no. We'll stick to fruit we can eat, not names.", block: true },
-  { match: 'Gucci', type: 'exact', message: "No designer brand names, please. We want her to be fabulous on her own merit.", block: true },
-  { match: 'Fendi', type: 'exact', message: "No designer brand names, please. We want her to be fabulous on her own merit.", block: true },
-  { match: 'Chanel', type: 'exact', message: "No designer brand names, please. We want her to be fabulous on her own merit.", block: true },
-  { match: 'Rolex', type: 'exact', message: "No luxury watch brands! The baby is a treasure on her own; she doesn't need to be a timepiece.", block: true },
-
-  // --- BAD-MEANING/WORD NAMES (Existing) ---
-  { match: 'Karma', type: 'exact', message: "**Karma** is off the list. We don't want to tempt fate!", block: true },
-  { match: 'Sorrow', type: 'exact', message: "Absolutely not. We are focusing on names with positive or neutral meanings.", block: true },
-  { match: 'Chlamydia', type: 'exact', message: "No disease names, please! Seriously, go back and try again.", block: true },
-  { match: 'Corona', type: 'exact', message: "We are blocking all names related to viruses or pandemics. Find a name from before 2020!", block: true },
-  { match: 'Latrina', type: 'exact', message: "We're aware of the unfortunate meaning of this name, and we're passing on it.", block: true },
-  
-  // --- EXPLICIT JOKES AND INAPPROPRIATE TERMS (Regex) ---
-  { match: 'Karen', type: 'exact', message: 'Ummmm... No... Hard pass from the committee. Next!', block: true },
-  { match: 'Kevin', type: 'exact', message: 'No, Emily...', block: true },
-  { match: 'jujitsu', type: 'exact', message: 'No, Emily...', block: true },
-  { match: 'jujistu', type: 'exact', message: 'No, Emily...', block: true },
-  { match: 'Dick', type: 'exact', message: "Absolutely not. We are strictly prohibiting any submissions that are either rude or sound like parts of the body.", block: true },
-  { match: 'Butt', type: 'regex', message: "Hard pass. Please submit a genuine name, not a body part.", block: true },
-  { match: 'Crotch', type: 'regex', message: "Hard pass. Please submit a genuine name, not a body part.", block: true },
-  { match: 'Turd', type: 'regex', message: "Hard pass. Please submit a genuine name, not a derogatory term.", block: true },
-  { match: 'Poop', type: 'regex', message: "Hard pass. Please submit a genuine name, not a juvenile term.", block: true },
-  { match: 'Weiner', type: 'regex', message: "Hard pass. Please submit a genuine name, not a juvenile term.", block: true },
-  { match: 'Hitler', type: 'exact', message: "Absolutely not. Seriously, what are you doing?", block: true },
-  { match: 'Satan', type: 'exact', message: "We're going for more of an 'angel' theme, thanks.", block: true },
-
-  // -----------------------------------------------------------------
-  // --- D. REGEX AND TECHNICAL FILTERS (Universal) ---
-  // -----------------------------------------------------------------
-  
-  // Sara/Sarah (Joke) - Needs to be before general profanity if using complex regex
-  { match: 'Sara', type: 'regex', message: "**Sarah**... we're not naming our daughter after you (unless you pay us).", block: true },
-  { match: 'Sarah', type: 'exact', message: "**Sarah**... we're not naming our daughter after you (unless you pay us).", block: true },
-  
-  // Regex: Profanity (Catching common bad words/intentional typos)
-  { match: '(f(u|@|4)c?k|sh(i|!|@)t|b(i|!)tch|a(s|$)s|d(i|!)ck)', type: 'regex', message: "We appreciate your candor, but please keep the submissions family-friendly!", block: true },
-  
-  // Regex: Non-Alpha Characters (The 'Elon' Rule) - Catches symbols, numbers, and multiple initials
-  { match: '[^A-Za-z]', type: 'regex', message: 'Alright Elon... Real names only please (No numbers, symbols, or special characters).', block: true },
-
-  // Regex: Catching single letters or common initials as submissions
-  { match: '^[A-Z]$', type: 'regex', message: "Is that a typo or are you suggesting a single letter? Please submit a full name—no initial suggestions!", block: true },
-  
-  // Regex: Catching two separate words (First and Middle Name)
-  { match: '^[A-Z][a-z]{1,}\s[A-Z][a-z]{1,}$', type: 'regex', message: "One name per submission, please! We appreciate the enthusiasm, but we're just collecting first names for now (no spaces or middle names!).", block: true },
-
-  // Regex: Name Starting with X and one more letter (Targeting "X Æ A-12")
-  { match: '^X [A-Z]{1}', type: 'regex', message: 'Rocket science detected. Maybe a simpler spelling?', block: true },
-  
-  // Regex: Too long (9 or more alpha characters in a row)
-  { match: '^(?:[^A-Za-z]*[A-Za-z]){9,}', type: 'regex', message: "Thank you for the suggestion. While we admire the name’s impressive typographic density, we're trying to stick to names that can be announced without having to take a breath halfway through.", block: true }
-];
-
-// === 2) ELEMENTS ===
-const ngForm        = document.getElementById('nameGameForm');
-const ngMsg         = document.getElementById('ngMessage');
-const ngStartedAt   = document.getElementById('ngStartedAt');
-const ngGuard       = document.getElementById('ng_guard');
-const ngName        = document.getElementById('ng_name');
-// (optional) const ngWho  = document.getElementById('ng_who');
-const ngLeaders     = document.getElementById('ngLeaders');
-const ngRefreshBtn  = document.getElementById('ng_refresh');
-const ngSubmitBtn   = document.getElementById('ng_submit');
-
-// Popup
-const ngModal       = document.getElementById('ngModal');
-const ngModalBody   = document.getElementById('ngModalBody');
-
-// === 3) UTILITIES ===
-const siteLabel = (NAMEGAME_SITE_LABEL && NAMEGAME_SITE_LABEL.trim()) ? NAMEGAME_SITE_LABEL.trim() : (location.origin + location.pathname);
-
-function escapeHTML(s = '') {
-  return s.replace(/[&<>"']/g, c => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  })[c]);
-}
-function showMsg(text, type='success'){ if(!ngMsg) return; ngMsg.textContent = text; ngMsg.className = 'cf-alert ' + type; ngMsg.classList.remove('hidden'); }
-function clearMsg(){ if(!ngMsg) return; ngMsg.textContent = ''; ngMsg.className = 'cf-alert hidden'; }
-function lsKey(k){ return 'NameGame::' + k + '::' + siteLabel; }
-
-// Voter id (sticky per browser/site)
-function getVoterId(){
-  try {
-    const k = lsKey('voterId');
-    let v = localStorage.getItem(k);
-    if(!v){ v = 'v_' + Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem(k, v); }
-    return v;
-  } catch { return 'v_' + Math.random().toString(36).slice(2); }
-}
-const VOTER_ID = getVoterId();
-
-// Trigger matching (case + diacritic insensitive for non-regex types)
-function normalize(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim(); }
-function shouldTriggerPopup(name){
-  const raw = name || '';
-  for(const t of NAME_TRIGGERS){
-    if(!t || !t.match) continue;
-    const type = (t.type||'exact').toLowerCase();
-    if(type==='regex'){
-      try { if(new RegExp(t.match,'i').test(raw)) return t; } catch {}
-    } else {
-      const target = normalize(t.match||'');
-      const val = normalize(raw);
-      if(type==='exact' && val === target) return t;
-      if(type==='startswith' && val.startsWith(target)) return t;
-      if(type==='includes' && val.includes(target)) return t;
-    }
-  }
-  return null;
-}
-
-// Modal helpers
-function openModal(html){ if(!ngModal) return; ngModalBody.innerHTML = html; ngModal.classList.add('show'); ngModal.setAttribute('aria-hidden','false'); }
-function closeModal(){ if(!ngModal) return; ngModal.classList.remove('show'); ngModal.setAttribute('aria-hidden','true'); }
-if(ngModal){
-  ngModal.addEventListener('click', (e)=>{ if(e.target?.dataset?.close) closeModal(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
-}
-
-// Arm timer + honeypot
-if(ngForm && ngStartedAt){
-  const arm = () => { if(!ngStartedAt.value) ngStartedAt.value = Date.now().toString(); };
-  ngForm.addEventListener('input', arm, {once:true});
-  ngForm.addEventListener('focusin', arm, {once:true});
-}
-if(ngGuard){
-  ngGuard.setAttribute('name', 'hp_' + Math.random().toString(36).slice(2));
-  ngGuard.value = ''; ngGuard.addEventListener('focus', e=>{ e.target.value=''; });
-}
-
-// === 4) API (CORS-safe simple requests) ===
-async function apiGetLeaders(){
-  const url = NAMEGAME_URL + `?action=leaders&voterId=${encodeURIComponent(VOTER_ID)}`;
-  const res = await fetch(url, { method:'GET' }); // no custom headers (avoid preflight)
-  if(!res.ok) throw new Error(`leaders fetch failed (HTTP ${res.status})`);
-  return res.json();
-}
-async function apiSuggest(name, who){
-  const payload = { mode:'suggest', name, suggestedBy: (who||''), note:'', voterId: VOTER_ID, site: siteLabel };
-  const res = await fetch(NAMEGAME_URL, { method:'POST', headers:{ 'Content-Type':'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
-  const text = await res.text();
-  if(!res.ok) throw new Error(`suggest failed (HTTP ${res.status}): ${text.slice(0,300)}`);
-  try { return JSON.parse(text); } catch { return { ok:true }; }
-}
-async function apiVote(name, dir){
-  const payload = { mode:'vote', name, voterId: VOTER_ID, dir };
-  const res = await fetch(NAMEGAME_URL, { method:'POST', headers:{ 'Content-Type':'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
-  const text = await res.text();
-  if(!res.ok) throw new Error(`vote failed (HTTP ${res.status}): ${text.slice(0,300)}`);
-  try { return JSON.parse(text); } catch { return { ok:true }; }
-}
-
-// === 5) RENDER ===
-function renderLeaders(data){
-  const root = ngLeaders;
-  if(!root) return;
-  root.innerHTML = '';
-
-  const leaders = Array.isArray(data?.leaders) ? data.leaders : [];
-  const your = data?.yourVotes || {};  // keys are exact names
-
-  if(leaders.length === 0){
-    const d = document.createElement('div');
-    d.className = 'ng-empty';
-    d.textContent = 'No suggestions yet — be the first!';
-    root.appendChild(d);
-    return;
-  }
-
-  const maxScore = Math.max(1, ...leaders.map(x => Math.max(1, Number(x.score||0))));
-
-  leaders.forEach((item, idx)=>{
-    const name  = String(item.name||'').trim();
-    const ups   = Number(item.ups||0);     // <-- use server keys
-    const downs = Number(item.downs||0);   // <-- use server keys
-    const score = Number(item.score ?? (ups - downs));
-    const you   = your[name];              // 1 | -1 | undefined (exact match)
-
-    const wrap = document.createElement('div');
-    wrap.className = 'ng-leader';
-    wrap.setAttribute('role','listitem');
-
-    wrap.innerHTML = `
-      <div class="ng-leader-row">
-        <div class="ng-leader-rank">#${idx+1}</div>
-        <div class="ng-leader-name">${escapeHTML(name)}</div>
-        <div class="ng-leader-score" aria-label="Score ${score}">
-          Score ${score} (↑${ups} / ↓${downs})
-        </div>
-      </div>
-      <div class="ng-subrow">
-        <div class="ng-muted">${you === 1 ? 'You voted ▲' : you === -1 ? 'You voted ▼' : ''}</div>
-        <div class="ng-vote-pack">
-          <button class="ng-vote-btn ng-vote-up"  ${you ? 'disabled' : ''}>👍 <span class="sr-only">Upvote</span></button>
-          <button class="ng-vote-btn ng-vote-down" ${you ? 'disabled' : ''}>👎 <span class="sr-only">Downvote</span></button>
-        </div>
-      </div>
-      <div class="ng-meter" aria-hidden="true">
-        <div class="ng-meter-fill" style="width:${Math.round((Math.max(0, score) / maxScore) * 100)}%"></div>
-      </div>
-    `;
-
-    const upBtn = wrap.querySelector('.ng-vote-up');
-    const dnBtn = wrap.querySelector('.ng-vote-down');
-
-    if (!you) {
-      upBtn.addEventListener('click', async () => {
-        try { upBtn.disabled = true; dnBtn.disabled = true; await apiVote(name, 1); await refreshLeaders(); }
-        catch (err) { console.error(err); upBtn.disabled = false; dnBtn.disabled = false; }
-      });
-      dnBtn.addEventListener('click', async () => {
-        try { upBtn.disabled = true; dnBtn.disabled = true; await apiVote(name, -1); await refreshLeaders(); }
-        catch (err) { console.error(err); upBtn.disabled = false; dnBtn.disabled = false; }
-      });
-    }
-
-    root.appendChild(wrap);
-  });
-}
-
-// Refresh handler
-async function refreshLeaders(){
-  try{
-    const data = await apiGetLeaders();
-    renderLeaders(data);
-  }catch(err){
-    console.error('[leaders]', err);
-    if(ngLeaders){
-      ngLeaders.innerHTML = `<div class="ng-empty">Could not load leaders: ${escapeHTML(err.message || String(err))}</div>`;
-    }
-  }
-}
-
-// === 6) FORM SUBMIT ===
-function validateHuman(){
-  const started = parseInt(ngStartedAt?.value || '0', 10);
-  const elapsed = started ? (Date.now() - started) : 0;
-  const isLocal = ['localhost','127.0.0.1',''].includes(location.hostname);
-  const hp = (ngGuard?.value || '').trim();
-  const hpLooksBot = hp.length > 0 && !isLocal && elapsed > 0 && elapsed < 1500;
-  if(hpLooksBot) { showMsg('Spam detected. Please refresh and try again.','error'); return false; }
-  if(hp.length > 0){ try{ ngGuard.value = ''; }catch{} }
-  return true;
-}
-
-if(ngForm){
-  ngForm.addEventListener('submit', async (e)=>{
-    e.preventDefault(); clearMsg();
-    if(!NAMEGAME_URL || NAMEGAME_URL.includes('PASTE_YOUR_NAMEGAME_WEB_APP_URL_HERE')){
-      showMsg('ERROR: Please set NAMEGAME_URL in the HTML.', 'error'); return;
-    }
-    if(!validateHuman()) return;
-
-    const name = (ngName?.value || '').trim();
-    // const who  = (ngWho?.value || '').trim();
-    if(!name){ ngForm.reportValidity(); return; }
-
-    // Check popup triggers
-    const trig = shouldTriggerPopup(name);
-    if(trig){
-      const note = '<p>' + escapeHTML(trig.message || 'Heads up!') + '</p>';
-      openModal(note);
-      if(trig.block){ return; } // don't submit if blocking
-    }
-
-    const orig = ngSubmitBtn ? ngSubmitBtn.textContent : '';
-    if(ngSubmitBtn){ ngSubmitBtn.disabled = true; ngSubmitBtn.textContent = 'Submitting…'; }
-
-    try{
-      await apiSuggest(name, /*who*/ '');
-      showMsg('Suggestion recorded — thank you!','success');
-      ngForm.reset(); if(ngStartedAt) ngStartedAt.value='';
-      refreshLeaders();
-    }catch(err){
-      console.error(err);
-      showMsg('Sorry, something went wrong submitting your suggestion.','error');
-    }finally{
-      if(ngSubmitBtn){ ngSubmitBtn.disabled = false; ngSubmitBtn.textContent = orig || 'Submit Suggestion'; }
-    }
-  });
-}
-
-// Refresh button
-if(ngRefreshBtn){ ngRefreshBtn.addEventListener('click', refreshLeaders); }
-
-// Initial load
-refreshLeaders();
-</script>
-
-
-<!-- Contact Us -->
-    <section class="section" id="ContactUs" tabindex="-1">
-      <div class="contactus-header">
-        <h1 style="font-family: Pacifico; font-size: 5vh">Let's Stay Connected</h1>
-        <p style="font-family: Londrina Solid; font-size: 2vh">As things get busy, we want to ensure we have your most current contact information on file for the birth announcement and future updates.</p>
-        <p style="font-family: Londrina Solid; font-size: 2vh">Please take a moment to confirm your details below so we can keep our little village connected!</p>
-      </div>
-
-      <div class="contact-form" role="form">
-        <h1 style="font-family: Pacifico; font-size: 3vh">Contact Information Form</h1>
-        <p>Add one or more people who share the same mailing address.</p>
-
-        <div id="userMessage" class="cf-alert hidden" role="status" aria-live="polite"></div>
-
-        <form id="contactForm" novalidate>
-          <!-- Honeypot (randomized name at runtime; ignored by autofill) -->
-          <input
-            type="text"
-            id="cf_guard"
-            class="hp-field"
-            tabindex="-1"
-            aria-hidden="true"
-            autocomplete="new-password"
-            inputmode="none"
-            data-lpignore="true"
-            data-1p-ignore="true"
-            data-form-type="other"
-          />
-          <!-- Timing stamp to reduce false positives -->
-          <input type="hidden" name="formStartedAt" id="formStartedAt">
-
-          <div class="cf-field">
-            <label for="numPeople" class="form-label">How many people are you registering?</label>
-            <input type="number" id="numPeople" name="numPeople" min="1" max="10" inputmode="numeric" value="1" required>
-            <small class="cf-hint">You can register up to 10 people at the same address.</small>
-          </div>
-
-          <div id="peopleContainer" class="cf-people"></div>
-
-          <fieldset class="mailing-address cf-fieldset">
-            <legend>Mailing Address (applies to everyone above)</legend>
-
-            <div class="cf-grid">
-              <div class="cf-field">
-                <label for="streetAddress" class="form-label">Street Address</label>
-                <input type="text" name="streetAddress" id="streetAddress" required autocomplete="address-line1">
-              </div>
-
-              <div class="cf-field">
-                <label for="address2" class="form-label">Address 2 <span aria-hidden="true"></span></label>
-                <input type="text" name="address2" id="address2" autocomplete="address-line2" placeholder="Apt / Suite / Unit">
-              </div>
-
-              <div class="cf-field">
-                <label for="city" class="form-label">City</label>
-                <input type="text" name="city" id="city" required autocomplete="address-level2">
-              </div>
-
-              <div class="cf-field">
-                <label for="state" class="form-label">State / Province</label>
-                <input type="text" name="state" id="state" required autocomplete="address-level1">
-              </div>
-
-              <div class="cf-field">
-                <label for="zipCode" class="form-label">ZIP / Postal Code</label>
-                <input
-                  type="text"
-                  name="zipCode"
-                  id="zipCode"
-                  required
-                  autocomplete="postal-code"
-              </div>
-            </div>
-          </fieldset>
-
-          <div class="cf-actions">
-            <button type="submit" id="submitButton" class="cf-btn">Submit Information</button>
-          </div>
-        </form>
-      </div>
-    </section>
-		
-<!-- Image Gallery -->
-	<section class="section" id="gallery">
-		<div class="gallery">
-    <img src="images/AtlantaUnited.jpg" alt="">
-    <img src="images/CaboSunset.jpg" alt="">
-    <img src="images/Ziggy Happy.jpg" alt="">
-	<img src="images/MelissaCabo.jpg" alt="">
-    <img src="images/MF-Wedding.png" alt="">
-    <img src="images/ZiggyTruck.jpg" alt="">
-    <img src="images/WeddingDay.png" alt="">
-	<img src="images/MelissaCaboDinner.png" alt="">
-	<img src="images/MarriageLicense.png" alt="">
-	<img src="images/ZiggyDragon.png" alt="">
-	<img src="images/CaboMarg.png" alt="">
-	<img src="images/Hozier.png" alt="">
-	<img src="images/ErinsWedding.png" alt="">
-	<img src="images/TikiBarChicago.png" alt="">
-	<img src="images/Hamilton.png" alt="">
-	<img src="images/ZiggyKisses.png" alt="">
-	<img src="images/Skiing.png" alt="">
-  </div>
-  </section>	
-		
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-stack">
-      <img alt="Johnson Family Seal" class="family-seal" src="images/Johnson-Family-Seal.png"/>
-      <div>© <span id="current-year"></span> JohnsonFamilyHub<p>All rights reserved</p></div>
+  <footer>
+    <div class="protected" style="width:80px;margin:0 auto 2rem;border-radius:50%;overflow:hidden;">
+      <img src="images/Johnson-Family-Seal.png" alt="Johnson Family Seal"
+           class="footer-seal" draggable="false"
+           style="width:80px;height:80px;object-fit:contain;border-radius:0;"/>
     </div>
+    <div class="footer-brand">Johnson Family Hub</div>
+    <p class="footer-text">
+      Made with <span class="footer-heart">♥</span> by Pat &amp; Melissa
+      &nbsp;·&nbsp; &copy; <span id="footer-year">2026</span>
+    </p>
+    <p class="footer-text" style="font-size:1.15rem;margin-top:0.8rem">
+      This site is private. Please do not share the link. 🔒
+    </p>
   </footer>
 
-  <!-- =========================
-       CONTACT FORM SCRIPT
-       (JSON POST matching Apps Script, with robust anti-spam)
-  ========================= -->
-  <script>
-    // CONFIG
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx1C1Sz8qZDAUbxacGztks1-kqcRU1rBjNUSBgnR3U1uvczQTfvvmiboo0BWsFL-wQ/exec";
-    const SITE_LABEL = ""; // optional override; "" uses location.origin+pathname
-
-    // ELEMENTS
-    const form            = document.getElementById('contactForm');
-    const submitButton    = document.getElementById('submitButton');
-    const userMessage     = document.getElementById('userMessage');
-    const numPeopleInput  = document.getElementById('numPeople');
-    const peopleContainer = document.getElementById('peopleContainer');
-    const formStartedAt   = document.getElementById('formStartedAt');
-    const hpInput         = document.getElementById('cf_guard');
-
-    // Randomize honeypot "name" so autofill tools can't target it; clear any prefill
-    if (hpInput) {
-      const rnd = 'hp_' + Math.random().toString(36).slice(2);
-      hpInput.setAttribute('name', rnd);
-      hpInput.value = '';
-      hpInput.addEventListener('focus', e => { e.target.value = ''; });
-    }
-
-    // Arm the timer on first user interaction (prevents instant false positives)
-    if (form && formStartedAt) {
-      const armTimer = () => { if (!formStartedAt.value) formStartedAt.value = Date.now().toString(); };
-      form.addEventListener('input', armTimer, { once: true });
-      form.addEventListener('focusin', armTimer, { once: true });
-    }
-
-    // UTILITIES
-    const showMessage = (msg, type = 'success') => {
-      if (!userMessage) return;
-      userMessage.textContent = msg;
-      userMessage.className = `cf-alert ${type}`;
-      userMessage.classList.remove('hidden');
-    };
-    const clearMessage = () => {
-      if (!userMessage) return;
-      userMessage.textContent = '';
-      userMessage.className = 'cf-alert hidden';
-    };
-
-    const createPersonEntry = (index) => {
-      const wrap = document.createElement('fieldset');
-      wrap.className = 'person-entry';
-      wrap.id = `person-${index}`;
-      wrap.innerHTML = `
-        <legend>Person ${index}</legend>
-        <div class="person-grid">
-          <div class="cf-field">
-            <label for="fullName-${index}" class="form-label">Full Name</label>
-            <input type="text" id="fullName-${index}" name="fullName-${index}" required autocomplete="name" />
-          </div>
-          <div class="cf-field">
-            <label for="email-${index}" class="form-label">Email Address</label>
-            <input type="email" id="email-${index}" name="email-${index}" required autocomplete="email" />
-          </div>
-          <div class="cf-field">
-            <label for="phone-${index}" class="form-label">Phone Number</label>
-            <input type="tel" id="phone-${index}" name="phone-${index}" required inputmode="tel" autocomplete="tel" pattern="^[0-9()\\-\\.\\s+]{7,}$" />
-            <small class="cf-hint">Digits only or formats like (555) 555-5555</small>
-          </div>
-        </div>
-      `;
-      return wrap;
-    };
-
-    const updatePeopleEntries = () => {
-      if (!numPeopleInput || !peopleContainer) return;
-      const count = Math.max(1, Math.min(10, parseInt(numPeopleInput.value || '1', 10)));
-      peopleContainer.innerHTML = '';
-      for (let i = 1; i <= count; i++) {
-        peopleContainer.appendChild(createPersonEntry(i));
-      }
-    };
-
-    // Robust validator: combines honeypot + timing heuristics
-    const validateForm = () => {
-      if (!form) return false;
-
-      const started = parseInt(formStartedAt?.value || '0', 10);
-      const elapsed = started ? (Date.now() - started) : 0;
-      const isLocal = ['localhost','127.0.0.1',''].includes(location.hostname);
-
-      const hp = (hpInput?.value || '').trim();
-
-      // Treat as spam only if honeypot is filled AND submit happened bot-fast
-      const hpLooksBot = hp.length > 0 && !isLocal && elapsed > 0 && elapsed < 1500;
-      if (hpLooksBot) {
-        showMessage("Spam detected. Please refresh and try again.", 'error');
-        return false;
-      }
-
-      // If honeypot filled but elapsed looks human → clear & continue
-      if (hp.length > 0) {
-        if (hpInput) hpInput.value = '';
-      }
-
-      // Gentle human-time check to catch instant bot submits (off on localhost)
-      if (!isLocal && elapsed > 0 && elapsed < 600) {
-        showMessage("Please take a moment to complete the form before submitting.", 'error');
-        return false;
-      }
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return false;
-      }
-      return true;
-    };
-
-    if (numPeopleInput) {
-      numPeopleInput.addEventListener('change', updatePeopleEntries);
-      numPeopleInput.addEventListener('input', updatePeopleEntries);
-    }
-
-    // SUBMIT (send JSON → Apps Script)
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        clearMessage();
-
-        if (!validateForm()) return;
-
-        if (!SCRIPT_URL || SCRIPT_URL.includes("YOUR_GOOGLE_APPS_SCRIPT_URL_HERE")) {
-          showMessage("ERROR: Please update the SCRIPT_URL in the HTML file.", 'error');
-          return;
-        }
-
-        const fd        = new FormData(form);
-        const count     = Math.max(1, Math.min(10, parseInt(fd.get('numPeople') || '1', 10)));
-        const siteLabel = (SITE_LABEL && SITE_LABEL.trim()) ? SITE_LABEL.trim() : (location.origin + location.pathname);
-
-        const address = {
-          address1: (fd.get('streetAddress') || '').toString().trim(),
-          address2: (fd.get('address2') || '').toString().trim(),
-          city:     (fd.get('city') || '').toString().trim(),
-          state:    (fd.get('state') || '').toString().trim(),
-          zip:      (fd.get('zipCode') || '').toString().trim()
-        };
-
-        const people = [];
-        for (let i = 1; i <= count; i++) {
-          people.push({
-            fullName: (fd.get(`fullName-${i}`) || '').toString().trim(),
-            email:    (fd.get(`email-${i}`)    || '').toString().trim(),
-            phone:    (fd.get(`phone-${i}`)    || '').toString().trim()
-          });
-        }
-
-        const payload = {
-          householdSize: count,
-          address,
-          people,
-          site: siteLabel
-        };
-
-        const originalLabel = submitButton ? submitButton.textContent : '';
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.textContent = "Submitting…";
-        }
-
-        try {
-          // text/plain keeps it CORS-simple; Apps Script reads e.postData.contents
-          const res = await fetch(SCRIPT_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify(payload)
-          });
-
-          const text = await res.text();
-          let ok = res.ok;
-          try {
-            const parsed = JSON.parse(text);
-            if (parsed?.ok === true) {
-              ok = true;
-              const peopleCount = Array.isArray(parsed.people) ? parsed.people.length : people.length;
-              showMessage(`Submitted! HouseholdPk: ${parsed.householdPk || '—'} • People: ${peopleCount}`, 'success');
-            }
-          } catch { /* ignore non-JSON */ }
-
-          if (!ok) throw new Error(text || `Submission failed${res.status ? ` (HTTP ${res.status})` : ''}`);
-
-          form.reset();
-          updatePeopleEntries();
-          if (formStartedAt) formStartedAt.value = '';
-        } catch (err) {
-          console.error(err);
-          showMessage(`An error occurred: ${err.message}`, 'error');
-        } finally {
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = originalLabel;
-          }
-        }
-      });
-
-      updatePeopleEntries();
-    }
-  </script>
-
-  <!-- =========================
-       SITE UTILITIES / NAV / TIMELINE
-  ========================= -->
-  <script>
-    // Footer year
-    function setCopyrightYear() {
-      const yearSpan = document.getElementById('current-year');
-      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-    }
-
-    // Hamburger + close on link click
-    function setupNavToggle() {
-      const navToggle = document.querySelector('.menu-toggle');
-      const navLinksContainer = document.getElementById('primary-nav');
-
-      if (navToggle && navLinksContainer) {
-        navToggle.addEventListener('click', () => {
-          const isOpen = navLinksContainer.classList.toggle('open');
-          navToggle.classList.toggle('menu-open', isOpen);
-          navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-        navLinksContainer.querySelectorAll('a[href]').forEach(link => {
-          link.addEventListener('click', () => {
-            if (navLinksContainer.classList.contains('open')) {
-              navLinksContainer.classList.remove('open');
-              navToggle.classList.remove('menu-open');
-              navToggle.setAttribute('aria-expanded', 'false');
-            }
-          });
-        });
-      }
-    }
-
-    // Timeline filters
-    function setupTimelineFilters() {
-      const timeline = document.querySelector('.timeline');
-      const filterContainer = document.getElementById('timeline-filters');
-      if (!timeline || !filterContainer) return;
-
-      const cards = document.querySelectorAll('.timeline .timeline-card');
-      const uniqueTags = new Set();
-
-      cards.forEach(card => {
-        const tagsAttribute = card.getAttribute('data-tags');
-        if (tagsAttribute) {
-          tagsAttribute.split(',').map(t => t.trim()).forEach(tag => uniqueTags.add(tag));
-        }
-      });
-
-      const formatTag = (tag) => tag.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
-
-      filterContainer.innerHTML = '';
-      const allBtn = document.createElement('button');
-      allBtn.textContent = 'All';
-      allBtn.classList.add('filter-button', 'active');
-      allBtn.setAttribute('data-filter', 'all');
-      filterContainer.appendChild(allBtn);
-
-      Array.from(uniqueTags).sort().forEach(tag => {
-        const button = document.createElement('button');
-        button.textContent = formatTag(tag);
-        button.classList.add('filter-button');
-        button.setAttribute('data-filter', tag);
-        filterContainer.appendChild(button);
-      });
-
-      filterContainer.addEventListener('click', (event) => {
-        const target = event.target;
-        if (!target.classList.contains('filter-button')) return;
-
-        const filterValue = target.getAttribute('data-filter');
-
-        filterContainer.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
-        target.classList.add('active');
-
-        cards.forEach(card => {
-          const cardTags = card.getAttribute('data-tags') || '';
-          card.style.display = (filterValue === 'all' || cardTags.includes(filterValue)) ? 'block' : 'none';
-        });
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      setupNavToggle();
-      setupTimelineFilters();
-      (function(){ const y = document.getElementById('current-year'); if (y) y.textContent = new Date().getFullYear(); })();
-    });
-  </script>
-	  
-<script>
-/* =========================
-   COUNTDOWN + COMPACT MODE
-   ========================= */
-(function () {
-  const el = document.getElementById('CountdownBar');
-  if (!el) return;
-
-  // --- Measure & set CSS vars so the bar sits neatly below the navbar
-  const nav = document.querySelector('.navbar');
-  function setMeasuredVars() {
-    const navH = nav ? nav.getBoundingClientRect().height : 64;
-    document.documentElement.style.setProperty('--nav-h', navH + 'px');
-    // Also measure the current countdown height for anchor scroll margins
-    const cdH = el.getBoundingClientRect().height || 48;
-    document.documentElement.style.setProperty('--cd-h', cdH + 'px');
-  }
-  setMeasuredVars();
-  window.addEventListener('resize', () => { setMeasuredVars(); }, { passive: true });
-
-  // --- Countdown logic
-  const tAttr = el.getAttribute('data-target') || '2026-04-09T00:00:00-04:00';
-  const finishText = el.getAttribute('data-finish-text') || "It's baby time!";
-  const target = new Date(tAttr);
-
-  const dEl = document.getElementById('cd-days');
-  const hEl = document.getElementById('cd-hours');
-  const mEl = document.getElementById('cd-mins');
-  const sEl = document.getElementById('cd-secs');
-
-  function pad2(n) { return (n < 10 ? '0' : '') + n; }
-
-  function render(msLeft) {
-    if (msLeft <= 0) {
-      el.setAttribute('aria-label', finishText);
-      dEl.textContent = '0'; hEl.textContent = '00'; mEl.textContent = '00'; sEl.textContent = '00';
-      return false;
-    }
-    const totalSec = Math.floor(msLeft / 1000);
-    const days  = Math.floor(totalSec / 86400);
-    const hours = Math.floor((totalSec % 86400) / 3600);
-    const mins  = Math.floor((totalSec % 3600) / 60);
-    const secs  = totalSec % 60;
-
-    dEl.textContent = String(days);
-    hEl.textContent = pad2(hours);
-    mEl.textContent = pad2(mins);
-    sEl.textContent = pad2(secs);
-
-    el.setAttribute('aria-label', `${days} days, ${hours} hours, ${mins} minutes, and ${secs} seconds remaining`);
-    return true;
-  }
-
-  function tick() {
-    const now = Date.now();
-    const ok = render(target.getTime() - now);
-    if (!ok) clearInterval(timer);
-  }
-
-  const timer = setInterval(tick, 1000);
-  tick(); // initial paint
-
-  // --- Compact mode: shrink once we scroll past #Home entirely
-  const home = document.getElementById('Home');
-  if (home) {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      // If any part of #Home is visible → BIG; otherwise → COMPACT
-      if (entry && entry.intersectionRatio > 0) {
-        el.classList.remove('is-compact');
-      } else {
-        el.classList.add('is-compact');
-      }
-      // Re-measure height after mode change for accurate scroll margins
-      setMeasuredVars();
-    }, { threshold: [0] });
-    observer.observe(home);
-  }
-
-  // In case fonts load late & change heights
-  window.addEventListener('load', setMeasuredVars, { once: true });
-})();
-</script>
-
+  <script src="johnsonfamilyhub.js" defer></script>
 </body>
 </html>
